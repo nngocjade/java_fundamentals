@@ -24,6 +24,9 @@ public class Exercise_05 {
         int days = scanner.nextInt();
 
         // write completed code here
+        long seconds = days * 24 * 60 * 60;
+
+        System.out.println(seconds + "Seconds");
 
     }
 }
