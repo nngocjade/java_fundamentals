@@ -1,6 +1,7 @@
 package labs_examples.fundamentals.labs;
 
 import javax.swing.table.TableCellEditor;
+import java.util.Scanner;
 
 /**
  * Fundamentals Exercise 4: Volume and Surface Area
@@ -11,10 +12,15 @@ import javax.swing.table.TableCellEditor;
  */
 
 public class Exercise_04 {
-
+    private static Scanner sc;
     public static void main(String[] args) {
+            double radius, height;
+            sc = new Scanner(System.in);
 
-        // write code here
-        System.out.println("testing");
+            System.out.println("\n Please Enter the radius of a Cylinder : ");
+            radius = sc.nextDouble();
+            System.out.println("\n Please Enter the Height of a Cylinder : ");
+            height = sc.nextDouble();
+            VolumeOfCylinder(radius, height);
     }
 }
