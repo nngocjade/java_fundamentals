@@ -23,9 +23,9 @@ public class Exercise_02 {
 
     public static void main(String[] args) {
 
-        int x = 10;
-        double.equal =
+        int intNum = 10;
+        double doubleNum = intNum;
 
-        System.out.println();
+        System.out.println(doubleNum);
     }
 }
