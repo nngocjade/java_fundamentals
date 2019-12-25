@@ -23,7 +23,9 @@ public class Exercise_02 {
 
     public static void main(String[] args) {
 
-        // write code here
+        int x = 10;
+        double.equal =
 
+        System.out.println();
     }
 }
