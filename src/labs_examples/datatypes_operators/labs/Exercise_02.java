@@ -28,13 +28,12 @@ public class Exercise_02 {
 
         int intNum = 10;
         double doubleNum = intNum;
+        double dNumNow = 10.5;
+        int intNumNow = (int) dNumNow;
 
-        System.out.println(doubleNum);
-
-        double dNum = 10.5;
-        int iNum = (int) dNum;
-
-        System.out.println(iNum);
+        System.out.println("doubleNum = " + doubleNum);
+        System.out.println("dNumNow = " + dNumNow);
+        System.out.println("intNumNow = " + intNumNow);
         //information is lost in the Narrowing direction, going from a higher data type (double) into a lower data type (int)
     }
 
