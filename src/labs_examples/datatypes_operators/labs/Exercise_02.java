@@ -31,6 +31,7 @@ public class Exercise_02 {
         double dNumNow = 10.5;
         int intNumNow = (int) dNumNow;
 
+        System.out.println("intNum = " + intNum);
         System.out.println("doubleNum = " + doubleNum);
         System.out.println("dNumNow = " + dNumNow);
         System.out.println("intNumNow = " + intNumNow);

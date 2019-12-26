@@ -12,21 +12,35 @@ class ArithmeticOperators {
 
         // write your code below
         int a = 14;
-        int b = 12;
-        int c = 10;
+        int s = 12;
+        int mu = 10;
         int d = 15;
-        int e = 17;
+        int mo = 17;
         a += 5;
-        b -= 6;
-        c *= 7;
+        s -= 6;
+        mu *= 7;
         d /= 8;
-        e %= 9;
+        mo %= 9;
 
-        System.out.println(a);
-        System.out.println(b);
-        System.out.println(c);
-        System.out.println(d);
-        System.out.println(e);
+        System.out.println("a = " + a);
+        System.out.println("s = " + s);
+        System.out.println("mu = " + mu);
+        System.out.println("d + " + d);
+        System.out.println("mo = " + mo);
+
+        //OR
+
+        int add = 1 + 2;
+        int sub= 2 - 3;
+        int mul = 3 * 4;
+        int div = 5 / 6;
+        int mod = 7 % 8;
+
+        System.out.println("add = " + add);
+        System.out.println("sub = " + sub);
+        System.out.println("mul = " + mul);
+        System.out.println("div = " + div);
+        System.out.println("mod = " + mod);
 
     }
 

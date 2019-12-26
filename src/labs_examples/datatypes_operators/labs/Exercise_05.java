@@ -15,20 +15,20 @@ class LogicalOperators {
         boolean b = false;
 
         if (a | b){
-            System.out.println("a or b is true");
+            System.out.println("a or b is true, true statement, will print");
         }
-        //b = false, therefore a & b is a false statement
+
         if (a & b){
-            System.out.println("a and b is true");
+            System.out.println("a and b is true, false statement, will not print");
         }
         if (a ^ b){
-            System.out.println("a or b can be true but not both (XOR - One can be true but not both)");
+            System.out.println("a or b can be true but not both (XOR - One can be true but not both), true statement, will print");
         }
         if (a || b){
-            System.out.println("a (short circuit OR) b is true");
+            System.out.println("a (short circuit OR) b is true, true statement, will print");
         }
         if (a != b){
-            System.out.println("a is not b");
+            System.out.println("a is not b, true statement, will print");
         }
     }
 

@@ -22,13 +22,16 @@ public class Exercise_01 {
 
         System.out.println(" the value of int is " + iNum);
 
+
         double dNum = 34534634699998567785565645646456765.4456;
 
         System.out.println(" the value of double is " + dNum);
 
+
         float fNum = 456566332446.4456f;
 
         System.out.println(" the value of float is " + fNum);
+
 
         char c = 'j';
 
