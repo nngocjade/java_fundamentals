@@ -48,9 +48,8 @@ public class Exercise_02 {
             if (number == 7) {
                 System.out.println("Sunday");
             }
-        }
-        if (number < 0 || number > 7){
-            System.out.println("invalid number");
+        } else if (number < 0 || number > 7){
+            System.out.println("Entered number NOT 1, 2, 3, 4, 5, 6 , 7");
         }
     }
 }
