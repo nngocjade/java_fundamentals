@@ -49,5 +49,8 @@ public class Exercise_02 {
                 System.out.println("Sunday");
             }
         }
+        if (number < 0 || number > 7){
+            System.out.println("invalid number");
+        }
     }
 }
