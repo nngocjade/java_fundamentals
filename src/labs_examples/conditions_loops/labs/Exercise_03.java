@@ -16,9 +16,14 @@ public class Exercise_03 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number: ");
+        System.out.print("Enter a number between 0 and 13 (not 0 or 13): ");
 
-        int month ;
+        int month = scanner.nextInt();
+
+        if (month <= 0 || month >= 13){
+            System.out.println("Incorrect value entered");
+        }
+
         switch (month){
             case 1:
                 System.out.println("January");
