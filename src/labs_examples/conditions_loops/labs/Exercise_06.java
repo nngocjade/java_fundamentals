@@ -9,6 +9,14 @@ package labs_examples.conditions_loops.labs;
 
 public class Exercise_06 {
     public static void main(String[] args) {
+        int x = 1;
+        int y = 100;
+        int sum = 0;
 
+        while (x <= y){
+            sum += x;
+            x++;
+        }
+        System.out.println("Sum = " + sum);
     }
 }
