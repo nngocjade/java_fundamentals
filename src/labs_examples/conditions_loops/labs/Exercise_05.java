@@ -18,14 +18,17 @@ import java.util.Scanner;
 public class Exercise_05 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner (System.in);
-        System.out.println("Enter a number: ");
+        System.out.println("Enter a number : ");
         int upper = scanner.nextInt();
         System.out.println("Enter a number: ");
         int lower = scanner.nextInt();
 
-        int x = upper + lower;
-        for (x) {
-            System.out.println("lower + upper = " +);
+
+        int sum = 0;
+        for (int x = 0; x <= 100 ; x++ ) {
+            sum = lower + upper + x;
+            System.out.println(sum);
         }
+
     }
 }
