@@ -20,15 +20,17 @@ public class Exercise_05 {
         Scanner scanner = new Scanner (System.in);
         System.out.println("Enter a number : ");
         int upper = scanner.nextInt();
-        System.out.println("Enter a number: ");
+        System.out.println("Enter a bigger number: ");
         int lower = scanner.nextInt();
 
 
-        int sum = 0;
-        for (int x = 0; x <= 100 ; x++ ) {
-            sum = lower + upper + x;
-            System.out.println(sum);
+        double sum = 0;
+        double average = 0;
+        for (int x = upper ; x <= lower ; x++ ) {
+            sum += x ;
+            average = sum / lower;
         }
-
+        System.out.println(" The sum is: " + sum);
+        System.out.println(" The average is: " + average);
     }
 }
