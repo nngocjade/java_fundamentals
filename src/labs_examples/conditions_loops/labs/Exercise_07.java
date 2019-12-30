@@ -12,13 +12,17 @@ import java.util.Scanner;
 
 public class Exercise_07 {
     public static void main(String[] args) {
-        Scanner word = new Scanner (System.in);
+        Scanner userInput = new Scanner (System.in);
         System.out.print("Enter a word: ");
-        //Character input
-        char c = word.findInLine("[aeiouy]").charAt(0);
+        //User input
+
+        char c = userInput.findInLine("[aeiouy]").charAt(0);
+        //Scan for vowel
+
 
         //Print first vowel within word
         System.out.println("First vowel: " + c);
+
 
 
 

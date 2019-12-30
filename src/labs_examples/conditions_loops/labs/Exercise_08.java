@@ -8,4 +8,14 @@ package labs_examples.conditions_loops.labs;
  */
 
 public class Exercise_08 {
+    public static void main(String[] args) {
+        int i = 1000;
+        while (i > -1){
+            //print value first
+            System.out.println(i);
+            //then decrement
+            i -= 3;
+        }
+        System.out.println("end of every third number count");
+    }
 }
