@@ -12,17 +12,17 @@ import java.util.Scanner;
 
 public class Exercise_07 {
     public static void main(String[] args) {
-        //
+        //ask for user input
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a word: ");
-        //User input
+        //user input
         String userInput = scanner.next();
-
+        //define variables
         int count = 0;
         int inputLength = userInput.length();
         String vowels = "aeiouy";
         boolean vowelFound = false;
-
+        //execute defined variables and user input
         while (count < inputLength){
             char c = userInput.charAt(count);
             if(vowels.indexOf(c) != -1){
