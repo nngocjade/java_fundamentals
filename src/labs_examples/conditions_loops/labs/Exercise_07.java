@@ -12,22 +12,29 @@ import java.util.Scanner;
 
 public class Exercise_07 {
     public static void main(String[] args) {
-        Scanner userInput = new Scanner (System.in);
+        //
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a word: ");
         //User input
+        String userInput = scanner.next();
 
-        char c = userInput.findInLine("[aeiouy]").charAt(0);
-        //Scan for vowel
+        int count = 0;
+        int inputLength = userInput.length();
+        String vowels = "aeiouy";
+        boolean vowelFound = false;
 
+        while (count < inputLength){
+            char c = userInput.charAt(count);
+            if(vowels.indexOf(c) != -1){
+                System.out.println("The First vowel in " + userInput + " is " + c);
+                vowelFound = true;
+                break;
+            }
+            count++;
+        }
 
-        //Print first vowel within word
-        System.out.println("First vowel: " + c);
-
-
-
-
-
-
-
+        if(vowelFound == false){
+            System.out.println("The word you entered (" + userInput + ") does not contain a vowel");
+        }
     }
 }
