@@ -22,8 +22,9 @@ public class Exercise_01 {
         Scanner scanner = new Scanner(System.in);
 
         //declared and initialized array, also print to screen
-        System.out.println("length of array is: 10");
         int[] userInputsElement = new int[10];
+        System.out.println("length of array is: 10");
+
 
         int lengthOfArray = userInputsElement.length; // length of an array
         int sum = 0;
@@ -43,8 +44,8 @@ public class Exercise_01 {
             System.out.println("Here are the numbers entered for the array: ");
             System.out.println(Arrays.toString(userInputsElement));//prints the array of userInputElement
 
-            System.out.println("sum = " + sum); // prints the sum of every userInputsElement added together
-            System.out.println("average = " + average);
+            System.out.println("sum = " + sum); // prints the sum
+            System.out.println("average = " + average); // prints the average
     }
 
 }
