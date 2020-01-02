@@ -3,8 +3,9 @@ package labs_examples.arrays.labs;
 import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.w3c.dom.ls.LSOutput;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
-
+import java.util.Arrays;
 /**
  * Arrays calculator
  *
@@ -19,15 +20,31 @@ public class Exercise_01 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
-        int[] userInputs = new int[10];
-        //prompt user
-        System.out.println("Enter variable "); //variable is the userInput
-        for (int i = 0; i < userInputs.length; i++) {
-            for (int x = 0; x < userInputs.length; i++) {
-                System.out.println("Enter next variable ");
-                userInputs[i] = scanner.nextInt();
+
+        //declared and initialized array, also print to screen
+        System.out.println("length of array is: 10");
+        int[] userInputsElement = new int[10];
+
+
+        //prompt the elements from userInputsElements. i in this case is the index
+        for (int i = 0; i < userInputsElement.length; i++) {
+            if (i == 0) {
+                System.out.println("Enter a number: ");
+                userInputsElement[i] = scanner.nextInt();
             }
+            else if (i > 0) {
+                System.out.println("Enter another number: ");
+                userInputsElement[i] = scanner.nextInt();
+            }
+            }
+
+        System.out.println("\n");//extra space in between lines
+
+        //prints the array of user input
+        System.out.println("Here are the numbers entered for the array: ");
+        System.out.println(Arrays.toString(userInputsElement));
         }
 
-    }
-}
+        }
+
+
