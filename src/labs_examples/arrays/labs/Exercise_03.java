@@ -21,7 +21,7 @@ public class Exercise_03 {
 
         int[][] twoDArray = new int[5][5];
 
-        int count = 0;
+        int count = 3;// starting with 3
         //populating the array
         for (int i = 0; i < twoDArray.length; i++){
             for (int x = 0; x < twoDArray[i].length; x++){
@@ -32,7 +32,7 @@ public class Exercise_03 {
 
         for (int i = 0; i < twoDArray.length; i++){
             for (int x = 0; x < twoDArray[i].length; x++){
-                System.out.print(twoDArray[i][x] + " | ");
+                System.out.print(twoDArray[i][x] + " ");
             }
             System.out.println();
         }
