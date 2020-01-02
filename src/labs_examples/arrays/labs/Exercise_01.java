@@ -25,26 +25,21 @@ public class Exercise_01 {
         System.out.println("length of array is: 10");
         int[] userInputsElement = new int[10];
 
-
-        //prompt the elements from userInputsElements. i in this case is the index
+        int sum = 0;
+        //prompt the elements from userInputsElement. i in this case is the index
+        System.out.println("Enter 10 numbers, each at a time (enter between numbers): ");
         for (int i = 0; i < userInputsElement.length; i++) {
-            if (i == 0) {
-                System.out.println("Enter a number: ");
-                userInputsElement[i] = scanner.nextInt();
-            }
-            else if (i > 0) {
-                System.out.println("Enter another number: ");
-                userInputsElement[i] = scanner.nextInt();
-            }
-            }
-
-        System.out.println("\n");//extra space in between lines
-
-        //prints the array of user input
-        System.out.println("Here are the numbers entered for the array: ");
-        System.out.println(Arrays.toString(userInputsElement));
+            userInputsElement[i] = scanner.nextInt();
+            sum += i;
         }
+            System.out.println("\n");//extra space in between lines
 
-        }
+            //prints the array of userInputElement
+            System.out.println("Here are the numbers entered for the array: ");
+            System.out.println(Arrays.toString(userInputsElement));
+            System.out.println("sum = " + sum);
 
 
+    }
+
+}
