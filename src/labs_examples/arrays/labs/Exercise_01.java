@@ -25,21 +25,26 @@ public class Exercise_01 {
         System.out.println("length of array is: 10");
         int[] userInputsElement = new int[10];
 
+        int lengthOfArray = userInputsElement.length; // length of an array
         int sum = 0;
+        int average = 0;
         //prompt the elements from userInputsElement. i in this case is the index
-        System.out.println("Enter 10 numbers, each at a time (enter between numbers): ");
+        System.out.println("Enter " + lengthOfArray + " numbers, each at a time (enter between numbers): ");
+
         for (int i = 0; i < userInputsElement.length; i++) {
             userInputsElement[i] = scanner.nextInt();
-            sum += i;
+            sum = sum + userInputsElement[i]; // adds every userInputsElement together
+            average = sum / lengthOfArray;
+            // takes the average of the sum of userInputsElement
+            // divided the number of inputs by the user in this case "lengthOfArray" or "userInputsElement.length"
+            // the sum is divisible by lengthOfArray or userInputsElement.length - since they are the same, it would yield the same result
         }
-            System.out.println("\n");//extra space in between lines
 
-            //prints the array of userInputElement
             System.out.println("Here are the numbers entered for the array: ");
-            System.out.println(Arrays.toString(userInputsElement));
-            System.out.println("sum = " + sum);
+            System.out.println(Arrays.toString(userInputsElement));//prints the array of userInputElement
 
-
+            System.out.println("sum = " + sum); // prints the sum of every userInputsElement added together
+            System.out.println("average = " + average);
     }
 
 }
