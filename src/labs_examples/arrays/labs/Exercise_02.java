@@ -16,14 +16,19 @@ public class Exercise_02 {
         int[] array = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
 
         // write code here
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Enter a number between 1 and 10 (including 1 or 10): ");
-        int number = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int userInput = scanner.nextInt();
 
         int length = array.length;//length of an array
 
+        int index = 0;
         for (int i = 0; i < array.length; i++){
-            array [i] = scanner.nextInt();
+            if (array[i] == userInput ){
+                index = i;
+            }
+            System.out.println(index);
         }
 
         }
