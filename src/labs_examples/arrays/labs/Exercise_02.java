@@ -25,11 +25,10 @@ public class Exercise_02 {
 
         int index = 0;
         for (int i = 0; i < array.length; i++){
-            if (array[i] == userInput ){
-                index = i;
+            if (array[i] == userInput ){ // userInput now matches the element at Array[i]
+                index = i;//then returns the index for userInput (element at Array[i])
             }
-            System.out.println(index);
         }
-
+        System.out.println(index);//prints the index for userInput (element at Array[i])
         }
     }
