@@ -11,4 +11,14 @@ package labs_examples.arrays.labs;
  *
  */
 public class Exercise_06 {
+    public static void main(String[] args) {
+        int [] array = new int [5];
+
+        //populate array
+        for ( int i = 4; i > array.length; i++){
+            array[i] -= 1;
+            System.out.print(i);
+        }
+    }
+
 }

@@ -27,7 +27,7 @@ public class Exercise_05 {
         for(int i = 9; i >= 0; i -= 2){// the iteration i -= 2 skips every other index
          //i = 9: prints in reverse
             x = array[i];
-            System.out.println(x);
+            System.out.print(x + " ");
         }
     }
 }
