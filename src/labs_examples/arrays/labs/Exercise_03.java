@@ -23,20 +23,14 @@ public class Exercise_03 {
 
         int count = 3;// starting with 3
         //populating the array
-        for (int i = 0; i < twoDArray.length; i++){
-            for (int x = 0; x < twoDArray[i].length; x++){
+        for (int i = 0; i < twoDArray.length; i++){//twoDArray.length loops through first array
+            for (int x = 0; x < twoDArray[i].length; x++){//twoDArray[i].length loops through second array
                     twoDArray[i][x] = count;
                     count += 3;
-            }
-        }
 
-        for (int i = 0; i < twoDArray.length; i++){
-            for (int x = 0; x < twoDArray[i].length; x++){
                 System.out.print(twoDArray[i][x] + " ");
             }
             System.out.println();
         }
-
-
     }
 }

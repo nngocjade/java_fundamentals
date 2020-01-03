@@ -9,5 +9,24 @@ package labs_examples.arrays.labs;
  */
 
 public class Exercise_05 {
+    public static void main(String[] args) {
+        int [] array = new int [10];
 
+        array [0] = 22;
+        array [1] = 33;
+        array [2] = 44;
+        array [3] = 55;
+        array [4] = 66;
+        array [5] = 77;
+        array [6] = 88;
+        array [7] = 99;
+        array [8] = 10;
+        array [9] = 11;
+
+        int x = 0;
+        for(int i = 9; i >= 0; i -= 2){// the iteration i -= 2 skips every other index
+            x = array[i];
+            System.out.println(x);
+        }
+    }
 }
