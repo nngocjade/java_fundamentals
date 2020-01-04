@@ -59,7 +59,9 @@ public class Exercise_07 {
         System.out.println("Number of elements in the list:" + list.size());
         System.out.println("\n");
         System.out.println("A copy of the array list:" + list.clone());//Returns a copy of the array list
-
+        System.out.println("\n");
+        System.out.println("Remove element: " + list.remove("Purple") + " at index: " + list.indexOf(3));
+        //after executing list.remove, it should returns true and -1 when the list has no element
 
 
 
