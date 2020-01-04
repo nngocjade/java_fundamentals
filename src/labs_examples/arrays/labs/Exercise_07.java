@@ -1,5 +1,5 @@
 package labs_examples.arrays.labs;
-
+import java.util.ArrayList;
 /**
  *  ArrayLists
  *
@@ -10,5 +10,25 @@ package labs_examples.arrays.labs;
  *
  */
 public class Exercise_07 {
+    public static void main(String[] args) {
+        //creating/declaring and array list by name of list
+        ArrayList<String> list  = new ArrayList<String>();
+        // add values to ArrayList
+        list.add("Green");
+        list.add("Yellow");
+        list.add("Blue");
+        list.add("Purple");
+        list.add("Red");
+        list.add("orange");
 
+        //populating the list created
+        for (String element : list){
+            System.out.println(element);
+        }
+
+        //access element within the array list
+
+        //demonstrating other methods
+
+    }
 }
