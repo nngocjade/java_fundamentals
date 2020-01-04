@@ -1,5 +1,9 @@
 package labs_examples.arrays.labs;
 
+import java.util.Arrays;
+
+import static jdk.nashorn.internal.objects.NativeArray.reverse;
+
 /**
  *  Reversing an array in place
  *
@@ -13,12 +17,22 @@ package labs_examples.arrays.labs;
 public class Exercise_06 {
     public static void main(String[] args) {
         int [] array = new int [5];
+        reverse(array);
+
+        array [0] = 1;
+        array [1] = 2;
+        array [2] = 3;
+        array [3] = 4;
+        array [4] = 5;
+
 
         //populate array
-        for ( int i = 4; i > array.length; i++){
-            array[i] -= 1;
-            System.out.print(i);
+        for ( int i = 0; i < array.length/2; i++){
+            int temp = array[i];
+            array [i] = array[array.length - 1 - i];
+            array [ array.length - 1 - i] = temp;
         }
+        System.out.print(Arrays.toString(array) + " ");
     }
 
 }
