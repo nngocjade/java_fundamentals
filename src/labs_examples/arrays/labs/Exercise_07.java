@@ -1,5 +1,6 @@
 package labs_examples.arrays.labs;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.DoubleToIntFunction;
 
 /**
@@ -14,7 +15,7 @@ import java.util.function.DoubleToIntFunction;
 public class Exercise_07 {
     public static void main(String[] args) {
         //creating/declaring and array list by name of list
-        ArrayList<String> list  = new ArrayList<String>(6);
+        ArrayList<String> list  = new ArrayList<String>();
         // add values to ArrayList
         list.add("Green");
         list.add("Yellow");
@@ -22,6 +23,7 @@ public class Exercise_07 {
         list.add("Purple");
         list.add("Red");
         list.add("orange");
+
 
         //printing array list by using the for loop
         for (String element : list){
@@ -33,15 +35,19 @@ public class Exercise_07 {
 
         //accessing and printing all elements by iteration using the for loop
         System.out.println("Accessing and printing all elements by iteration using the for loop: ");
-        for (int i = 0; i < 6; i++) {
-            System.out.println("First element at index " + i + " is " + list.get(i));
+        if (!list.isEmpty()) {
+            for (int i = 0; i < 6; i++) {
+                System.out.println("First element at index " + i + " is " + list.get(i));
+            }
         }
 
         //space break
         System.out.println(" ");
 
-        //accessing and printing a specific element using .get ()
-        // and specifying an index by using .indexOf("element_name")
+        //accessing and printing:
+        // an element using .get (int index)
+        // an index by using .indexOf("element_name")
+        System.out.println("Using .indexOf to return index at element_name and .get() to return element name at int index: ");
         System.out.println("First element at index " + list.indexOf("Yellow") + " is "+ list.get(1));
         //System.out.println("First element at index " + list.indexOf("Blue") + " is "+ list.get(2));
         //System.out.println("First element at index " + list.indexOf("Purple") + " is "+ list.get(3));
@@ -49,6 +55,15 @@ public class Exercise_07 {
         //System.out.println("First element at index " + list.indexOf("orange") + " is "+ list.get(5));
 
         //demonstrating other methods
+        System.out.println("\n");
+        System.out.println("Number of elements in the list:" + list.size());
+        System.out.println("\n");
+        System.out.println("A copy of the array list:" + list.clone());//Returns a copy of the array list
+
+
+
+
+
 
     }
 }
