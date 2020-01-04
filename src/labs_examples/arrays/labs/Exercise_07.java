@@ -1,5 +1,7 @@
 package labs_examples.arrays.labs;
 import java.util.ArrayList;
+import java.util.function.DoubleToIntFunction;
+
 /**
  *  ArrayLists
  *
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 public class Exercise_07 {
     public static void main(String[] args) {
         //creating/declaring and array list by name of list
-        ArrayList<String> list  = new ArrayList<String>();
+        ArrayList<String> list  = new ArrayList<String>(6);
         // add values to ArrayList
         list.add("Green");
         list.add("Yellow");
@@ -21,12 +23,30 @@ public class Exercise_07 {
         list.add("Red");
         list.add("orange");
 
-        //populating the list created
+        //printing array list by using the for loop
         for (String element : list){
             System.out.println(element);
         }
 
-        //access element within the array list
+        //space break
+        System.out.println(" ");
+
+        //accessing and printing all elements by iteration using the for loop
+        System.out.println("Accessing and printing all elements by iteration using the for loop: ");
+        for (int i = 0; i < 6; i++) {
+            System.out.println("First element at index " + i + " is " + list.get(i));
+        }
+
+        //space break
+        System.out.println(" ");
+
+        //accessing and printing a specific element using .get ()
+        // and specifying an index by using .indexOf("element_name")
+        System.out.println("First element at index " + list.indexOf("Yellow") + " is "+ list.get(1));
+        //System.out.println("First element at index " + list.indexOf("Blue") + " is "+ list.get(2));
+        //System.out.println("First element at index " + list.indexOf("Purple") + " is "+ list.get(3));
+        //System.out.println("First element at index " + list.indexOf("Red") + " is "+ list.get(4));
+        //System.out.println("First element at index " + list.indexOf("orange") + " is "+ list.get(5));
 
         //demonstrating other methods
 
