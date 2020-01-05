@@ -48,27 +48,96 @@ class Exercise_1_Airplane {
 }
 
 class Make {
+    double year;
+
+    public Make(double year){
+
+        this.year = year;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Make{" +
+                "year =" + year +
+                '}';
+    }
+
 
 }
 
 class Model {
+    double series;
+
+    public Model(double series){
+
+        this.series = series;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Model{" +
+                "series =" + series +
+                '}';
+    }
+
 
 }
 
 class fuelCapacity {
+    double fuelCap;
+
+    public fuelCapacity(double fuelCap){
+
+        this.fuelCap = fuelCap;
+
+    }
+
+    @Override
+    public String toString() {
+        return "fuelCapacity{" +
+                "fuelCap =" + fuelCap +
+                '}';
+    }
 
 
 
 }
 
 class currentFuelLevel {
+    double currentFuelCap;
 
+    public currentFuelLevel(double currentFuelLevel){
 
+        this.currentFuelCap = currentFuelCap;
+
+    }
+
+    @Override
+    public String toString() {
+        return "currentFuelLevel{" +
+                "currentFuelCap =" + currentFuelCap +
+                '}';
+    }
 
 }
 
 class AEngine {
+    double horsePower;
 
+    public AEngine(double horsePower){
+
+        this.horsePower = horsePower;
+
+    }
+
+    @Override
+    public String toString() {
+        return "AEngine{" +
+                "horsePower=" + horsePower +
+                '}';
+    }
 
 }
 
