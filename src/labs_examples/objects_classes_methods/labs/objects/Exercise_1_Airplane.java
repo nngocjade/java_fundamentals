@@ -14,15 +14,20 @@ class Exercise_1_Airplane {
 
     Model model;
 
-    Capacity capacity;
+    Double fuelCapacity;
+
+    Double currentFuelLevel;
 
     AEngine aEngine;
 
-    public void Airplane(Make make, Model model, Capacity capacity, AEngine aEngine) {
+
+    public void Airplane(Make make, Model model, Double fuelCapacity, Double currentFuelLevel, AEngine aEngine) {
 
         this.make = make;
 
-        this.capacity = capacity;
+        this.fuelCapacity = fuelCapacity;
+
+        this.currentFuelLevel = currentFuelLevel;
 
         this.model = model;
 
@@ -33,7 +38,8 @@ class Exercise_1_Airplane {
         public String toString() {
             return "Airplane{" +
                     "engine=" + make.toString() +
-                    ",\n capacity=" + capacity.toString() +
+                    ",\n capacity=" + fuelCapacity.toString() +
+                    ",\n capacity=" + currentFuelLevel.toString() +
                     ",\n model='" + model.toString() +
                     ",\n aEngine='" + aEngine.toString() +
                     '}';
@@ -49,13 +55,20 @@ class Model {
 
 }
 
-class Capacity {
+class fuelCapacity {
+
+
+
+}
+
+class currentFuelLevel {
 
 
 
 }
 
 class AEngine {
+
 
 }
 
