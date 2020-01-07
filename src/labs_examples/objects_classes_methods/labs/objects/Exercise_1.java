@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.objects;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+
 /**
  * Following the example in CarExample.java, please use Object Composition to model an Airplane class.
  * The Airplane class must be composed of at least 4 other classes (as well as any primitive types you'd like).
@@ -10,30 +12,33 @@ package labs_examples.objects_classes_methods.labs.objects;
 class Exercise_1{
 
     public static void main(String[] args) {
-
         Model model = new Model("Boeing", 747, "Delta");
-        FuelCap fuelCapacity = new FuelCap(26000.00);
-        CurrentFuelLevel currentFuelLevel = new CurrentFuelLevel(10000.00);
+        FuelCap fuelCap = new FuelCap(26000.00);
         AEngine engine = new AEngine(400);
-        Airplane myAirplane = new Airplane ();
+        Airplane myAirplane = new Airplane (model, 2012, fuelCap, 10000.00, engine);
 
-        System.out.println("My frequent flyer is " + " , " + myAirplane.make + " , " + myAirplane.model +  "with a tank size of" + myAirplane.FuelCap);
+        System.out.println("My frequent flyer is " + myAirplane.model.name + " " + myAirplane.model.series + " , made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
+        System.out.println("\n");
+        System.out.println(myAirplane.toString());
     }
+
+
 
 }
 
 class Airplane {
 
-    int make;
+
     Model model;
-    Double FuelCap;
+    int make;
+    FuelCap fuelCap;
     Double currentFuelLevel;
     AEngine aEngine;
 
 
-    public Airplane(int make, Model model, Double fuelCap, Double currentFuelLevel, AEngine aEngine) {
+    public Airplane( Model model, int make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.make = make;
-        this.FuelCap = fuelCap;
+        this.fuelCap = fuelCap;
         this.currentFuelLevel = currentFuelLevel;
         this.model = model;
         this.aEngine = aEngine;
@@ -41,12 +46,12 @@ class Airplane {
 
         @Override
         public String toString() {
-            return "Airplane{" +
-                    "engine=" + make +
-                    ",\n FuelCap=" + FuelCap.toString() +
-                    ",\n currentFuelLevel=" + currentFuelLevel.toString() +
-                    ",\n model='" + model.toString() +
-                    ",\n aEngine='" + aEngine.toString() +
+            return "Airplane {" +
+                    ",\n model = " + model.toString() +
+                    ",\n make = " + make +
+                    ",\n fuelCap = " + fuelCap.toString() +
+                    ",\n currentFuelLevel = " + currentFuelLevel.toString() +
+                    ",\n aEngine = " + aEngine.toString() +
                     '}';
         }
 
@@ -84,9 +89,9 @@ class Model {
     @Override
     public String toString() {
         return "Model {" +
-                "name = " + name +
-                "series = " + series +
-                "brand = " + brand +
+                " name = " + name +
+                " series = " + series +
+                " brand = " + brand +
                 '}';
     }
 
@@ -96,7 +101,7 @@ class Model {
 class FuelCap {
     double tankSizeInLiters;
 
-    public FuelCap(double tankSize){
+    public FuelCap(double tankSizeInLiters){
         this.tankSizeInLiters = tankSizeInLiters;
 
     }
