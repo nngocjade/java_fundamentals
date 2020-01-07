@@ -9,26 +9,31 @@ package labs_examples.objects_classes_methods.labs.objects;
 
 class Exercise_1{
 
+    public static void main(String[] args) {
+
+        Model model = new Model("Boeing", 747, "Delta");
+        FuelCap fuelCapacity = new FuelCap(26000.00);
+        CurrentFuelLevel currentFuelLevel = new CurrentFuelLevel(10000.00);
+        AEngine engine = new AEngine(400);
+        Airplane myAirplane = new Airplane ();
+
+        System.out.println("My frequent flyer is " + " , " + myAirplane.make + " , " + myAirplane.model +  "with a tank size of" + myAirplane.FuelCap);
+    }
+
 }
-
-
-
-
-
-
 
 class Airplane {
 
-    Make make;
+    int make;
     Model model;
     Double FuelCap;
     Double currentFuelLevel;
     AEngine aEngine;
 
 
-    public void Airplane(Make make, Model model, Double fuelCapacity, Double currentFuelLevel, AEngine aEngine) {
+    public Airplane(int make, Model model, Double fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.make = make;
-        this.FuelCap = fuelCapacity;
+        this.FuelCap = fuelCap;
         this.currentFuelLevel = currentFuelLevel;
         this.model = model;
         this.aEngine = aEngine;
@@ -37,9 +42,9 @@ class Airplane {
         @Override
         public String toString() {
             return "Airplane{" +
-                    "engine=" + make.toString() +
-                    ",\n capacity=" + FuelCap.toString() +
-                    ",\n capacity=" + currentFuelLevel.toString() +
+                    "engine=" + make +
+                    ",\n FuelCap=" + FuelCap.toString() +
+                    ",\n currentFuelLevel=" + currentFuelLevel.toString() +
                     ",\n model='" + model.toString() +
                     ",\n aEngine='" + aEngine.toString() +
                     '}';
@@ -48,16 +53,16 @@ class Airplane {
 }
 
 class Make {
-    double year;
+    int year;
 
-    public Make(double year){
+    public Make(int year){
         this.year = year;
     }
 
     @Override
     public String toString() {
-        return "Make{" +
-                "year =" + year +
+        return "Make {" +
+                "year = " + year +
                 '}';
     }
 
@@ -65,17 +70,23 @@ class Make {
 }
 
 class Model {
-    double series;
+    String name;
+    int series;
+    String brand;
 
-    public Model(double series){
+    public Model(String name, int series, String brand){
+        this.name = name;
         this.series = series;
+        this.brand = brand;
 
     }
 
     @Override
     public String toString() {
-        return "Model{" +
-                "series =" + series +
+        return "Model {" +
+                "name = " + name +
+                "series = " + series +
+                "brand = " + brand +
                 '}';
     }
 
@@ -83,16 +94,16 @@ class Model {
 }
 
 class FuelCap {
-    double tankSize;
+    double tankSizeInLiters;
 
     public FuelCap(double tankSize){
-        this.tankSize = tankSize;
+        this.tankSizeInLiters = tankSizeInLiters;
 
     }
     @Override
     public String toString() {
-        return "FuelCap{" +
-                "tankSize =" + tankSize +
+        return "FuelCap {" +
+                "tankSize = " + tankSizeInLiters +
                 '}';
     }
 }
@@ -105,8 +116,8 @@ class CurrentFuelLevel {
     }
     @Override
     public String toString() {
-        return "currentFuelLevel{" +
-                "currentLevel =" + currentLevel +
+        return "currentFuelLevel {" +
+                "currentLevel = " + currentLevel +
                 '}';
     }
 
@@ -120,8 +131,8 @@ class AEngine {
     }
     @Override
     public String toString() {
-        return "AEngine{" +
-                "horsePower=" + horsePower +
+        return "AEngine {" +
+                "horsePower = " + horsePower +
                 '}';
     }
 
