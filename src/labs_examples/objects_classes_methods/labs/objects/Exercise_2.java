@@ -10,11 +10,12 @@ package labs_examples.objects_classes_methods.labs.objects;
     //ChairPersonTable Association
 public class Exercise_2 {
     public static void main(String[] args) {
-        Chair myChair = new Chair("RockingChair");
+        Chair myChair = new Chair("rocking chair");
         Person person = new Person("Julia");
-        Table myTable = new Table( "CoffeeTable");
+        Table myTable = new Table( "coffee table");
 
-
+        System.out.println("With her book in one arm and the other holding a coffee mug, " + "\n" + person.name +
+                " gently sets the mug down on the " + myTable.style + " and sits in the " + myChair.style + " - to enjoy her morning routine.");
     }
 
 }
