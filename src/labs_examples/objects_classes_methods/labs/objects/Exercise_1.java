@@ -7,30 +7,30 @@ package labs_examples.objects_classes_methods.labs.objects;
  * We'll use these a bit later.
  */
 
+class Exercise_1{
 
-class Exercise_1_Airplane {
+}
+
+
+
+
+
+
+
+class Airplane {
 
     Make make;
-
     Model model;
-
-    Double fuelCapacity;
-
+    Double FuelCap;
     Double currentFuelLevel;
-
     AEngine aEngine;
 
 
     public void Airplane(Make make, Model model, Double fuelCapacity, Double currentFuelLevel, AEngine aEngine) {
-
         this.make = make;
-
-        this.fuelCapacity = fuelCapacity;
-
+        this.FuelCap = fuelCapacity;
         this.currentFuelLevel = currentFuelLevel;
-
         this.model = model;
-
         this.aEngine = aEngine;
     }
 
@@ -38,7 +38,7 @@ class Exercise_1_Airplane {
         public String toString() {
             return "Airplane{" +
                     "engine=" + make.toString() +
-                    ",\n capacity=" + fuelCapacity.toString() +
+                    ",\n capacity=" + FuelCap.toString() +
                     ",\n capacity=" + currentFuelLevel.toString() +
                     ",\n model='" + model.toString() +
                     ",\n aEngine='" + aEngine.toString() +
@@ -51,9 +51,7 @@ class Make {
     double year;
 
     public Make(double year){
-
         this.year = year;
-
     }
 
     @Override
@@ -70,7 +68,6 @@ class Model {
     double series;
 
     public Model(double series){
-
         this.series = series;
 
     }
@@ -85,39 +82,31 @@ class Model {
 
 }
 
-class fuelCapacity {
-    double fuelCap;
+class FuelCap {
+    double tankSize;
 
-    public fuelCapacity(double fuelCap){
-
-        this.fuelCap = fuelCap;
+    public FuelCap(double tankSize){
+        this.tankSize = tankSize;
 
     }
-
     @Override
     public String toString() {
-        return "fuelCapacity{" +
-                "fuelCap =" + fuelCap +
+        return "FuelCap{" +
+                "tankSize =" + tankSize +
                 '}';
     }
-
-
-
 }
 
-class currentFuelLevel {
-    double currentFuelCap;
-
-    public currentFuelLevel(double currentFuelLevel){
-
-        this.currentFuelCap = currentFuelCap;
+class CurrentFuelLevel {
+    double currentLevel;
+    public CurrentFuelLevel(double currentLevel){
+        this.currentLevel = currentLevel;
 
     }
-
     @Override
     public String toString() {
         return "currentFuelLevel{" +
-                "currentFuelCap =" + currentFuelCap +
+                "currentLevel =" + currentLevel +
                 '}';
     }
 
@@ -125,13 +114,10 @@ class currentFuelLevel {
 
 class AEngine {
     double horsePower;
-
     public AEngine(double horsePower){
-
         this.horsePower = horsePower;
 
     }
-
     @Override
     public String toString() {
         return "AEngine{" +
