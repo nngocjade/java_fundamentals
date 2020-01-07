@@ -21,20 +21,15 @@ class Exercise_1{
         System.out.println("\n");
         System.out.println(myAirplane.toString());
     }
-
-
-
 }
 
 class Airplane {
-
 
     Model model;
     int make;
     FuelCap fuelCap;
     Double currentFuelLevel;
     AEngine aEngine;
-
 
     public Airplane( Model model, int make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.make = make;
@@ -54,9 +49,7 @@ class Airplane {
                     ",\n aEngine = " + aEngine.toString() +
                     '}';
         }
-
 }
-
 class Make {
     int year;
 
@@ -70,10 +63,7 @@ class Make {
                 "year = " + year +
                 '}';
     }
-
-
 }
-
 class Model {
     String name;
     int series;
@@ -83,9 +73,7 @@ class Model {
         this.name = name;
         this.series = series;
         this.brand = brand;
-
     }
-
     @Override
     public String toString() {
         return "Model {" +
@@ -94,16 +82,12 @@ class Model {
                 " brand = " + brand +
                 '}';
     }
-
-
 }
-
 class FuelCap {
     double tankSizeInLiters;
 
     public FuelCap(double tankSizeInLiters){
         this.tankSizeInLiters = tankSizeInLiters;
-
     }
     @Override
     public String toString() {
@@ -112,7 +96,6 @@ class FuelCap {
                 '}';
     }
 }
-
 class CurrentFuelLevel {
     double currentLevel;
     public CurrentFuelLevel(double currentLevel){
@@ -125,9 +108,7 @@ class CurrentFuelLevel {
                 "currentLevel = " + currentLevel +
                 '}';
     }
-
 }
-
 class AEngine {
     double horsePower;
     public AEngine(double horsePower){
@@ -140,6 +121,5 @@ class AEngine {
                 "horsePower = " + horsePower +
                 '}';
     }
-
 }
 
