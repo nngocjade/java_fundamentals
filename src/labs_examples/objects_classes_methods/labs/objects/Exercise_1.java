@@ -1,7 +1,5 @@
 package labs_examples.objects_classes_methods.labs.objects;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-
 /**
  * Following the example in CarExample.java, please use Object Composition to model an Airplane class.
  * The Airplane class must be composed of at least 4 other classes (as well as any primitive types you'd like).
@@ -13,9 +11,10 @@ class Exercise_1{
 
     public static void main(String[] args) {
         Model model = new Model("Boeing", 747, "Delta");
+        Make make = new Make ( 2012);
         FuelCap fuelCap = new FuelCap(26000.00);
         AEngine engine = new AEngine(400);
-        Airplane myAirplane = new Airplane (model, 2012, fuelCap, 10000.00, engine);
+        Airplane myAirplane = new Airplane (model, make, fuelCap, 10000.00, engine);
 
         System.out.println("My frequent flyer is " + myAirplane.model.name + " " + myAirplane.model.series + " , made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
         System.out.println("\n");
@@ -26,12 +25,12 @@ class Exercise_1{
 class Airplane {
 
     Model model;
-    int make;
+    Make make;
     FuelCap fuelCap;
     Double currentFuelLevel;
     AEngine aEngine;
 
-    public Airplane( Model model, int make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
+    public Airplane(Model model, Make make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.make = make;
         this.fuelCap = fuelCap;
         this.currentFuelLevel = currentFuelLevel;

@@ -18,27 +18,51 @@ package labs_examples.objects_classes_methods.labs.objects;
  all the extra work that was meant to be done in Ex 4. If otherwise, I misunderstood the directions and that
  there is anything I was supposed to do differently please let me know! */
 
+/*
+Method's Exercise 2 is also done in this file.
+- changed the instance variables in each POJO to "private"
+- created getter and setter methods for each instance variable, in each class
+- the to String () method was previously created already (from object exercise 1 and 4)
+- demonstrated getting and setting
+those variables
+- invoked the instance variable's to String () methods
+ */
+
 class Exercise_4{
     public static void main(String[] args) {
         Model model = new Model("Boeing", 747, "Delta");
+        Make make = new Make(2012);
         FuelCap fuelCap = new FuelCap(26000.00);
+        CurrentFuelLevel  currentFuelLevel = new CurrentFuelLevel(10000);
         AEngine engine = new AEngine(400);
-        Airplane myAirplane = new Airplane (model, 2012, fuelCap, 10000.00, engine);
+        Airplane myAirplane = new Airplane (model, make, fuelCap, 10000.00, engine);
 
-        System.out.println("My frequent flyer is " + myAirplane.model.name + " " + myAirplane.model.series + " , made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
+        System.out.println("My frequent flyer is " + myAirplane.model.name + " " + myAirplane.model.series + " " +
+                ", made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters
+                + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
+
+        System.out.println("My frequent flyer is " + Model_Exercise_4.getName() + " " + Model_Exercise_4.getSeries() +
+                " , made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters
+                + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
         System.out.println("\n");
         System.out.println(myAirplane.toString());
+        System.out.println(model.toString());
+        System.out.println(make.toString());
+        System.out.println(fuelCap.toString());
+        System.out.println(currentFuelLevel.toString());
+        System.out.println(engine.toString());
+
     }
 }
 
 class Airplane_Exercise_4 {
     private Model model;
-    private int make;
+    private Make make;
     private FuelCap fuelCap;
     private Double currentFuelLevel;
     private AEngine aEngine;
 
-    public Airplane_Exercise_4(Model model, int make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
+    public Airplane_Exercise_4(Model model, Make make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.model = model;
         this.make = make;
         this.fuelCap = fuelCap;
@@ -54,11 +78,11 @@ class Airplane_Exercise_4 {
         this.model = model;
     }
 
-    public int getMake() {
+    public Make getMake() {
         return make;
     }
 
-    public void setMake(int make) {
+    public void setMake(Make make) {
         this.make = make;
     }
 
@@ -120,8 +144,8 @@ class Make_Exercise_4 {
     }
 }
 class Model_Exercise_4 {
-    private String name;
-    private int series;
+    private static String name;
+    private static int series;
     private String brand;
 
     public Model_Exercise_4(String name, int series, String brand) {
@@ -130,7 +154,7 @@ class Model_Exercise_4 {
         this.brand = brand;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
@@ -138,7 +162,7 @@ class Model_Exercise_4 {
         this.name = name;
     }
 
-    public int getSeries() {
+    public static int getSeries() {
         return series;
     }
 
