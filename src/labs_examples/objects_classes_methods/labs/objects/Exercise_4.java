@@ -59,7 +59,7 @@ class Airplane_Exercise_4 {
     }
 }
 class Make_Exercise_4 {
-    int year;
+    private int year;
 
     public Make_Exercise_4(int year) {
         this.year = year;
@@ -73,9 +73,9 @@ class Make_Exercise_4 {
     }
 }
 class Model_Exercise_4 {
-    String name;
-    int series;
-    String brand;
+    private String name;
+    private int series;
+    private String brand;
 
     public Model_Exercise_4(String name, int series, String brand) {
         this.name = name;
@@ -93,7 +93,7 @@ class Model_Exercise_4 {
     }
 }
 class FuelCap_Exercise_4 {
-    double tankSizeInLiters;
+    private double tankSizeInLiters;
 
     public FuelCap_Exercise_4(double tankSizeInLiters) {
         this.tankSizeInLiters = tankSizeInLiters;
@@ -107,7 +107,7 @@ class FuelCap_Exercise_4 {
     }
 }
 class CurrentFuelLevel_Exercise_4 {
-    double currentLevel;
+    private double currentLevel;
 
     public CurrentFuelLevel_Exercise_4(double currentLevel) {
         this.currentLevel = currentLevel;
@@ -121,7 +121,7 @@ class CurrentFuelLevel_Exercise_4 {
     }
 }
 class AEngine_Exercise_4 {
-    double horsePower;
+    private double horsePower;
 
     public AEngine_Exercise_4(double horsePower) {
         this.horsePower = horsePower;
