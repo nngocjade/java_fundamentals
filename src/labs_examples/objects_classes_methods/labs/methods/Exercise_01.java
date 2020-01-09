@@ -12,7 +12,8 @@ public class Exercise_01 {
         divide(4,6);
         System.out.println("Why did the grocery delivery guy get fired?");
         joke();
-
+        //aJokeAnswer
+        yearToSeconds(2);
     }
 
 
@@ -32,14 +33,20 @@ public class Exercise_01 {
 
     // 3) Create a static void method that will print of joke of your choice to the console
     public static String joke() {
-        String aJoke = new String ("He drove people bananas!");
-        System.out.println(aJoke);
-        return aJoke;
+        String aJokeAnswer = new String ("He drove people bananas!");
+        System.out.println(aJokeAnswer);
+        return aJokeAnswer;
     }
 
 
     // 4) Create a static method that takes in a number in years (int years) as an argument
     //    and returns the number of seconds that number in years represents
+    public static int yearToSeconds(int year) {
+        //1 year = 31,556,952 sec
+        int totalSeconds = year * 31556952;
+        System.out.println(year + " year(s) = " + totalSeconds + " seconds");
+        return totalSeconds;
+    }
 
 
     // 5) Create a varargs method that will return the length of the varargs array passed in
