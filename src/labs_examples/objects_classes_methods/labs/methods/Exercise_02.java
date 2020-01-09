@@ -1,0 +1,14 @@
+package labs_examples.objects_classes_methods.labs.methods;
+
+/**
+ * For each POJO you created to complete the previous Airplane exercise, please change all the instance variables in each
+ * class to "private". Then, create getter and setter methods (for each instance variable) in each class you created for
+ * the airplane exercise. Also, create a toString() method in each POJO. Once complete, demonstrate getting and setting
+ * those variables from the class in which you composed the Airplane object, as well as invoking their toString() methods.
+ */
+
+public class Exercise_02 {
+    /*
+    REFER TO the OBJECTS package - EXERCISE.4
+     */
+}

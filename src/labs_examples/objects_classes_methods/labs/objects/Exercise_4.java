@@ -32,18 +32,57 @@ class Exercise_4{
 }
 
 class Airplane_Exercise_4 {
-
-    Model model;
-    int make;
-    FuelCap fuelCap;
-    Double currentFuelLevel;
-    AEngine aEngine;
+    private Model model;
+    private int make;
+    private FuelCap fuelCap;
+    private Double currentFuelLevel;
+    private AEngine aEngine;
 
     public Airplane_Exercise_4(Model model, int make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
         this.model = model;
         this.make = make;
         this.fuelCap = fuelCap;
         this.currentFuelLevel = currentFuelLevel;
+        this.aEngine = aEngine;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
+
+    public int getMake() {
+        return make;
+    }
+
+    public void setMake(int make) {
+        this.make = make;
+    }
+
+    public FuelCap getFuelCap() {
+        return fuelCap;
+    }
+
+    public void setFuelCap(FuelCap fuelCap) {
+        this.fuelCap = fuelCap;
+    }
+
+    public Double getCurrentFuelLevel() {
+        return currentFuelLevel;
+    }
+
+    public void setCurrentFuelLevel(Double currentFuelLevel) {
+        this.currentFuelLevel = currentFuelLevel;
+    }
+
+    public AEngine getaEngine() {
+        return aEngine;
+    }
+
+    public void setaEngine(AEngine aEngine) {
         this.aEngine = aEngine;
     }
 
@@ -65,6 +104,14 @@ class Make_Exercise_4 {
         this.year = year;
     }
 
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     @Override
     public String toString() {
         return "Make_Exercise_4{" +
@@ -80,6 +127,30 @@ class Model_Exercise_4 {
     public Model_Exercise_4(String name, int series, String brand) {
         this.name = name;
         this.series = series;
+        this.brand = brand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getSeries() {
+        return series;
+    }
+
+    public void setSeries(int series) {
+        this.series = series;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
         this.brand = brand;
     }
 
@@ -99,6 +170,14 @@ class FuelCap_Exercise_4 {
         this.tankSizeInLiters = tankSizeInLiters;
     }
 
+    public double getTankSizeInLiters() {
+        return tankSizeInLiters;
+    }
+
+    public void setTankSizeInLiters(double tankSizeInLiters) {
+        this.tankSizeInLiters = tankSizeInLiters;
+    }
+
     @Override
     public String toString() {
         return "FuelCap_Exercise_4{" +
@@ -113,6 +192,14 @@ class CurrentFuelLevel_Exercise_4 {
         this.currentLevel = currentLevel;
     }
 
+    public double getCurrentLevel() {
+        return currentLevel;
+    }
+
+    public void setCurrentLevel(double currentLevel) {
+        this.currentLevel = currentLevel;
+    }
+
     @Override
     public String toString() {
         return "CurrentFuelLevel_Exercise_4{" +
@@ -124,6 +211,14 @@ class AEngine_Exercise_4 {
     private double horsePower;
 
     public AEngine_Exercise_4(double horsePower) {
+        this.horsePower = horsePower;
+    }
+
+    public double getHorsePower() {
+        return horsePower;
+    }
+
+    public void setHorsePower(double horsePower) {
         this.horsePower = horsePower;
     }
 
