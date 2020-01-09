@@ -14,6 +14,7 @@ public class Exercise_01 {
         joke();
         //aJokeAnswer
         yearToSeconds(2);
+        varargs(1,2,32,4,44,6,65,8,55,20);
     }
 
 
@@ -50,10 +51,12 @@ public class Exercise_01 {
 
 
     // 5) Create a varargs method that will return the length of the varargs array passed in
-
-
-
-
-
-
+    public static void varargs(int...a) {
+        //Syntax of varargs :
+        //A variable-length argument is specified by three periods(…).
+        for (int i: a)
+            System.out.print(i + " ");
+        System.out.println();
+        System.out.println("Length of array: " + a.length);
+    }
 }
