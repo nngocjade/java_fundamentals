@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.objects;
 
+import labs_examples.interfaces.examples.Series;
+
 /**
  * Building off the previous classes we created in Exercise_01
  *
@@ -30,20 +32,16 @@ those variables
 
 class Exercise_4{
     public static void main(String[] args) {
-        Model model = new Model("Boeing", 747, "Delta");
-        Make make = new Make(2012);
-        FuelCap fuelCap = new FuelCap(26000.00);
-        CurrentFuelLevel  currentFuelLevel = new CurrentFuelLevel(10000);
-        AEngine engine = new AEngine(400);
-        Airplane myAirplane = new Airplane (model, make, fuelCap, 10000.00, engine);
+        Model_Ex4 model = new Model_Ex4("Boeing", 747, "Delta");
+        Make_Ex4 make = new Make_Ex4(2012);
+        FuelCap_Ex4 fuelCap = new FuelCap_Ex4(26000.00);
+        CurrentFuelLevel_Ex4 currentFuelLevel = new CurrentFuelLevel_Ex4(10000);
+        AEngine_Ex4 engine = new AEngine_Ex4(400);
+        Airplane_Ex4 myAirplane = new Airplane_Ex4 (model, make, fuelCap, currentFuelLevel, engine);
 
-        System.out.println("My frequent flyer is " + myAirplane.model.name + " " + myAirplane.model.series + " " +
-                ", made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters
-                + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
-
-        System.out.println("My frequent flyer is " + Model_Exercise_4.getName() + " " + Model_Exercise_4.getSeries() +
-                " , made in the year of - " + myAirplane.make +  ", with a tank size of " + myAirplane.fuelCap.tankSizeInLiters
-                + " liters and a " +myAirplane.aEngine.horsePower + " engine.");
+        System.out.println("My frequent flyer is " + myAirplane.getModel().getName()+ " " + myAirplane.getModel().getSeries() + " " +
+                ", made in the year of - " + myAirplane.getMake().getYear() +  ", with a tank size of " + myAirplane.getFuelCap().getTankSizeInLiters()
+                + " liters and a " +myAirplane.getaEngine().getHorsePower() + " engine.");
         System.out.println("\n");
         System.out.println(myAirplane.toString());
         System.out.println(model.toString());
@@ -55,14 +53,14 @@ class Exercise_4{
     }
 }
 
-class Airplane_Exercise_4 {
-    private Model model;
-    private Make make;
-    private FuelCap fuelCap;
-    private Double currentFuelLevel;
-    private AEngine aEngine;
+class Airplane_Ex4{
+    private Model_Ex4 model;
+    private Make_Ex4 make;
+    private FuelCap_Ex4 fuelCap;
+    private CurrentFuelLevel_Ex4 currentFuelLevel;
+    private AEngine_Ex4 aEngine;
 
-    public Airplane_Exercise_4(Model model, Make make, FuelCap fuelCap, Double currentFuelLevel, AEngine aEngine) {
+    public Airplane_Ex4(Model_Ex4 model, Make_Ex4 make, FuelCap_Ex4 fuelCap, CurrentFuelLevel_Ex4 currentFuelLevel, AEngine_Ex4 aEngine) {
         this.model = model;
         this.make = make;
         this.fuelCap = fuelCap;
@@ -70,49 +68,49 @@ class Airplane_Exercise_4 {
         this.aEngine = aEngine;
     }
 
-    public Model getModel() {
+    public Model_Ex4 getModel() {
         return model;
     }
 
-    public void setModel(Model model) {
+    public void setModel(Model_Ex4 model) {
         this.model = model;
     }
 
-    public Make getMake() {
+    public Make_Ex4 getMake() {
         return make;
     }
 
-    public void setMake(Make make) {
+    public void setMake(Make_Ex4 make) {
         this.make = make;
     }
 
-    public FuelCap getFuelCap() {
+    public FuelCap_Ex4 getFuelCap() {
         return fuelCap;
     }
 
-    public void setFuelCap(FuelCap fuelCap) {
+    public void setFuelCap(FuelCap_Ex4 fuelCap) {
         this.fuelCap = fuelCap;
     }
 
-    public Double getCurrentFuelLevel() {
+    public CurrentFuelLevel_Ex4 getCurrentFuelLevel() {
         return currentFuelLevel;
     }
 
-    public void setCurrentFuelLevel(Double currentFuelLevel) {
+    public void setCurrentFuelLevel(CurrentFuelLevel_Ex4 currentFuelLevel) {
         this.currentFuelLevel = currentFuelLevel;
     }
 
-    public AEngine getaEngine() {
+    public AEngine_Ex4 getaEngine() {
         return aEngine;
     }
 
-    public void setaEngine(AEngine aEngine) {
+    public void setaEngine(AEngine_Ex4 aEngine) {
         this.aEngine = aEngine;
     }
 
     @Override
     public String toString() {
-        return "Airplane_Exercise_4{" +
+        return "Airplane_Ex4{" +
                 "model=" + model +
                 ", make=" + make +
                 ", fuelCap=" + fuelCap +
@@ -121,10 +119,10 @@ class Airplane_Exercise_4 {
                 '}';
     }
 }
-class Make_Exercise_4 {
+class Make_Ex4 {
     private int year;
 
-    public Make_Exercise_4(int year) {
+    public Make_Ex4(int year) {
         this.year = year;
     }
 
@@ -138,23 +136,23 @@ class Make_Exercise_4 {
 
     @Override
     public String toString() {
-        return "Make_Exercise_4{" +
+        return "Make_Ex4{" +
                 "year=" + year +
                 '}';
     }
 }
-class Model_Exercise_4 {
-    private static String name;
-    private static int series;
+class Model_Ex4 {
+    private String name;
+    private int series;
     private String brand;
 
-    public Model_Exercise_4(String name, int series, String brand) {
+    public Model_Ex4(String name, int series, String brand) {
         this.name = name;
         this.series = series;
         this.brand = brand;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
@@ -162,7 +160,7 @@ class Model_Exercise_4 {
         this.name = name;
     }
 
-    public static int getSeries() {
+    public int getSeries() {
         return series;
     }
 
@@ -180,17 +178,17 @@ class Model_Exercise_4 {
 
     @Override
     public String toString() {
-        return "Model_Exercise_4{" +
+        return "Model_Ex4{" +
                 "name='" + name + '\'' +
                 ", series=" + series +
                 ", brand='" + brand + '\'' +
                 '}';
     }
 }
-class FuelCap_Exercise_4 {
+class FuelCap_Ex4 {
     private double tankSizeInLiters;
 
-    public FuelCap_Exercise_4(double tankSizeInLiters) {
+    public FuelCap_Ex4(double tankSizeInLiters) {
         this.tankSizeInLiters = tankSizeInLiters;
     }
 
@@ -204,15 +202,15 @@ class FuelCap_Exercise_4 {
 
     @Override
     public String toString() {
-        return "FuelCap_Exercise_4{" +
+        return "FuelCap_Ex4{" +
                 "tankSizeInLiters=" + tankSizeInLiters +
                 '}';
     }
 }
-class CurrentFuelLevel_Exercise_4 {
+class CurrentFuelLevel_Ex4 {
     private double currentLevel;
 
-    public CurrentFuelLevel_Exercise_4(double currentLevel) {
+    public CurrentFuelLevel_Ex4(double currentLevel) {
         this.currentLevel = currentLevel;
     }
 
@@ -226,15 +224,15 @@ class CurrentFuelLevel_Exercise_4 {
 
     @Override
     public String toString() {
-        return "CurrentFuelLevel_Exercise_4{" +
+        return "CurrentFuelLevel_Ex4{" +
                 "currentLevel=" + currentLevel +
                 '}';
     }
 }
-class AEngine_Exercise_4 {
+class AEngine_Ex4 {
     private double horsePower;
 
-    public AEngine_Exercise_4(double horsePower) {
+    public AEngine_Ex4(double horsePower) {
         this.horsePower = horsePower;
     }
 
@@ -248,7 +246,7 @@ class AEngine_Exercise_4 {
 
     @Override
     public String toString() {
-        return "AEngine_Exercise_4{" +
+        return "AEngine_Ex4{" +
                 "horsePower=" + horsePower +
                 '}';
     }
