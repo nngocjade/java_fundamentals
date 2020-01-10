@@ -7,7 +7,7 @@ package labs_examples.objects_classes_methods.labs.methods;
  * those variables from the class in which you composed the Airplane object, as well as invoking their toString() methods.
  */
 
-public class Exercise_02 {
+public class Exercise_2 {
     /*
     REFER TO the OBJECTS package - EXERCISE.4
      */
