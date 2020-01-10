@@ -21,11 +21,15 @@ package labs_examples.objects_classes_methods.labs.methods;
 public class Exercise_3 {
     //demo method overloading
     public static void main(String[] args) {
-
+        varargs(3,4,5,6);
+        System.out.println();
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     public static void varargs(int...a){
-
+        for(int i=0; i < a.length; i++){
+            int x = a[i];
+            System.out.print(x);
+        }
 
     }
     //Write a method to count all consonants (the opposite of vowels) in a String
