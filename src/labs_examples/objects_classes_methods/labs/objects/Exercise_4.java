@@ -39,6 +39,12 @@ class Exercise_4{
         AEngine_Ex4 engine = new AEngine_Ex4(400);
         Airplane_Ex4 myAirplane = new Airplane_Ex4 (model, make, fuelCap, currentFuelLevel, engine);
 
+        //TODO: Ask Ryan about this
+        //setter overrides value in the above objects
+        model.setName("B");
+        model.setSeries(667);
+        model.setBrand("American Airline");
+
         System.out.println("My frequent flyer is " + myAirplane.getModel().getName()+ " " + myAirplane.getModel().getSeries() + " " +
                 ", made in the year of - " + myAirplane.getMake().getYear() +  ", with a tank size of " + myAirplane.getFuelCap().getTankSizeInLiters()
                 + " liters and a " +myAirplane.getaEngine().getHorsePower() + " engine.");
