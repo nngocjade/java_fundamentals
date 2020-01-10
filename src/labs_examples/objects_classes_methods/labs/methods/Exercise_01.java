@@ -19,11 +19,6 @@ public class Exercise_01 {
         System.out.println(a + " * " + b + " = " + m);
         System.out.println(a + " / " + b + " = " + d);
         System.out.println("A joke: " + joke());
-
-
-
-
-
     }
 
 
