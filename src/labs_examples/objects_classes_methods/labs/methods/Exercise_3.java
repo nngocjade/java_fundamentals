@@ -21,27 +21,31 @@ package labs_examples.objects_classes_methods.labs.methods;
 public class Exercise_3 {
     //demo method overloading
     public static void main(String[] args) {
-        varargs(3,4,5,6);
+        int max = varargs(2,4,33,55,3,1);
+        System.out.print(max);
         System.out.println();
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
-    public static void varargs(int...a){
-        for(int i=0; i < a.length; i++){
-            int x = a[i];
-            System.out.print(x);
+    //not using static here because it is under the same class as controller
+    public static int varargs(int...array){
+        int maxVal = array[0];
+        for(int i =1; i<array.length; i++){
+            if(array[i] > maxVal){
+                maxVal = array[i];
+            }
         }
-
+        return maxVal;
     }
     //Write a method to count all consonants (the opposite of vowels) in a String
-    public static void consonants(String[] args) {
+    public void consonants(String[] args) {
 
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
-    public static void printAscii(String[] args) {
+    public void printAscii(String[] args) {
 
     }
     //Write a method that will determine whether or not a number is prime
-    public static void primeOrNot(String[] args) {
+    public void primeOrNot(String[] args) {
 
     }
     //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
