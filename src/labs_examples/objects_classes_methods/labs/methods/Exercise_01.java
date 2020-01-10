@@ -8,34 +8,40 @@ public class Exercise_01 {
     public static void main(String[] args) {
         // please create the methods as instructed below then
         // call each of those methods from here, within the main()
-        multiply(3,5);
-        divide(4,6);
-        System.out.println("Why did the grocery delivery guy get fired?");
-        joke();
-        //aJokeAnswer
+        int a = 3;
+        int b = 5;
+        int m = multiply(a, b);
+        int d = divide(a, b);
+        String j = joke();
         yearToSeconds(2);
         varargs(1,2,32,4,44,6,65,8,55,20);
+
+        System.out.println(a + " * " + b + " = " + m);
+        System.out.println(a + " / " + b + " = " + d);
+        System.out.println("A joke: " + joke());
+
+
+
+
+
     }
 
 
     // 1) Create a static multiply() method below that takes two int arguments (int a, int b) and
     //    returns the result of a * b
-    public static void multiply(int a, int b) {
-        int multiply = a * b;
-        System.out.println("a * b = " + multiply);
+    public static int multiply(int a, int b) {
+        return a * b;
     }
 
     // 2) Create a static divide() method below that takes two int arguments (int a, int b) and
     //    returns the result of a / b
-    public static void divide(int a, int b) {
-        int divide = a / b;
-        System.out.println("a / b = " + divide);
+    public static int divide(int a, int b) {
+        return a / b;
     }
 
     // 3) Create a static void method that will print of joke of your choice to the console
     public static String joke() {
-        String aJokeAnswer = new String ("He drove people bananas!");
-        System.out.println(aJokeAnswer);
+        String aJokeAnswer = new String ("Why did the grocery delivery guy get fired?" + "\n" + "He drove people bananas!");
         return aJokeAnswer;
     }
 
@@ -54,9 +60,9 @@ public class Exercise_01 {
     public static void varargs(int...a) {
         //Syntax of varargs :
         //A variable-length argument is specified by three periods(…).
-        for (int i: a)
-            System.out.print(i + " ");
-        System.out.println();
-        System.out.println("Length of array: " + a.length);
+        for (int i : a){
+            System.out.println(i + " ");
+        }
+        System.out.println("The array length is " + a.length);
     }
 }
