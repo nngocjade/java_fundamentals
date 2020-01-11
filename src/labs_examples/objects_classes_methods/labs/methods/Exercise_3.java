@@ -21,23 +21,32 @@ package labs_examples.objects_classes_methods.labs.methods;
 public class Exercise_3 {
     //demo method overloading
     public static void main(String[] args) {
-        int max = varargs(2,4,33,55,3,1);
-        System.out.print(max);
+        int largest = varargs(2,4,33,55,3,1);
+        System.out.print(largest);
         System.out.println();
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
     public static int varargs(int...array){
-        int maxVal = array[0];
+        int largest = array[0];
         for(int i =1; i<array.length; i++){
-            if(array[i] > maxVal){
-                maxVal = array[i];
+            if(array[i] > largest){
+                largest = array[i];
             }
         }
-        return maxVal;
+        return largest;
     }
     //Write a method to count all consonants (the opposite of vowels) in a String
-    public void consonants(String[] args) {
+    public void consonants(String word) {
+        String vowel = "aeiouy";
+
+        for (int i = 0; i<word.length(); i++){
+            char c = word.charAt(i);
+            for(){
+
+            }
+        }
+
 
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
