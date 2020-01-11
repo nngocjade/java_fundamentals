@@ -46,15 +46,15 @@ public class Exercise_3 {
     }
     //Write a method to count all consonants (the opposite of vowels) in a String
     public static String consonants(String word) {
-        String vowels = new String [Integer.parseInt("a", "e", "i", "o", "u"];
-        char w = 0;
-
+        String consonants = "bcdfghjklmnpqrstvwxz";
+        int consCount = 0;
         for (int i = 0; i<word.length(); i++){
             char ch = word.charAt(i);
-            w++;
+            if(consonants.indexOf(ch) >= 0){
+                consCount++;
+            }
         }
-        System.out.println(w);
-        return word;
+        return String.valueOf(consCount);
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
     public void printAscii(String[] args) {
