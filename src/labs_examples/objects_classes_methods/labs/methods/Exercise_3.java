@@ -21,9 +21,17 @@ package labs_examples.objects_classes_methods.labs.methods;
 public class Exercise_3 {
     //demo method overloading
     public static void main(String[] args) {
+        //invoke varargs
         int largest = varargs(2,4,33,55,3,1);
+        //invoke consonants
+        String consonantLength = consonants("green");
+
+        //print varargs
         System.out.print(largest);
         System.out.println();
+        //print consonant
+        System.out.println("Number of consonants: " + consonantLength);
+
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -37,17 +45,16 @@ public class Exercise_3 {
         return largest;
     }
     //Write a method to count all consonants (the opposite of vowels) in a String
-    public void consonants(String word) {
-        String vowel = "aeiouy";
+    public static String consonants(String word) {
+        String vowels = new String [Integer.parseInt("a", "e", "i", "o", "u"];
+        char w = 0;
 
         for (int i = 0; i<word.length(); i++){
-            char c = word.charAt(i);
-            for(){
-
-            }
+            char ch = word.charAt(i);
+            w++;
         }
-
-
+        System.out.println(w);
+        return word;
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
     public void printAscii(String[] args) {
