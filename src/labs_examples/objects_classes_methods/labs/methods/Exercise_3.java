@@ -29,7 +29,7 @@ public class Exercise_3 {
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
-        boolean p = (boolean) primeOrNot(13);
+        boolean pOrNot = (boolean) primeOrNot(12);
 
 
         //print varargs
@@ -41,8 +41,7 @@ public class Exercise_3 {
         System.out.println("Highest value: " + highLow.high);
         System.out.println("Lowest value: " + highLow.low);
         //print prime or not
-        System.out.println("if prime, return true: " + p);
-        System.out.println("if not prime, return false: " + p);
+        System.out.println("if prime, return true, otherwise, false: " + pOrNot);
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -84,10 +83,9 @@ public class Exercise_3 {
             //prime numbers are only divisible by 1 and itself,
             // so num cannot be less than 1, if so, it would be false
             // Check from 2 to num-1
-            boolean t = true;
             for (int i = 2; i < num-1; i++) {
 
-                if (num % i == 0) {//If the number divided by 2 has a remainder of 0, i = 2
+                if (num % i == 0) {//This reads: If the number divided by 2 has a remainder of 0
                     return false;
                 }
             }
@@ -154,8 +152,5 @@ class Pair{
     int low;
     int high;
 }
-class Pair2{
-    public boolean p;
-    public boolean orNot;
-}
+
 
