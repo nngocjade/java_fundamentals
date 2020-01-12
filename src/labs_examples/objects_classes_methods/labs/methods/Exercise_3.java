@@ -29,7 +29,8 @@ public class Exercise_3 {
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
-        Pair2 primeOrNot = (Pair2) primeOrNot(13);
+        boolean p = (boolean) primeOrNot(13);
+
 
         //print varargs
         System.out.print("Largest value: " + largest);
@@ -40,8 +41,8 @@ public class Exercise_3 {
         System.out.println("Highest value: " + highLow.high);
         System.out.println("Lowest value: " + highLow.low);
         //print prime or not
-        System.out.println("if prime, return true: " + primeOrNot);
-        System.out.println("if not prime, return false: " + primeOrNot);
+        System.out.println("if prime, return true: " + p);
+        System.out.println("if not prime, return false: " + p);
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -77,22 +78,20 @@ public class Exercise_3 {
 
 
     }
+    //TODO Ask Ryan about this
     //Write a method that will determine whether or not a number is prime
     public static Object primeOrNot(int num) {
-            Pair2 pOrNot = new Pair2();
-            boolean p = true;
-            boolean orNot = false;
-        //prime numbers are only divisible by 1 and itself
-            if (num <= 1) {
-                return false;
-            }
+            //prime numbers are only divisible by 1 and itself,
+            // so num cannot be less than 1, if so, it would be false
             // Check from 2 to num-1
-            for (int i = 2; i < num; i++) {
-                pOrNot.p = true;
-                if (num % i == 0)
-                    pOrNot.orNot = false;
+            boolean t = true;
+            for (int i = 2; i < num-1; i++) {
+
+                if (num % i == 0) {//If the number divided by 2 has a remainder of 0, i = 2
+                    return false;
+                }
             }
-            return num;
+            return true;
     }
 
     //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
