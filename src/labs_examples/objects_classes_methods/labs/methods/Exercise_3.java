@@ -1,6 +1,5 @@
 package labs_examples.objects_classes_methods.labs.methods;
 
-import java.util.Arrays;
 /**
  * Create a new class called MethodTraining.java and in this class please do the following:
  *     1) Demonstrate method overloading in this class
@@ -22,12 +21,14 @@ import java.util.Arrays;
 public class Exercise_3 {
     //demo method overloading
     public static void main(String[] args) {
+
         //invoke varargs
         int largest = varargs(2,4,33,55,3,1);
         //invoke consonants
         String consonantLength = consonants("green");
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
+
 
         //print varargs
         System.out.print("Largest value: " + largest);
@@ -73,16 +74,19 @@ public class Exercise_3 {
 
     }
     //Write a method that will determine whether or not a number is prime
-    public void primeOrNot(String[] args) {
+    public static boolean primeOrNot(int num) {
 
+        //prime numbers are only divisible by 1 and itself
+            if (num <= 1)
+                return false;
 
+            // Check from 2 to n-1
+            for (int i = 2; i < num; i++)
+                if (num % i == 0)
+                    return false;
+            return true;
+        }
 
-
-
-
-
-
-    }
     //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
     // *             which is passed in as an argument
     //TODO Ask Ryan about this
@@ -137,7 +141,6 @@ public class Exercise_3 {
 
 
     }
-
 }
 
 class Pair{
