@@ -28,7 +28,8 @@ public class Exercise_3 {
         String consonantLength = consonants("green");
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
-
+        //invoke primeOrNot
+        boolean primeOrNot = primeOrNot(13);
 
         //print varargs
         System.out.print("Largest value: " + largest);
@@ -38,6 +39,7 @@ public class Exercise_3 {
         //System.out.println(highLow);
         System.out.println("Highest value: " + highLow.high);
         System.out.println("Lowest value: " + highLow.low);
+        System.out.println("if prime, true: ");
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -75,17 +77,22 @@ public class Exercise_3 {
     }
     //Write a method that will determine whether or not a number is prime
     public static boolean primeOrNot(int num) {
-
+            Pair2 pOrNot = new Pair2();
+            boolean p = true;
+            boolean orNot = false;
         //prime numbers are only divisible by 1 and itself
-            if (num <= 1)
+            if (num <= 1) {
                 return false;
-
-            // Check from 2 to n-1
-            for (int i = 2; i < num; i++)
+            }
+            // Check from 2 to num-1
+            for (int i = 2; i < num; i++) {
+                pOrNot.prime = true;
                 if (num % i == 0)
+                    pOrNot.orNot = false;
                     return false;
-            return true;
-        }
+            }
+        return true;
+    }
 
     //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
     // *             which is passed in as an argument
@@ -146,5 +153,9 @@ public class Exercise_3 {
 class Pair{
     int low;
     int high;
+}
+class Pair2{
+    boolean prime;
+    boolean orNot;
 }
 
