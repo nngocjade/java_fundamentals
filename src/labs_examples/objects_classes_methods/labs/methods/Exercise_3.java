@@ -26,22 +26,33 @@ public class Exercise_3 {
         int largest = varargs(2,4,33,55,3,1);
         //invoke consonants
         String consonantLength = consonants("green");
+        //invoke ascii art
+
+
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
+
+        //invoke reverseArray
+        int[] revArray = ReverseArray(44, 55, 22, 77, 33, 11, 44, 66);
 
 
         //print varargs
         System.out.print("Largest value: " + largest);
         //print consonant
         System.out.println("\n" + "Number of consonants: " + consonantLength);
+        //print ascii art
+
+
         //print Highest Lowest
         //System.out.println(highLow);
         System.out.println("Highest value: " + highLow.high);
         System.out.println("Lowest value: " + highLow.low);
         //print prime or not
         System.out.println("if prime, return true, otherwise, false: " + pOrNot);
+        //print reverseArray
+        System.out.println(revArray);
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -67,16 +78,12 @@ public class Exercise_3 {
         return String.valueOf(consCount);
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
-    public void printAscii(String[] args) {
-
-
-
-
-
+    public static void line(String[] args) {
 
 
 
     }
+
     //TODO Ask Ryan about this
     //Write a method that will determine whether or not a number is prime
     public static Object primeOrNot(int num) {
@@ -121,7 +128,7 @@ public class Exercise_3 {
     // *         In this method create an Integer ArrayList and populate it with each number between zero and maxNum that is
     // *         divisible by both divisor1 and divisor2. Then return this ArrayList. After calling this method, print out the
     // *         length of the returned list
-    public static void Arraylist(String[] args) {
+    public static void Arraylist(int maxNum, int divisor1, int divisor2) {
 
 
 
@@ -135,16 +142,14 @@ public class Exercise_3 {
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
     // *         variable is used to temporarily store individual values in the array
-    public static void ReverseArray(String[] args) {
-
-
-
-
-
-
-
-
-
+    public static int[] ReverseArray(int... array) {
+        int temp = array[0];
+        for(int i = 0; i < array.length; i++){
+            temp = array[i];
+            array[i] = array[array.length - 1 - 0];
+            array[array.length - 1 - i] = temp;
+        }
+        return array;
     }
 }
 
