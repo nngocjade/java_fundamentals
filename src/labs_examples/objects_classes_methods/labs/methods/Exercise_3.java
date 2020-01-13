@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.methods;
 
+import java.util.Arrays;
+
 /**
  * Create a new class called MethodTraining.java and in this class please do the following:
  *     1) Demonstrate method overloading in this class
@@ -35,7 +37,10 @@ public class Exercise_3 {
         boolean pOrNot = (boolean) primeOrNot(12);
 
         //invoke reverseArray
-        int[] revArray = ReverseArray(44, 55, 22, 77, 33, 11, 44, 66);
+        //TODO ASk Ryan about this
+        //How to print the array as is, before it gets reverse?
+        int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
+        int [] revArray = ReverseArray(a);
 
 
         //print varargs
@@ -50,9 +55,10 @@ public class Exercise_3 {
         System.out.println("Highest value: " + highLow.high);
         System.out.println("Lowest value: " + highLow.low);
         //print prime or not
-        System.out.println("if prime, return true, otherwise, false: " + pOrNot);
+        System.out.println("If prime, return true, otherwise, false: " + pOrNot);
         //print reverseArray
-        System.out.println(revArray);
+        System.out.println("This is the array passed in: " + Arrays.toString(a));
+        System.out.println("Array in reversed order: " + Arrays.toString(revArray));
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -83,8 +89,6 @@ public class Exercise_3 {
 
 
     }
-
-    //TODO Ask Ryan about this
     //Write a method that will determine whether or not a number is prime
     public static Object primeOrNot(int num) {
             //prime numbers are only divisible by 1 and itself,
@@ -143,10 +147,10 @@ public class Exercise_3 {
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
     // *         variable is used to temporarily store individual values in the array
     public static int[] ReverseArray(int... array) {
-        int temp = array[0];
-        for(int i = 0; i < array.length; i++){
-            temp = array[i];
-            array[i] = array[array.length - 1 - 0];
+
+        for(int i = 0; i < array.length/2; i++){
+            int temp = array[i];
+            array[i] = array[array.length - 1 - i];
             array[array.length - 1 - i] = temp;
         }
         return array;
