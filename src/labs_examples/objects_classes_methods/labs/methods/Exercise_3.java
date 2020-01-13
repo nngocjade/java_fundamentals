@@ -31,23 +31,23 @@ public class Exercise_3 {
         //invoke ascii art
 
 
+
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
-
         //invoke reverseArray
         //TODO ASk Ryan about this
-        //How to print the array as is, before it gets reverse?
+        //How to print the array as is, before it gets reversed?
         int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
         int [] revArray = ReverseArray(a);
-
-
         //print varargs
         System.out.print("Largest value: " + largest);
         //print consonant
         System.out.println("\n" + "Number of consonants: " + consonantLength);
-        //print ascii art
+        //print ArrayList
+
+
 
 
         //print Highest Lowest
@@ -85,6 +85,10 @@ public class Exercise_3 {
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
     public static void line(String[] args) {
+
+
+
+
 
 
 
@@ -134,9 +138,16 @@ public class Exercise_3 {
     // *         length of the returned list
     public static void Arraylist(int maxNum, int divisor1, int divisor2) {
 
+        int [] array = new int[6];
 
+        array [0] = 32;
+        array [1] = 12;
+        array [2] = 56;
+        array [3] = 22;
+        array [4] = 51;
+        array [5] = 87;
 
-
+        maxNum = array [5];
 
 
 
