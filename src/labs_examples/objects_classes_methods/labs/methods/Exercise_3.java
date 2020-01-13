@@ -36,19 +36,19 @@ public class Exercise_3 {
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
+        //invoke ArrayList
+        String aList = Arraylist(6,1,2 );
         //invoke reverseArray
         //TODO ASk Ryan about this
         //How to print the array as is, before it gets reversed?
         int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
         int [] revArray = ReverseArray(a);
+
+
         //print varargs
         System.out.print("Largest value: " + largest);
         //print consonant
         System.out.println("\n" + "Number of consonants: " + consonantLength);
-        //print ArrayList
-
-
-
 
         //print Highest Lowest
         //System.out.println(highLow);
@@ -56,9 +56,12 @@ public class Exercise_3 {
         System.out.println("Lowest value: " + highLow.low);
         //print prime or not
         System.out.println("If prime, return true, otherwise, false: " + pOrNot);
+        //print Arraylist
+        System.out.println("The array list is divisible by divisor 1 and divisor 2: " + aList);
         //print reverseArray
         System.out.println("This is the array passed in: " + Arrays.toString(a));
         System.out.println("Array in reversed order: " + Arrays.toString(revArray));
+
     }
     //Create a method that will return the largest of 4 numbers (all of which are passed in as arguments)
     //not using static here because it is under the same class as controller
@@ -136,29 +139,17 @@ public class Exercise_3 {
     // *         In this method create an Integer ArrayList and populate it with each number between zero and maxNum that is
     // *         divisible by both divisor1 and divisor2. Then return this ArrayList. After calling this method, print out the
     // *         length of the returned list
-    public static int Arraylist(int maxNum, int divisor1, int divisor2) {
+    public static String Arraylist(int maxNum, int divisor1, int divisor2) {
 
-        int [] array = new int[6];
+        int [] array = {18,12,16,22,46,10};
 
-        array [0] = 18;
-        array [1] = 12;
-        array [2] = 16;
-        array [3] = 22;
-        array [4] = 46;
-        array [5] = 10;
-
-        maxNum = array [5];
-        divisor1 = 1;
-        divisor2 = 2;
-        int minNum = array[0];
-
-        for (int i = 5; i < array.length; i--){
+        for (int i = maxNum; i > array.length; i--){
             maxNum = array [i];
             if (array[i] % divisor1 == 0 && array[i] % divisor2 == 0) {
-                maxNum--;
+               array[i] = maxNum--;
             }
         }
-        return array;
+        return String.valueOf(Arrays.toString(array) + " and the array length is: "+ array.length);
     }
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
