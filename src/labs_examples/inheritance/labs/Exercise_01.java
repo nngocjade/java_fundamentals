@@ -26,14 +26,33 @@ package labs_examples.inheritance.labs;
  *
  *
  */
+
+//controller
+class Exercise_01{
+    public static void main(String[] args) {
+        EBooks ebooks = new EBooks();
+        CrossPlatform crossPlatform = new CrossPlatform();
+
+        //invoking superclass variables from subclass,
+        // this is possible because the the instance variables in the superclass is set to "protected"
+        //meaning, any subclasses of the superclass can have access to its variables
+        ebooks.pages = 350;
+        crossPlatform.storage = "digitally";
+
+
+    }
+
+}
+
 //superclass-1
 class Books{
     //instance variables
-    private int pages; // at least 1 --> nth
-    private String genre;//romance, sci-fi, adventurous, mythical, history, poetry, biography, etc..
-    private String form; //physical or digital
-    private String storage; // shelf (physical location) or digitally
-    private double costs;//in most cases ebooks are cheaper than paperback
+    protected int pages; // at least 1 --> nth
+    protected String genre;//romance, sci-fi, adventurous, mythical, history, poetry, biography, etc..
+    protected String form; //physical or digital
+    protected String storage; // shelf (physical location) or digitally
+    protected double costs;//in most cases ebooks are cheaper than paperback
+    //access modifier set as "protected" so subclasses can have access
 
     //default constructor
     public Books(){
@@ -42,12 +61,19 @@ class Books{
         form = " ";
         costs = 0;
     }
-    //constructors
+    //constructors - overloading
     public Books(int pages, String genre, String form, String storage, double costs) {
         this.pages = pages;
         this.genre = genre;
         this.form = form;
         this.storage = storage;
+        this.costs = costs;
+    }
+
+    //constructor - overloading
+    public Books(int pages, String genre, double costs){
+        this.pages = pages;
+        this.genre = genre;
         this.costs = costs;
     }
 
@@ -108,8 +134,8 @@ class Books{
 //class 2-1 extends superclass-1
 class EBooks extends Books{
     //instance variables
-    protected static String portability;
-    protected static String apps;
+    private String portability;
+    private String apps;
 
     //default constructor
     public EBooks(){
@@ -117,17 +143,17 @@ class EBooks extends Books{
         apps = " ";
     }
 
-    //constructor
+    //constructor - overloading
     public EBooks(String portability, String apps) {
-        EBooks.portability = portability;
-        EBooks.apps = apps;
+        this.portability = portability;
+        this.apps = apps;
     }
 
-    //invoke parent(Books) constructor
+    //invoke parent(Books) constructor - overloading
     public EBooks(int pages, String genre, String form, String storage, double costs, String portability, String apps) {
         super(pages, genre, form, storage, costs);
-        EBooks.portability = portability;
-        EBooks.apps = apps;
+        this.portability = portability;
+        this.apps = apps;
     }
 
     //getter and setter
@@ -136,7 +162,7 @@ class EBooks extends Books{
     }
 
     public void setPortability(String portability) {
-        EBooks.portability = portability;
+        this.portability = portability;
     }
 
     public String getApps() {
@@ -144,7 +170,7 @@ class EBooks extends Books{
     }
 
     public void setApps(String apps) {
-        EBooks.apps = apps;
+        this.apps = apps;
     }
 
     //Override Ebooks(sub class) of Books(super class)
@@ -190,7 +216,6 @@ class CrossPlatform extends EBooks{
     }
 
     //getter and setter
-
     public String getPlatform() {
         return platform;
     }
@@ -208,7 +233,6 @@ class CrossPlatform extends EBooks{
     }
 
     //to string
-
     @Override
     public String toString() {
         return "CrossPlatform{" +
