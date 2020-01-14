@@ -10,6 +10,9 @@ package labs_examples.inheritance.labs;
  *      3) Create getters and setters for all instance variables and demonstrate setting superclass
  *          variables from a subclass
  *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass.
+ *
+ *      PICK UP FROM HERE
+ *
  *      5) Add constructors to each class and demonstrate the use of a superclass constructor
  *          from a subclass.
  *      6) Demonstrate constructor overloading and the use of the "super" keyword.
@@ -25,30 +28,200 @@ package labs_examples.inheritance.labs;
  */
 //superclass-1
 class Books{
+    //instance variables
     private int pages; // at least 1 --> nth
     private String genre;//romance, sci-fi, adventurous, mythical, history, poetry, biography, etc..
     private String form; //physical or digital
     private String storage; // shelf (physical location) or digitally
     private double costs;//in most cases ebooks are cheaper than paperback
 
+    //default constructor
+    public Books(){
+        pages = 0;
+        genre = " ";
+        form = " ";
+        costs = 0;
+    }
+    //constructors
+    public Books(int pages, String genre, String form, String storage, double costs) {
+        this.pages = pages;
+        this.genre = genre;
+        this.form = form;
+        this.storage = storage;
+        this.costs = costs;
+    }
+
+    //getter and setter
+    public int getPages() {
+        return pages;
+    }
+
+    public void setPages(int pages) {
+        this.pages = pages;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getForm() {
+        return form;
+    }
+
+    public void setForm(String form) {
+        this.form = form;
+    }
+
+    public String getStorage() {
+        return storage;
+    }
+
+    public void setStorage(String storage) {
+        this.storage = storage;
+    }
+
+    public double getCosts() {
+        return costs;
+    }
+
+    public void setCosts(double costs) {
+        this.costs = costs;
+    }
+
+    //to string
+    @Override
+    public String toString() {
+        return "Books{" +
+                "pages=" + pages +
+                ", genre='" + genre + '\'' +
+                ", form='" + form + '\'' +
+                ", storage='" + storage + '\'' +
+                ", costs=" + costs +
+                '}';
+    }
 }
 //class 2-1 extends superclass-1
 class EBooks extends Books{
-    private String portability;
-    private String apps;
+    //instance variables
+    protected static String portability;
+    protected static String apps;
+
+    //default constructor
+    public EBooks(){
+        portability = " ";
+        apps = " ";
+    }
+
+    //constructor
+    public EBooks(String portability, String apps) {
+        EBooks.portability = portability;
+        EBooks.apps = apps;
+    }
+
+    //invoke parent(Books) constructor
+    public EBooks(int pages, String genre, String form, String storage, double costs, String portability, String apps) {
+        super(pages, genre, form, storage, costs);
+        EBooks.portability = portability;
+        EBooks.apps = apps;
+    }
+
+    //getter and setter
+    public String getPortability() {
+        return portability;
+    }
+
+    public void setPortability(String portability) {
+        EBooks.portability = portability;
+    }
+
+    public String getApps() {
+        return apps;
+    }
+
+    public void setApps(String apps) {
+        EBooks.apps = apps;
+    }
+
+    //to string
+
+    @Override
+    public String toString() {
+        return "EBooks{" +
+                "portability='" + portability + '\'' +
+                ", apps='" + apps + '\'' +
+                '}';
+    }
 }
 
 //class 3-1 extends class 2-1
 class CrossPlatform extends EBooks{
+    //instance variables
     private String platform;//mobile or desktop
+    private String devices;//computer, kindle, phone, etc..
+
+    //default constructor
+    public CrossPlatform(){
+        platform = " ";
+        devices = " ";
+    }
+
+    //constructor
+    public CrossPlatform(String platform, String devices) {
+        this.platform = platform;
+        this.devices = devices;
+    }
+    //invoked from parent(Ebooks) constructor
+    public CrossPlatform(String portability, String apps, String platform, String devices) {
+        super(portability, apps);
+        this.platform = platform;
+        this.devices = devices;
+    }
+    //invoked from parent(Ebooks) and parent of Ebooks(Books) constructor
+    public CrossPlatform(int pages, String genre, String form, String storage, double costs, String portability, String apps, String platform, String devices) {
+        super(pages, genre, form, storage, costs, portability, apps);
+        this.platform = platform;
+        this.devices = devices;
+    }
+
+    //getter and setter
+
+    public String getPlatform() {
+        return platform;
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+    }
+
+    public String getDevices() {
+        return devices;
+    }
+
+    public void setDevices(String devices) {
+        this.devices = devices;
+    }
+
+    //to string
+
+    @Override
+    public String toString() {
+        return "CrossPlatform{" +
+                "platform='" + platform + '\'' +
+                ", devices='" + devices + '\'' +
+                '}';
+    }
 }
 
 
-//class 2-2 extends superclass-1
+/*//class 2-2 extends superclass-1
 class PaperBack extends Books{
     private String paperType;
     private double weight;
     private double length;
     private double width;
     private double depth;
-}
+}*/
