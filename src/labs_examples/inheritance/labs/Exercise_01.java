@@ -23,4 +23,32 @@ package labs_examples.inheritance.labs;
  *
  *
  */
+//superclass-1
+class Books{
+    private int pages; // at least 1 --> nth
+    private String genre;//romance, sci-fi, adventurous, mythical, history, poetry, biography, etc..
+    private String form; //physical or digital
+    private String storage; // shelf (physical location) or digitally
+    private double costs;//in most cases ebooks are cheaper than paperback
 
+}
+//class 2-1 extends superclass-1
+class EBooks extends Books{
+    private String portability;
+    private String apps;
+}
+
+//class 3-1 extends class 2-1
+class CrossPlatform extends EBooks{
+    private String platform;//mobile or desktop
+}
+
+
+//class 2-2 extends superclass-1
+class PaperBack extends Books{
+    private String paperType;
+    private double weight;
+    private double length;
+    private double width;
+    private double depth;
+}
