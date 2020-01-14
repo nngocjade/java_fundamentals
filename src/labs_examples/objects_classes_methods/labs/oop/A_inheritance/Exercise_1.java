@@ -17,21 +17,33 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
  * hiearchy. Demonstrate that your subclasses have set the variables in the parent classes, that you have called the parameterized
  * super constructors from sub-classes, that you are indeed overriding methods.
  */
-
+//Controller
 public class Exercise_1 {
 
 }
 //at least 5 classes, depth of hi
-//Class 1,
+//Class 1, parent Class aka. Super Class
+class Salon{
+
+}
+
+//Class 2, 1st level, sub-class
+//NailTech (child) of Salon (parent)
+class NailTech extends Salon{
+
+}
 
 
-//Class 2,
+//Class 3, 1st level, sub-class
+//Clients (child) of Salon (parent)
+class Clients extends Salon{
+
+}
 
 
-//Class 3,
+//Class 4, 2nd level, sub-class
+//
 
-
-//Class 4,
 
 
 //Class 5,

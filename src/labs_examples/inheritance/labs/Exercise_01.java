@@ -92,6 +92,7 @@ class Books{
         this.costs = costs;
     }
 
+
     //to string
     @Override
     public String toString() {
@@ -146,8 +147,9 @@ class EBooks extends Books{
         EBooks.apps = apps;
     }
 
-    //to string
+    //Override Ebooks(sub class) of Books(super class)
 
+    //to string
     @Override
     public String toString() {
         return "EBooks{" +
