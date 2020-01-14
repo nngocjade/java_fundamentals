@@ -142,14 +142,14 @@ public class Exercise_3 {
     public static String Arraylist(int maxNum, int divisor1, int divisor2) {
 
         int [] array = {18,12,16,22,46,10};
-
+        int x = array[0];
         for (int i = maxNum; i > array.length; i--){
-            maxNum = array [i];
+            x = array [i];
             if (array[i] % divisor1 == 0 && array[i] % divisor2 == 0) {
                array[i] = maxNum--;
             }
         }
-        return String.valueOf(Arrays.toString(array) + " and the array length is: "+ array.length);
+        return String.valueOf(Arrays.toString(array) + " and the array length is: "+ maxNum);
     }
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
