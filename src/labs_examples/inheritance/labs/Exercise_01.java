@@ -11,8 +11,6 @@ package labs_examples.inheritance.labs;
  *          variables from a subclass
  *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass.
  *
- *      PICK UP FROM HERE
- *
  *      5) Add constructors to each class and demonstrate the use of a superclass constructor
  *          from a subclass.
  *      6) Demonstrate constructor overloading and the use of the "super" keyword.
@@ -38,6 +36,17 @@ class Exercise_01{
         //meaning, any subclasses of the superclass can have access to its variables
         ebooks.pages = 350;
         crossPlatform.storage = "digitally";
+
+        //invoking superclass variables from subclass
+        //with getter and setter
+        ebooks.setPages(350);
+        crossPlatform.setStorage("digitally");
+
+        System.out.println(ebooks.pages + " " + crossPlatform.storage);
+
+
+
+
 
 
     }
@@ -77,8 +86,13 @@ class Books{
         this.costs = costs;
     }
 
+    //method overriding example
+    public void ReadingSpeed(int pages){
+        System.out.println("lots of pages");
+    }
+
     //getter and setter
-    public int getPages() {
+    public int getPages(int i) {
         return pages;
     }
 
@@ -102,7 +116,7 @@ class Books{
         this.form = form;
     }
 
-    public String getStorage() {
+    public String getStorage(String digitally) {
         return storage;
     }
 
@@ -118,8 +132,6 @@ class Books{
         this.costs = costs;
     }
 
-
-    //to string
     @Override
     public String toString() {
         return "Books{" +
@@ -239,6 +251,10 @@ class CrossPlatform extends EBooks{
                 "platform='" + platform + '\'' +
                 ", devices='" + devices + '\'' +
                 '}';
+    }
+    //overriding super class method
+    public void ReadingSpeed(int pages){
+        System.out.println("10 pages per hour");
     }
 }
 
