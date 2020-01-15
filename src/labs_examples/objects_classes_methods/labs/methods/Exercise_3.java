@@ -22,25 +22,23 @@ import java.util.Arrays;
  */
 public class Exercise_3 {
     //demo method overloading
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         //invoke varargs
         int largest = varargs(2,4,33,55,3,1);
         //invoke consonants
         String consonantLength = consonants("green");
         //invoke ascii art
-
-
+        int lines = AsciiArt(6);
 
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
         //invoke ArrayList
-        String aList = Arraylist(6,1,2 );
+        int aList = Arraylist(6,1,2 );
         //invoke reverseArray
         //TODO ASk Ryan about this
-        //How to print the array as is, before it gets reversed?
         int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
         int [] revArray = ReverseArray(a);
 
@@ -49,7 +47,8 @@ public class Exercise_3 {
         System.out.print("Largest value: " + largest);
         //print consonant
         System.out.println("\n" + "Number of consonants: " + consonantLength);
-
+        //print Ascii Art
+        System.out.println(lines);
         //print Highest Lowest
         //System.out.println(highLow);
         System.out.println("Highest value: " + highLow.high);
@@ -59,7 +58,6 @@ public class Exercise_3 {
         //print Arraylist
         System.out.println("The array list is divisible by divisor 1 and divisor 2: " + aList);
         //print reverseArray
-        System.out.println("This is the array passed in: " + Arrays.toString(a));
         System.out.println("Array in reversed order: " + Arrays.toString(revArray));
 
     }
@@ -87,15 +85,23 @@ public class Exercise_3 {
         return String.valueOf(consCount);
     }
     //Write a method that will print some kind of ascii art to the console (Google "ascii art" if needed)
-    public static void line(String[] args) {
-
-
-
-
-
-
-
-    }
+    public static int AsciiArt(int n) {
+        int i, j, k, l;
+        for(i=0;i<n;i++) {
+            for(k=0;k<i;k++) {
+                System.out.print("!`*``");
+            }
+            for(l=0;l<2*n-1-2*i;l++) {
+                System.out.print("+*+*+");
+            }
+            for(k=0;k<i;k++) {
+                System.out.print("``*`!");
+            }
+            //on each line
+            System.out.println();
+        }
+        return n;
+        }
     //Write a method that will determine whether or not a number is prime
     public static Object primeOrNot(int num) {
             //prime numbers are only divisible by 1 and itself,
@@ -112,7 +118,6 @@ public class Exercise_3 {
 
     //Write a method that will return a small array containing the highest and lowest numbers in a given numeric array,
     // *             which is passed in as an argument
-    //TODO Ask Ryan about this
     static Pair HighestLowest( int...array) {
 
         Pair highLow = new Pair();
@@ -139,17 +144,18 @@ public class Exercise_3 {
     // *         In this method create an Integer ArrayList and populate it with each number between zero and maxNum that is
     // *         divisible by both divisor1 and divisor2. Then return this ArrayList. After calling this method, print out the
     // *         length of the returned list
-    public static String Arraylist(int maxNum, int divisor1, int divisor2) {
+    //TODO: ask ryan
+    public static int Arraylist(int maxNum, int divisor1, int divisor2) {
 
         int [] array = {18,12,16,22,46,10};
         int x = array[0];
-        for (int i = maxNum; i > array.length; i--){
+        for (int i = maxNum; i > array.length; i++){
             x = array [i];
             if (array[i] % divisor1 == 0 && array[i] % divisor2 == 0) {
-               array[i] = maxNum--;
+               array[i] = maxNum++;
             }
         }
-        return String.valueOf(Arrays.toString(array) + " and the array length is: "+ maxNum);
+        return (maxNum);
     }
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
