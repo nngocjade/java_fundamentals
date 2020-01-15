@@ -28,27 +28,17 @@ package labs_examples.inheritance.labs;
 //controller
 class Exercise_01{
     public static void main(String[] args) {
-        EBooks ebooks = new EBooks();
-        CrossPlatform crossPlatform = new CrossPlatform();
+        EBooks ebooks = new EBooks(350, "sci-fi", "digital","virtual", 20.25, "on the go", "kindle app");
+        CrossPlatform crossPlatform = new CrossPlatform("on the go", "Apple Books", "Mac OS, Windows, Linux, etc.", "Ipad, Amazon Kindle,");
+        Books books = new Books(500,"adventurous","digital","virtual", 54.99);
 
-        //invoking superclass variables from subclass,
-        // this is possible because the the instance variables in the superclass is set to "protected"
-        //meaning, any subclasses of the superclass can have access to its variables
-        ebooks.pages = 350;
-        crossPlatform.storage = "digitally";
+        System.out.println("This ebook has " + ebooks.pages + " pages " + "and can be accessed on various operating systems such as " + crossPlatform.getPlatform());
 
-        //invoking superclass variables from subclass
-        //with getter and setter
-        ebooks.setPages(350);
-        crossPlatform.setStorage("digitally");
-
-        System.out.println(ebooks.pages + " " + crossPlatform.storage);
-
-
-
-
-
-
+        //demonstrating method overriding
+        ebooks.ReadingSpeed(40);
+        books.ReadingSpeed(12);
+        //overriding superclass method
+        crossPlatform.ReadingSpeed(20);
     }
 
 }
@@ -88,7 +78,7 @@ class Books{
 
     //method overriding example
     public void ReadingSpeed(int pages){
-        System.out.println("lots of pages");
+        System.out.println("Reading speed is " + pages + " pages per hour ");
     }
 
     //getter and setter
@@ -185,8 +175,6 @@ class EBooks extends Books{
         this.apps = apps;
     }
 
-    //Override Ebooks(sub class) of Books(super class)
-
     //to string
     @Override
     public String toString() {
@@ -252,9 +240,9 @@ class CrossPlatform extends EBooks{
                 ", devices='" + devices + '\'' +
                 '}';
     }
-    //overriding super class method
+    //overriding super class (Books) method
     public void ReadingSpeed(int pages){
-        System.out.println("10 pages per hour");
+        System.out.println("lots of pages");
     }
 }
 
