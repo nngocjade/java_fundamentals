@@ -1,5 +1,6 @@
 package labs_examples.objects_classes_methods.labs.methods;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -36,7 +37,8 @@ public class Exercise_3 {
         boolean pOrNot = (boolean) primeOrNot(12);
         //invoke ArrayList
         //TODO ask ryan
-        String aList = Arraylist(6,1,2 );
+        ArrayList aList = getDivisibleNums(6,1,2 );
+        System.out.println("The length of the array list divisible num is: " + aList.size());
         //invoke reverseArray
         int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
         int [] revArray = ReverseArray(a);
@@ -143,19 +145,18 @@ public class Exercise_3 {
     // *         In this method create an Integer ArrayList and populate it with each number between zero and maxNum that is
     // *         divisible by both divisor1 and divisor2. Then return this ArrayList. After calling this method, print out the
     // *         length of the returned list
-    //TODO: ask ryan
-    public static String Arraylist(int maxNum, int divisor1, int divisor2) {
+    public static ArrayList getDivisibleNums(int maxNum, int divisor1, int divisor2) {
 
-        int [] array = {18,12,16,22,46,10};
-        maxNum = array.length;
-        int x = 0;
-        for (int i = 0; i < maxNum; i++){
-            if (array[i] % divisor1 == 0 && array[i] % divisor2 == 0) {
-                x = array[i];
-                array[i] = x++;
-            }
+        ArrayList<Integer> divisibleNums = new ArrayList();
+
+        int x = 1;
+        for (int i = 0; i <= maxNum; i++){
+           if (x % divisor1 == 0 && x % divisor2 == 0){
+               divisibleNums.add(x);
+           }
+           x++;
         }
-        return String.valueOf("The array is: " + Arrays.toString(array) + " and length is: " + maxNum);
+        return divisibleNums;
     }
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
