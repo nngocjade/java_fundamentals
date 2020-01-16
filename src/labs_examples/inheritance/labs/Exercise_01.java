@@ -1,8 +1,4 @@
 package labs_examples.inheritance.labs;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 /**
  * Inheritance Exercise 1:
@@ -13,7 +9,8 @@ import javax.imageio.ImageIO;
  *      2) Each class should have at least two instance variable, all private.
  *      3) Create getters and setters for all instance variables and demonstrate setting superclass
  *          variables from a subclass
- *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass.
+ *
+ *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass. //TODO ask ryan
  *
  *      5) Add constructors to each class and demonstrate the use of a superclass constructor
  *          from a subclass.
@@ -32,9 +29,9 @@ import javax.imageio.ImageIO;
 //controller
 class Exercise_01{
     public static void main(String[] args) {
-        EBooks ebooks = new EBooks(350, "sci-fi", "digital","virtual", 20.25, "on the go", "kindle app");
+        EBook ebooks = new EBook(350, "sci-fi", "digital","virtual", 20.25, "on the go", "kindle app");
         CrossPlatform crossPlatform = new CrossPlatform("on the go", "Apple Books", "Mac OS, Windows, Linux, etc.", "Ipad, Amazon Kindle,");
-        Books books = new Books(500,"adventurous","digital","virtual", 54.99);
+        Book books = new Book(500,"adventurous","digital","virtual", 54.99);
 
         System.out.println("This ebook has " + ebooks.pages + " pages " + "and can be accessed on various operating systems such as " + crossPlatform.getPlatform());
 
@@ -48,7 +45,7 @@ class Exercise_01{
 }
 
 //superclass-1
-class Books{
+class Book {
     //instance variables
     protected int pages; // at least 1 --> nth
     protected String genre;//romance, sci-fi, adventurous, mythical, history, poetry, biography, etc..
@@ -57,15 +54,18 @@ class Books{
     protected double costs;//in most cases ebooks are cheaper than paperback
     //access modifier set as "protected" so subclasses can have access
 
+    public int multiply(int pages, double costs){
+        return (int) (pages*costs);
+    }
     //default constructor
-    public Books(){
+    public Book(){
         pages = 0;
         genre = " ";
         form = " ";
         costs = 0;
     }
     //constructors - overloading
-    public Books(int pages, String genre, String form, String storage, double costs) {
+    public Book(int pages, String genre, String form, String storage, double costs) {
         this.pages = pages;
         this.genre = genre;
         this.form = form;
@@ -74,7 +74,7 @@ class Books{
     }
 
     //constructor - overloading
-    public Books(int pages, String genre, double costs){
+    public Book(int pages, String genre, double costs){
         this.pages = pages;
         this.genre = genre;
         this.costs = costs;
@@ -137,26 +137,28 @@ class Books{
                 '}';
     }
 }
-//class 2-1 extends superclass-1
-class EBooks extends Books{
+//sub-class
+class EBook extends Book {
     //instance variables
     private String portability;
     private String apps;
 
+
     //default constructor
-    public EBooks(){
+    public EBook(){
         portability = " ";
         apps = " ";
+        int x = multiply(2,3.99);
     }
 
     //constructor - overloading
-    public EBooks(String portability, String apps) {
+    public EBook(String portability, String apps) {
         this.portability = portability;
         this.apps = apps;
     }
 
     //invoke parent(Books) constructor - overloading
-    public EBooks(int pages, String genre, String form, String storage, double costs, String portability, String apps) {
+    public EBook(int pages, String genre, String form, String storage, double costs, String portability, String apps) {
         super(pages, genre, form, storage, costs);
         this.portability = portability;
         this.apps = apps;
@@ -189,8 +191,8 @@ class EBooks extends Books{
     }
 }
 
-//class 3-1 extends class 2-1
-class CrossPlatform extends EBooks{
+//subclass of subclass
+class CrossPlatform extends EBook{
     //instance variables
     private String platform;//mobile or desktop
     private String devices;//computer, kindle, phone, etc..
@@ -251,11 +253,3 @@ class CrossPlatform extends EBooks{
 }
 
 
-/*//class 2-2 extends superclass-1
-class PaperBack extends Books{
-    private String paperType;
-    private double weight;
-    private double length;
-    private double width;
-    private double depth;
-}*/
