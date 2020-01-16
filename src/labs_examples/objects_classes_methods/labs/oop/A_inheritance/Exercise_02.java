@@ -17,7 +17,7 @@ class B extends A{
 public class Exercise_02 {
 
     public static void main(String[] args) {
-        A a = new B();
+        B a = new B();
 
         System.out.println(a.i);
     }
