@@ -30,15 +30,14 @@ public class Exercise_3 {
         String consonantLength = consonants("green");
         //invoke ascii art
         int lines = AsciiArt(6);
-
         //invoke HighestLowest
         Pair highLow = HighestLowest(4,5,2,9,12,55,45,32);
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
         //invoke ArrayList
-        int aList = Arraylist(6,1,2 );
+        //TODO ask ryan
+        String aList = Arraylist(6,1,2 );
         //invoke reverseArray
-        //TODO ASk Ryan about this
         int [] a = {12, 43, 32, 77, 31, 11, 44, 66};
         int [] revArray = ReverseArray(a);
 
@@ -145,17 +144,18 @@ public class Exercise_3 {
     // *         divisible by both divisor1 and divisor2. Then return this ArrayList. After calling this method, print out the
     // *         length of the returned list
     //TODO: ask ryan
-    public static int Arraylist(int maxNum, int divisor1, int divisor2) {
+    public static String Arraylist(int maxNum, int divisor1, int divisor2) {
 
         int [] array = {18,12,16,22,46,10};
-        int x = array[0];
-        for (int i = maxNum; i > array.length; i++){
-            x = array [i];
+        maxNum = array.length;
+        int x = 0;
+        for (int i = 0; i < maxNum; i++){
             if (array[i] % divisor1 == 0 && array[i] % divisor2 == 0) {
-               array[i] = maxNum++;
+                x = array[i];
+                array[i] = x++;
             }
         }
-        return (maxNum);
+        return String.valueOf("The array is: " + Arrays.toString(array) + " and length is: " + maxNum);
     }
     //Write a method that will reverse an array in place use only one extra temp variable. For this exercise you cannot
     // *         instantiate a second array. You must reverse the array in place using only one extra temp variable. Hint: this
