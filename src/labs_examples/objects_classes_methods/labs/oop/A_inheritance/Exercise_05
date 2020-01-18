@@ -1,7 +1,14 @@
 
 Without running the code below, please tell me what will print. Why?
 
+ANSWER:
+            //Output:
+                        "Parent called"
+                        "Child called"
 
+Because, in an inheritance relationship, the order of execution of constructors is parent class to child class.
+Since, c (parent reference) stores both the parent object and the child object therefore the order of execution of
+constructors is implicitly called.
 
 
 public class InheritanceTest
