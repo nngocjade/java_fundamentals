@@ -17,7 +17,9 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism;
 
 public class Exercise_1 {
     public static void main(String[] args) {
+        Bag bag = new Bag();
 
+        bag.Purpose();
     }
 }
 
@@ -28,8 +30,8 @@ public class Exercise_1 {
 class Bag{
     private int size;
     private boolean pocket;
-    private String use;
-    private String Shape;
+    protected String use;
+    protected String shape;
 
     public Bag(){
     }
@@ -38,12 +40,18 @@ class Bag{
         this.size = size;
         this.pocket = pocket;
         this.use = use;
-        Shape = shape;
+        shape = shape;
     }
     //example of constructor overloading
     public Bag(String use, String shape) {
         this.use = use;
-        Shape = shape;
+        shape = shape;
+    }
+    public void Purpose(){
+        use = "anything";
+        shape = "any shape";
+
+        System.out.println("A bag can be used for " + use + " and can have " + shape);
     }
 
 }
