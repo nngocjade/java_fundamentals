@@ -1,5 +1,7 @@
 package labs_examples.objects_classes_methods.labs.oop.B_polymorphism;
 
+import javax.xml.crypto.KeySelector;
+
 /**
  * 1) Demonstrate the three forms of Polymorphism:
  *     - Overloading
@@ -17,21 +19,33 @@ package labs_examples.objects_classes_methods.labs.oop.B_polymorphism;
 
 public class Exercise_1 {
     public static void main(String[] args) {
+        //objects
         Bag bag = new Bag();
+        BackPack backPack = new BackPack();
 
-        bag.Purpose();
+        //invoking methods
+        bag.Purpose("anything", "shape");
+        backPack.Purpose("travel", "cuboid");//overriding parent method
+
     }
+
+
 }
 
 //  1) Demonstrate the three forms of Polymorphism:
 // *     - Overloading
 // *     - Overriding
 // *     - Interfaces
+interface Features{
+    public boolean Portable();
+    public void Fashion();
+    public void Functional();
+}
 class Bag{
     private int size;
     private boolean pocket;
-    protected String use;
-    protected String shape;
+    private String use;
+    private String shape;
 
     public Bag(){
     }
@@ -47,21 +61,21 @@ class Bag{
         this.use = use;
         shape = shape;
     }
-    public void Purpose(){
-        use = "anything";
-        shape = "any shape";
+    public void Purpose(String use, String shape){
+      this.use = use;
+      this.shape = shape;
 
-        System.out.println("A bag can be used for " + use + " and can have " + shape);
+        System.out.println("Invoking from parent class: " + "A bag can be used for " + use + " and has all sorts of " + shape + "s");
     }
 
 }
-class BackPack extends Bag{
+class BackPack extends Bag {
     private int numPocket;
     private String compartment;
     private String strap;
     private String padding;
 
-    public BackPack(){
+    public BackPack() {
     }
 
     public BackPack(int numPocket, String compartment, String strap, String padding) {
@@ -87,4 +101,30 @@ class BackPack extends Bag{
         this.padding = padding;
     }
 
+    @Override
+    public void Purpose(String use, String shape) {
+        //overriding parent method (Purpose) with a different System.out.println()
+        System.out.println("This bag is used for " + use + "ing" + " and is shaped like a " + shape);
+    }
+
+}
+
+//Backpack implementing Features
+class Backpack implements Features{
+
+
+    @Override
+    public boolean Portable() {
+        return false;
+    }
+
+    @Override
+    public void Fashion() {
+
+    }
+
+    @Override
+    public void Functional() {
+
+    }
 }
