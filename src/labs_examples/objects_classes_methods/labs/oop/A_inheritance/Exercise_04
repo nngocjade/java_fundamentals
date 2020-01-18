@@ -7,7 +7,8 @@ ANSWER: The "Child Called" would print
         By definition of upcasting, in java, we can store a subclass object inside a parent class reference.
 
         c (parent class reference) is now the new Child() object and it is being invoked by c.doSomething() calling the specific
-        constructor in the child class. Therefore, would print "Child Called".
+        constructor in the child class. In other words, the constructor within the child class is being explicitly called.
+        Therefore, would print "Child Called".
 
 
 public class InheritanceTest
