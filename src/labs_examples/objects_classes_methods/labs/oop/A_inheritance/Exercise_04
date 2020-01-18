@@ -1,8 +1,12 @@
 
 Without running the code below, please tell me what it will print.
+        //TODO ask Ryan: Question: Why does this print? (I cant come up with a good logical explanation that makes sense) is the below explanation even legit?
 
-ANSWER: The "Child Called" would print due to upcasting.
-        In java we can store a subclass object inside a parent class reference.
+ANSWER: The "Child Called" would print
+        By definition of upcasting, in java, we can store a subclass object inside a parent class reference.
+        c (parent class reference) is now the new Child() object and it is being invoked by c.doSomething() calling the specific
+        constructor in the child class. Therefore, would print "Child Called".
+
 
 public class InheritanceTest
 {
