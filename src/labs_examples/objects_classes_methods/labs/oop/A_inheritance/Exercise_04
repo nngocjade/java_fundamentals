@@ -1,7 +1,8 @@
 
 Without running the code below, please tell me what it will print.
 
-
+ANSWER: The "Child Called" would print due to upcasting.
+        In java we can store a subclass object inside a parent class reference.
 
 public class InheritanceTest
 {
