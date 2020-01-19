@@ -13,9 +13,7 @@ package labs_examples.static_nonstatic.labs;
 
 public class StaticNonStatic_Exercise_1 {
     public static void main(String[] args) {
-        Backpack bag1 = new Backpack("Book Bag");
-        Backpack bag2 = new Backpack("Hiking");
-        Backpack bag3 = new Backpack("Day Pack");
+
 
         //same class - static calling static
         staticMethod();
@@ -23,9 +21,9 @@ public class StaticNonStatic_Exercise_1 {
         StaticNonStatic_Exercise_1 object = new StaticNonStatic_Exercise_1();
         object.nonStaticMethod();
         //another class - static calling static
-
+        Backpack.portableOrNot();
         //another class - static calling non-static
-
+        Backpack bag1 = new Backpack("Book Bag");
 
     }
     public static void staticMethod(){
@@ -39,26 +37,18 @@ public class StaticNonStatic_Exercise_1 {
 class Backpack {
     String type;
     static int strap;
-    static boolean portable;
+    static String portable;
     static boolean isNotPortable;
 
     public Backpack(){
     }
-
-    public static void main(String[] args) {
-        //in same class
-        //static calling static
-        portableOrNot();
-        System.out.println(portable);
-    }
-
     public Backpack(String type) {
         this.type = type;
+        System.out.println(type);
     }
-
-
     public static void portableOrNot(){
-        portable = true;
-        isNotPortable = false;
+        portable = "is portable";
+
+        System.out.println(portable);
     }
 }
