@@ -38,7 +38,7 @@ public class Exercise_1 {
 // *     - Interfaces
 interface Features{
     public boolean Portable();
-    public void Fashion();
+    public void Travel();
     public void Functional();
 }
 class Bag{
@@ -111,7 +111,15 @@ class BackPack extends Bag {
 
 //Backpack implementing Features
 class Backpack implements Features{
+    String strap;
+    String Handle;
+    boolean portability;
 
+    public Backpack(String strap, String handle, boolean portability) {
+        this.strap = strap;
+        this.Handle = handle;
+        this.portability = portability;
+    }
 
     @Override
     public boolean Portable() {
@@ -119,7 +127,7 @@ class Backpack implements Features{
     }
 
     @Override
-    public void Fashion() {
+    public void Travel() {
 
     }
 
