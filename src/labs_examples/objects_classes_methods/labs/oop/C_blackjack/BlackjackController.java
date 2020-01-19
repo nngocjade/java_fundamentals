@@ -34,24 +34,7 @@ public class BlackjackController {
 
     }
 }
-class Player{
-    String name;
-    Hand hand;
-    int potValue; //amount of money they have
 
-}
-class Card{
-    char[] suit = new char[]{'♠', '♦', '♥', '♣'};
-    int cardValue;
 
-}
-class Deck{
-    Card[] cards;
-    ArrayList<Integer> usedCards;
 
-}
-class Hand{
-    ArrayList<Card> cards;
-    int handValue;
 
-}
