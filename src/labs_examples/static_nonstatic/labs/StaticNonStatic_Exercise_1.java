@@ -14,24 +14,44 @@ package labs_examples.static_nonstatic.labs;
 public class StaticNonStatic_Exercise_1 {
     public static void main(String[] args) {
 
-
         //same class - static calling static
         staticMethod();
+        int divide = divide(12,6);
+        System.out.println(divide);
         //same class - static calling non-static
         StaticNonStatic_Exercise_1 object = new StaticNonStatic_Exercise_1();
         object.nonStaticMethod();
-        //another class - static calling static
+        StaticNonStatic_Exercise_1 multiply = new StaticNonStatic_Exercise_1();
+        multiply.multiply(22.22,33.33);
+        //static calling non-static - another class
+        System.out.println("printing static method calling a non-static method - another class ");
+        Backpack bag = new Backpack("A Book Bag");
+        // static calling static - another class
+        System.out.println("printing static method calling a static method - another class ");
         Backpack.portableOrNot();
-        //another class - static calling non-static
-        Backpack bag1 = new Backpack("Book Bag");
+
 
     }
     public static void staticMethod(){
-        System.out.println("prints static method");
+        System.out.println("printing static method calling static method - same class");
+    }
+    public static int divide(int a, int b){
+        return a*b;
     }
     public void nonStaticMethod(){
-        System.out.println("print non static method");
+        System.out.println("printing static method calling non-static method - same class");
     }
+    public void multiply(double a, double b){
+        double x = a*b;
+        System.out.println(x);
+    }
+    public void nonStatic1(){
+        nonStatic2();
+    }
+    public void nonStatic2(){
+        System.out.println("(static main method calling nonStatic1) to print (nonStatic2 calling from nonStatic1)");
+    }
+
 
 }
 class Backpack {
