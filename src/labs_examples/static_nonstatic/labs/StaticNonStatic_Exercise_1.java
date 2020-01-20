@@ -44,7 +44,12 @@ public class StaticNonStatic_Exercise_1 {
         nonStaticNonStaticAnotherClass.nonStatic2();
 
         //A non-static method calling a static method in the same class
-        
+        StaticNonStatic_Exercise_1 nonStaticStaticSameClass = new StaticNonStatic_Exercise_1();
+        nonStaticNonStaticAnotherClass.nonStatic3();
+
+        //A non-static method calling a static method in another class
+        StaticNonStatic_Exercise_1 nonStaticStaticAnotherClass = new StaticNonStatic_Exercise_1();
+        nonStaticStaticAnotherClass.nonStatic4();
     }
     public static void staticMethod(){
         System.out.println("printing static method calling static method - same class");
@@ -59,6 +64,9 @@ public class StaticNonStatic_Exercise_1 {
         double x = a*b;
         System.out.println(x);
     }
+    public static int simpleMath(int a, int b, int c){
+        return ((a+b)/c);
+    }
     public void nonStatic1(){
         multiply(6,3);
     }
@@ -67,10 +75,17 @@ public class StaticNonStatic_Exercise_1 {
         Backpack type2 = new Backpack();
         type2.backPackType1();
     }
-
-
-
+    public void nonStatic3(){
+        int x = simpleMath(3,3,2);
+        System.out.println("printing static main method calling nonStatic3 - nonStatic3 calling static simpleMath from the same class");
+        System.out.println(x);
+    }
+    public void nonStatic4(){
+        System.out.println("printing static main method calling nonStatic4 - nonStatic4 calling static backPackType2 from another class");
+        Backpack.backPackType2();
+    }
 }
+
 class Backpack {
     protected String type;
     protected static int strap;
@@ -86,6 +101,11 @@ class Backpack {
     public void backPackType1(){
         backPackType("not a backpack");
         isNotPortable();
+    }
+    public static void backPackType2(){
+        Backpack type2 = new Backpack();
+        type2.backPackType("Day pack");//non static
+        isPortable();//static
     }
     public void isNotPortable(){
         notPortable = "is not portable";
