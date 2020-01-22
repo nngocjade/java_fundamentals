@@ -12,35 +12,30 @@ import java.util.Scanner;
 class Exercise_3{
     public static void main(String[] args) {
 
-        int correctNum = num(5);
 
-        System.out.println("guess a number between 1 and 10");
-        Scanner userInput = new Scanner(System.in);
-        System.out.println("Enter a number: ");
-
-        String numEntered = userInput.nextLine();
-        System.out.println("you entered: "+ numEntered);
 
         try{
+            int num1;
+            int num2;
+            int divide;
 
-            correctNum = 1;
-            correctNum = 2;
-            correctNum = 3;
-            correctNum = 4;
-            correctNum = 6;
-            correctNum = 7;
-            correctNum = 8;
-            correctNum = 9;
-            correctNum = 10;
+            Scanner userInput = new Scanner(System.in);
+            System.out.println("enter a number");
+            num1 = userInput.nextInt();
 
-        }catch (ArithmeticException aeExc){
-            System.out.println("incorrect");
-        }finally {
-            System.out.println("you made a guess, sorry incorrect");
+            System.out.println("enter another number");
+            num2 = userInput.nextInt();
+
+            //throw
+            divide = num1 / num2;
+            System.out.println(num1 + " / " + num2 + " = " + divide);
+
+        }catch (ArithmeticException e){
+            System.out.println("Error: not divisible by 0");
         }
-
-    }
-    public static int num(int n){
-        return n;
+        finally {
+            System.out.println("math is awesome");
+        }
+        System.out.println("End of program");
     }
 }
