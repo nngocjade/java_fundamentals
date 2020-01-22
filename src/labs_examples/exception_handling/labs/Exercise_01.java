@@ -7,3 +7,16 @@ package labs_examples.exception_handling.labs;
  *
  */
 
+class Exercise_1{
+    public static void main(String[] args) {
+
+        try{
+            System.out.println(divide(12, 0));
+
+        }
+
+    }
+    public static int divide(int a, int b){
+        return a / b;
+    }
+}
