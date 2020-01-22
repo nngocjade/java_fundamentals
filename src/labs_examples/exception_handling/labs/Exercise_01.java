@@ -12,9 +12,11 @@ class Exercise_1{
 
         try{
             System.out.println(divide(12, 0));
-
+        }catch(ArithmeticException arExc) {
+            System.out.println("Not divisible by 0");
+        }catch (Exception aeExc){
+            System.out.println("Error detected");
         }
-
     }
     public static int divide(int a, int b){
         return a / b;
