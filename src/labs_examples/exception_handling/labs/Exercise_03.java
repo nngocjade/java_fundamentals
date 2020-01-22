@@ -1,5 +1,7 @@
 package labs_examples.exception_handling.labs;
 
+import java.util.Scanner;
+
 /**
  * Exception Handling Exercise 3:
  *
@@ -10,18 +12,35 @@ package labs_examples.exception_handling.labs;
 class Exercise_3{
     public static void main(String[] args) {
 
-        boolean t = trueOrFalse(true);
+        int correctNum = num(5);
+
+        System.out.println("guess a number between 1 and 10");
+        Scanner userInput = new Scanner(System.in);
+        System.out.println("Enter a number: ");
+
+        String numEntered = userInput.nextLine();
+        System.out.println("you entered: "+ numEntered);
 
         try{
-            t = false;
+
+            correctNum = 1;
+            correctNum = 2;
+            correctNum = 3;
+            correctNum = 4;
+            correctNum = 6;
+            correctNum = 7;
+            correctNum = 8;
+            correctNum = 9;
+            correctNum = 10;
+
         }catch (ArithmeticException aeExc){
-            System.out.println("boolean value is not false");
+            System.out.println("incorrect");
         }finally {
-            System.out.println("boolean value will always be true");
+            System.out.println("you made a guess, sorry incorrect");
         }
 
     }
-    public static boolean trueOrFalse(boolean b){
-        return b;
+    public static int num(int n){
+        return n;
     }
 }
