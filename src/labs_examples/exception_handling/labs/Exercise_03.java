@@ -12,8 +12,6 @@ import java.util.Scanner;
 class Exercise_3{
     public static void main(String[] args) {
 
-
-
         try{
             int num1;
             int num2;
