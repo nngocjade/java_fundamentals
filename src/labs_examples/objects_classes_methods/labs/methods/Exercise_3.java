@@ -36,7 +36,7 @@ public class Exercise_3 {
         //invoke primeOrNot
         boolean pOrNot = (boolean) primeOrNot(12);
         //invoke ArrayList
-        //TODO ask ryan
+
         ArrayList aList = getDivisibleNums(6,1,2 );
         System.out.println("The length of the array list divisible num is: " + aList.size());
         //invoke reverseArray

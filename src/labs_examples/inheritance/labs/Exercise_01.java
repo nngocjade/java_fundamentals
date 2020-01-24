@@ -10,7 +10,7 @@ package labs_examples.inheritance.labs;
  *      3) Create getters and setters for all instance variables and demonstrate setting superclass
  *          variables from a subclass
  *
- *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass. //TODO ask ryan
+ *      4) Demonstrate the use of (non getter and setter) methods in a superclass from a subclass.
  *
  *      5) Add constructors to each class and demonstrate the use of a superclass constructor
  *          from a subclass.

@@ -27,7 +27,7 @@ public class Exercise_06 {
         //5 4 3 2 1
        //temp = 2
 
-        //TODO: ask Ryan about this
+
         //populate array
         for (int i=0; i < array.length/2; i++){
             int temp = array[i];
