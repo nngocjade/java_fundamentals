@@ -12,14 +12,14 @@ class Exercise_2{
 
         int [] a = anArray(0,6,22,54,12);
 
-        try{
+        try {
             int x = a[4] / a[0]; //ArrayIndexOutOfBoundsException
             //int x = a[4] / a[5]; ArithmeticException
-        }catch (ArrayIndexOutOfBoundsException aeExc){
+        } catch (ArrayIndexOutOfBoundsException aeExc){
             System.out.println("An array index out of bound");
-        }catch (ArithmeticException arExc){
+        } catch (ArithmeticException arExc){
             System.out.println("Not divisible by an index out of bound");
-        }catch (Exception exc){
+        } catch (Exception exc){
             System.out.println("error detected");
         }
         System.out.println("end of program");

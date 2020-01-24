@@ -16,8 +16,8 @@ class Exercise_4{
             System.out.println(z);
         }catch(Exception e){
             try{//inner block exception
-                int x = list[0] / list[18];
-                //int x = list[0] / list[10];//inner block error
+                //int x = list[0] / list[18];
+                int x = list[0] / list[10];//inner block error
             }catch (IndexOutOfBoundsException aeExc){
                 System.out.println("Inner block error: Index out of bound");
             }

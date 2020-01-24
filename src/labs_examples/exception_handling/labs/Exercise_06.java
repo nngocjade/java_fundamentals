@@ -8,7 +8,7 @@ package labs_examples.exception_handling.labs;
  */
 
 class Exercise_6 {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         try {
             int x = anArray(12);
@@ -19,9 +19,8 @@ class Exercise_6 {
         System.out.println("end of program");
     }
 
-    public static int anArray(int i) throws Exception {
+    public static int anArray(int i) throws IndexOutOfBoundsException {
         int[] a = {2, 3, 4, 5, 67, 8};
-
         return a[i];
     }
 }
