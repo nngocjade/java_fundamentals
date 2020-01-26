@@ -1,0 +1,15 @@
+package labs_examples.objects_classes_methods.labs.oop.D_my_oop;
+
+/**
+ * For this exercise please model and build your own Object-Oriented Application. You can build whatever you want.
+ * Demonstrate your understanding of Encapsulation, Inheritance and Polymorphism - as well as all the other skills you
+ * now have. Be creative. Have fun. Challenge yourself. What would you like to build? A restaurant service? A rock climbing
+ * application? An interactive model of the universe? An application to help biologists? A financial trading application?
+ * A payroll and HR application? Is there something you could use in your day to day life that you could build an
+ * application around?
+ *
+ * Imagine it, design it, build it, test it. Have some fun. Reach out anytime you're stuck.
+ */
+
+public class Exercise1_controller {
+}
