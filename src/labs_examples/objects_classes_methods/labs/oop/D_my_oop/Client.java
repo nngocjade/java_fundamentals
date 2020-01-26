@@ -1,4 +1,5 @@
 package labs_examples.objects_classes_methods.labs.oop.D_my_oop;
 
-public class Client {
+//subclass
+public class Client extends BookingSystem {
 }
