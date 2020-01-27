@@ -20,6 +20,11 @@ public class BookingSystem {
     public BookingSystem(){
     }
 
+    public BookingSystem(int time, int date) {
+        this.time = time;
+        this.date = date;
+    }
+
     public BookingSystem(int time, int date, double businessHour) {
         this.time = time;
         this.date = date;
