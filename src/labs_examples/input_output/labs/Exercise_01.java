@@ -23,6 +23,7 @@ class Example {
         FileInputStream fin = null;
         BufferedInputStream bufferedInputStream = null;
         FileOutputStream fout = null;
+        BufferedOutputStream bufferedOutputStream = null;
 
         //Copy a File.
         try{
@@ -30,6 +31,8 @@ class Example {
             fin = new FileInputStream(fileReadPath);
             bufferedInputStream = new BufferedInputStream(fin);
             fout = new FileOutputStream(fileWritePath);
+            bufferedOutputStream = new BufferedOutputStream(fout);
+
 
             //holds collection of bytes to read at once
             byte[] buffer = new byte[5];
@@ -51,3 +54,15 @@ class Example {
         }
     }
 }
+
+//    BufferedInputStream fin = new BufferedInputStream(new FileInputStream("in.dat"));
+//    BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream("out.dat"));
+//    int i;
+//    do {
+//            i = fin.read();
+//            if (i != -1)
+//            fout.write(i);
+//            } while (i != -1);
+//            fin.close();
+//            fout.close();
+//            }
