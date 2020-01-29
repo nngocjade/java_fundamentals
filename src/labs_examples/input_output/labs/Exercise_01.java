@@ -2,6 +2,8 @@ package labs_examples.input_output.labs;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  * Input/Output Exercise 1: File input/output
@@ -19,7 +21,7 @@ class Example {
         BufferedInputStream bufferedInputStream = null;
 
         try{
-            inputStream = new FileInputStream();
+            inputStream = new FileInputStream("C:\\Users\\ngocn\\Documents\\CodingNomads\\Online_Prep\\Labs\\online-java-fundamentals\\src\\labs_examples\\input_output\\files\\byte_data");
             bufferedInputStream = new BufferedInputStream(inputStream);
             byte[] buffer = new byte[5];
             int bytesRead = 0;
@@ -31,7 +33,12 @@ class Example {
         } catch (IOException exc) {
             exc.printStackTrace();
         } finally {
-
-
+            try {
+                inputStream.close();
+                bufferedInputStream.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }
