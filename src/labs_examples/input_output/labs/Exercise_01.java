@@ -1,9 +1,7 @@
 package labs_examples.input_output.labs;
 
-import java.io.BufferedInputStream;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.nio.Buffer;
 
 /**
  * Input/Output Exercise 1: File input/output
@@ -15,14 +13,25 @@ import java.io.IOException;
  */
 
 class Example {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
-        FileInputStream inputStream = null;
+        int i;
+
+        String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
+        String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
+
+        FileInputStream fin = null;
         BufferedInputStream bufferedInputStream = null;
+        FileOutputStream fout = null;
 
+        //Copy a File.
         try{
-            inputStream = new FileInputStream("C:\\Users\\ngocn\\Documents\\CodingNomads\\Online_Prep\\Labs\\online-java-fundamentals\\src\\labs_examples\\input_output\\files\\byte_data");
-            bufferedInputStream = new BufferedInputStream(inputStream);
+            //Attempt to open the files
+            fin = new FileInputStream(fileReadPath);
+            bufferedInputStream = new BufferedInputStream(fin);
+            fout = new FileOutputStream(fileWritePath);
+
+            //holds collection of bytes to read at once
             byte[] buffer = new byte[5];
             int bytesRead = 0;
             // this while loop will read the file 5 bytes at a time
@@ -34,7 +43,7 @@ class Example {
             exc.printStackTrace();
         } finally {
             try {
-                inputStream.close();
+                fin.close();
                 bufferedInputStream.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
