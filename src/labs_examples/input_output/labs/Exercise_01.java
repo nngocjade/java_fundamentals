@@ -15,8 +15,6 @@ import java.nio.Buffer;
 class Example {
     public static void main(String[] args) throws IOException {
 
-        int i;
-
         String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
         String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
 
@@ -40,7 +38,7 @@ class Example {
             // this while loop will read the file 5 bytes at a time
             while ((bytesRead = bufferedInputStream.read(buffer)) != -1){
                 // print out bytes read to console
-                System.out.print(new String(buffer, 0, bytesRead));
+                bufferedOutputStream.write(bytesRead);
             }
         } catch (IOException exc) {
             exc.printStackTrace();
