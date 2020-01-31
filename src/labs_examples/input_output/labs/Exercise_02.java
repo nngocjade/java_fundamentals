@@ -19,6 +19,7 @@ import java.io.IOException;
 
 class Exercise_2{
     public static void main(String[] args) {
+        //passing in file
         String filePath = "";
     }
     public static void readCharByChar(String filePath) throws IOException{
