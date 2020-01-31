@@ -1,5 +1,10 @@
 package labs_examples.input_output.labs;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+
 /**
  * Input/Output Exercise 2: File encryption
  *
@@ -12,3 +17,26 @@ package labs_examples.input_output.labs;
  *
  */
 
+class Exercise_2{
+    public static void main(String[] args) {
+        String filePath = "";
+    }
+    public static void readCharByChar(String filePath) throws IOException{
+        //pass the path to the file as  parameter
+        FileReader fr = new FileReader(filePath);
+
+        //temp i variable
+        int i ;
+        //initialization inside while loop
+        while ((i = fr.read()) != -1)
+            //casting int to char in print line
+            System.out.println((char) i);
+    }
+    public static void readLineByLine(String filePath) throws IOException {
+        File file = new File(filePath);
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+
+
+    }
+}
