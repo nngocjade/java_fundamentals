@@ -14,18 +14,26 @@ import java.nio.Buffer;
 
 class Example {
     public static void main(String[] args) throws IOException {
+        //try with resources
         //TODO ask ryan:
+        //declaring buffered and file input stream
         BufferedInputStream fin = new BufferedInputStream(new FileInputStream("src/labs_examples/input_output/files/char_data_copy.txt"));
         BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream("src/labs_examples/input_output/files/char_data_rewrite.txt"));
+        //temp variable i
         int i;
         try {
+            //looping 5 bits at a time
             byte[] buffer = new byte[5];
+            //while find.read(buffer) is not reaching end of file, keep looping
             while (fin.read(buffer) != -1) {
+                //write charater while looping
                 fout.write(buffer);
             }
+            //catch any exception otherwise
         }catch(IOException ex) {
             ex.printStackTrace();
         }
+        //close once end of file is reached
         fin.close();
         fout.close();
     }
