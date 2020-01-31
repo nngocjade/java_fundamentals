@@ -18,8 +18,8 @@ class Example {
         //try with resources
         //TODO ask ryan:
         //declaring buffered and file input stream
-        String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
-        String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
+        String fileReadPath = "src/labs_examples/input_output/files/char_data_2.txt";
+        String fileWritePath = "src/labs_examples/input_output/files/char_data_copy.txt";
 
         //temp variable i
         int i;
@@ -31,10 +31,10 @@ class Example {
             byte[] buffer = new byte[5];
             //while find.read(buffer) is not reaching end of file, keep looping
             while (fin.read(buffer) != -1) {
-                //write charater while looping
+                //write while looping
                 fout.write(buffer);
             }
-            System.out.println("file copied to char_data_rewrite");
+            System.out.println("file copied to char_data_copy");
             //catch any exception otherwise
         } catch (IOException ex) {
             ex.printStackTrace();
