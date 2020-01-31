@@ -1,9 +1,7 @@
 package labs_examples.input_output.labs;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.CharBuffer;
 
 /**
  * Input/Output Exercise 2: File encryption
@@ -18,26 +16,25 @@ import java.io.IOException;
  */
 
 class Exercise_2{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //passing in file
-        String filePath = "";
+        String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
+        String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
+
+        readCharByChar(fileReadPath,fileWritePath);
+
     }
-    public static void readCharByChar(String filePath) throws IOException{
+    public static void readCharByChar(String fileReadPath, String fileWritePath) throws IOException{
         //pass the path to the file as  parameter
-        FileReader fr = new FileReader(filePath);
+        BufferedReader br = new BufferedReader(new FileReader(fileReadPath));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(fileWritePath));
 
         //temp i variable
         int i ;
         //initialization inside while loop
-        while ((i = fr.read()) != -1)
-            //casting int to char in print line
-            System.out.println((char) i);
-    }
-    public static void readLineByLine(String filePath) throws IOException {
-        File file = new File(filePath);
-
-        BufferedReader br = new BufferedReader(new FileReader(file));
-
-
+        while ((i = br.read()) != -1) {
+            //write to new file
+            bw.write(fileWritePath.replace("a","-"));
+        }
     }
 }
