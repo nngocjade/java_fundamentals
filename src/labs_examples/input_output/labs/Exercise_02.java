@@ -21,20 +21,19 @@ class Exercise_2{
         String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
         String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
 
-        readCharByChar(fileReadPath,fileWritePath);
-
-    }
-    public static void readCharByChar(String fileReadPath, String fileWritePath) throws IOException{
-        //pass the path to the file as  parameter
-        BufferedReader br = new BufferedReader(new FileReader(fileReadPath));
-        BufferedWriter bw = new BufferedWriter(new FileWriter(fileWritePath));
-
         //temp i variable
-        int i ;
-        //initialization inside while loop
-        while ((i = br.read()) != -1) {
-            //write to new file
-            bw.write(fileWritePath.replace("a","-"));
+        String st ;
+
+        try(BufferedReader br = new BufferedReader(new FileReader(new File (fileReadPath)));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath)))){
+
+            while ((st = br.readLine()) != null) {
+                bw.write((st.replaceAll("a", "-")));
+                bw.write((st.replaceAll("e", "~")));
+
+            }
+        }catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
