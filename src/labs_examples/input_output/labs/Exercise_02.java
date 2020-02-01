@@ -25,13 +25,15 @@ class Exercise_2{
         String st ;
 
         try(BufferedReader br = new BufferedReader(new FileReader(new File (fileReadPath)));
-            BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath)))){
+            BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath)))) {
 
             while ((st = br.readLine()) != null) {
                 bw.write((st.replaceAll("a", "-")));
-                bw.write((st.replaceAll("e", "~")));
-
+                //TODO ask ryan: how can I replace more than one characters at a time?
+                //bw.write((st.replace("e", "~")));
+                bw.newLine();
             }
+
         }catch (IOException e) {
             e.printStackTrace();
         }
