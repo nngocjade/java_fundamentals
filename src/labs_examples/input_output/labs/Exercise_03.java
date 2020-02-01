@@ -9,3 +9,23 @@ package labs_examples.input_output.labs;
  *    4) Demonstrate the use of the DataInputStream and DataOutputStream
  *
  */
+class Exercise_3{
+    public static void main(String[] args) {
+
+    }
+    public static void byte1(){
+
+    }
+    public static void byte2(){
+
+    }
+    public static void character1(){
+
+    }
+    public static void character2(){
+
+    }
+    public static void dataInputOutput(){
+
+    }
+        }
