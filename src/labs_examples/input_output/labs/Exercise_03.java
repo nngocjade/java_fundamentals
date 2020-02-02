@@ -13,15 +13,17 @@ class Exercise_3{
     public static void main(String[] args) {
 
     }
-    public static void byte1(){
+    public static void byteByByte(){
 
     }
+    //with buffer
     public static void byte2(){
 
     }
     public static void character1(){
 
     }
+    //with buffer
     public static void character2(){
 
     }
