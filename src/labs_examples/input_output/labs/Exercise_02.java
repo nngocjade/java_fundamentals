@@ -28,12 +28,9 @@ class Exercise_2{
             BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath)))) {
 
             while ((st = br.readLine()) != null) {
-                bw.write((st.replaceAll("a", "-")));
-                //TODO ask ryan: how can I replace more than one characters at a time?
-                //bw.write((st.replace("e", "~")));
+                bw.write((st.replaceAll("a", "-").replaceAll("e","~")));
                 bw.newLine();
             }
-
         }catch (IOException e) {
             e.printStackTrace();
         }
