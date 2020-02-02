@@ -1,7 +1,7 @@
 package labs_examples.input_output.labs;
 
 import java.io.*;
-import java.nio.CharBuffer;
+
 
 /**
  * Input/Output Exercise 2: File encryption
@@ -24,15 +24,28 @@ class Exercise_2{
         //temp i variable
         String st ;
 
-        try(BufferedReader br = new BufferedReader(new FileReader(new File (fileReadPath)));
+        //declaring and initializing files
+        try (BufferedReader br = new BufferedReader(new FileReader(new File (fileReadPath)));
             BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath)))) {
-
+            //while end of file is not reached
             while ((st = br.readLine()) != null) {
+                //write to new file and replace "a" with "-" and "e" with "~"
                 bw.write((st.replaceAll("a", "-").replaceAll("e","~")));
+                //line by line
                 bw.newLine();
             }
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        }
+        //reading back encrypted file
+        try (BufferedReader brNew = new BufferedReader(new FileReader(new File(fileWritePath)))){
+            //while end of file is not reached
+            while ((st = brNew.readLine()) != null) {
+                //print encrypted file to console
+                System.out.println(st);
+            }
+        } catch (IOException ex){
+            ex.printStackTrace();
         }
     }
 }
