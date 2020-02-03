@@ -1,5 +1,6 @@
 package labs_examples.input_output.labs;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -16,37 +17,33 @@ import java.io.IOException;
 class Exercise_3{
     public static void main(String[] args) throws IOException {
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
+        String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
 
         byteByByte(fileReadPath);
 
     }
     public static void byteByByte(String fileReadPath) throws IOException {
-        // declare Input and Output Streams outside of Try statement so they're
-        // accessible in the Finally statement
-        FileInputStream in = null;
 
-        try {
+        //try with resources
+        try (FileInputStream in = new FileInputStream(fileReadPath)) {
             // initialize them within the Try in case the files do not exist or cannot be accessed
-            in = new FileInputStream(fileReadPath);
             int c;
-
             // InputStream's read() method returns -1 when the end of the file is reached
             while ((c = in.read()) != -1) {
                 // write the data (byte by byte) to console
                 System.out.print((char) c);
             }
-        } catch (IOException exc){
+        } catch (IOException exc) {
             System.out.println("An error occurred: " + exc.getMessage());
-        } finally {
-            // close connections to files
-            if (in != null) {
-                in.close();
-            }
         }
     }
     //with buffer
-    public static void byte2(){
+    public static void byte2(String fileReadPath, String fileWritePath) throws IOException{
 
+        try(FileInputStream in = new FileInputStream(new File(fileReadPath));
+            FileOutputStream out = new FileOutputStream((new File(fileWritePath)))){
+
+        }
     }
     public static void character1(){
 
