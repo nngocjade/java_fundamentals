@@ -1,9 +1,6 @@
 package labs_examples.input_output.labs;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 
 /**
  * Input/Output Exercise 3: variety
@@ -19,10 +16,10 @@ class Exercise_3{
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
 
-        byteByByte(fileReadPath);
+        bytePrintToConsole(fileReadPath);
 
     }
-    public static void byteByByte(String fileReadPath) throws IOException {
+    public static void bytePrintToConsole(String fileReadPath) throws IOException {
 
         //try with resources
         try (FileInputStream in = new FileInputStream(fileReadPath)) {
@@ -38,11 +35,15 @@ class Exercise_3{
         }
     }
     //with buffer
-    public static void byte2(String fileReadPath, String fileWritePath) throws IOException{
+    public static void byteReadWrite(String fileReadPath, String fileWritePath) throws IOException{
 
-        try(FileInputStream in = new FileInputStream(new File(fileReadPath));
-            FileOutputStream out = new FileOutputStream((new File(fileWritePath)))){
+        try(BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath));
+            BufferedOutputStream fout = new BufferedOutputStream((new FileOutputStream(fileWritePath))){
 
+            byte[] buffer = new byte[3];
+            while (fin.read(buffer) != -1){
+
+            }
         }
     }
     public static void character1(){
