@@ -21,11 +21,9 @@ class Example {
         String fileReadPath = "src/labs_examples/input_output/files/char_data_2.txt";
         String fileWritePath = "src/labs_examples/input_output/files/char_data_copy.txt";
 
-        //temp variable i
-        int i;
 
         try (BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath));
-             BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream(fileWritePath));) {
+             BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream(fileWritePath))) {
 
             //looping 5 bits at a time
             byte[] buffer = new byte[5];
