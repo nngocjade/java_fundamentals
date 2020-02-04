@@ -12,7 +12,7 @@ import java.io.*;
  *
  */
 class Exercise_3{
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
         String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
@@ -49,27 +49,30 @@ class Exercise_3{
                 // write the data (byte by byte) to console
                 System.out.print((char) c);
             }
-        } catch (IOException exc) {
-            System.out.println("An error occurred: " + exc.getMessage());
         }
     }
     //with buffer
     public static void byteReadWriteBuffer(String fileReadPath, String fileWritePath) throws IOException {
 
+        FileInputStream in = new FileInputStream(fileReadPath);
+        FileOutputStream out = new FileOutputStream(fileWritePath);
 
+        int i;
 
         try {
-            BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath));
-            BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream(fileWritePath));
+            BufferedInputStream fin = new BufferedInputStream(in);
+            BufferedOutputStream fout = new BufferedOutputStream(out);
 
             byte[] buffer = new byte[3];
 
-            while (fin.read(buffer) != -1){
-                    fout.write(buffer);
-                }
-            }catch(IOException e){
-                e.printStackTrace();
+            while ( (i = fin.read(buffer)) != -1) {
+                fout.write((char) i);
+            }
+        } finally {
+            in.close();
+            out.close();
         }
+
         }
     public static void characterPrintToConsole(String fileReadPath1) throws IOException{
 
