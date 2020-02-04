@@ -13,8 +13,11 @@ import java.io.*;
  */
 class Exercise_3{
     public static void main(String[] args) {
+        //used
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
+        String fileReadPath0 = "src/labs_examples/input_output/files/byte_data_0";
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
+        //used
         String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
         String fileReadPath2 = "src/labs_examples/input_output/files/char_data_2.txt";
         String fileWritePath2 = "src/labs_examples/input_output/files/char_data_2.txt";
@@ -26,7 +29,7 @@ class Exercise_3{
         }
         System.out.println("\n");
         try{
-            byteReadWriteBuffer(fileReadPath,fileWritePath);
+            byteReadWriteBuffer(fileReadPath0,fileWritePath);
         }catch(IOException e){
             System.out.println("error detected: " + e.getMessage());
         }
@@ -52,28 +55,23 @@ class Exercise_3{
         }
     }
     //with buffer
-    public static void byteReadWriteBuffer(String fileReadPath, String fileWritePath) throws IOException {
+    public static void byteReadWriteBuffer(String fileReadPath0, String fileWritePath) throws IOException {
 
-        FileInputStream in = new FileInputStream(fileReadPath);
-        FileOutputStream out = new FileOutputStream(fileWritePath);
-
-        int i;
 
         try {
-            BufferedInputStream fin = new BufferedInputStream(in);
-            BufferedOutputStream fout = new BufferedOutputStream(out);
+            BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileReadPath0));
+            BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(fileWritePath));
 
-            byte[] buffer = new byte[3];
-
-            while ( (i = fin.read(buffer)) != -1) {
-                fout.write((char) i);
-            }
-        } finally {
-            in.close();
-            out.close();
+        byte[] buffer = new byte[3];
+        int i;
+        while ((i = bin.read(buffer)) != -1) {
+            bout.write((char) i);
+            System.out.print((char) i);
         }
-
+    } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
     public static void characterPrintToConsole(String fileReadPath1) throws IOException{
 
         try(FileReader in = new FileReader(fileReadPath1)){
