@@ -16,12 +16,12 @@ import java.io.*;
  */
 
 class Exercise_2{
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         //passing in file
         String fileReadPath = "src/labs_examples/input_output/files/char_data_copy.txt";
         String fileWritePath = "src/labs_examples/input_output/files/char_data_rewrite.txt";
 
-        //temp i variable
+        //temp st variable
         String st ;
 
         //declaring and initializing files
