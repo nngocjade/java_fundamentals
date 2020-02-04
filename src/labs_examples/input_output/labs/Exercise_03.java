@@ -16,10 +16,18 @@ class Exercise_3{
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
         String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
+        String fileReadPath2 = "src/labs_examples/input_output/files/char_data_2.txt";
+        String fileWritePath2 = "src/labs_examples/input_output/files/char_data_2.txt";
 
         try{
             bytePrintToConsole(fileReadPath);
         }catch (IOException e){
+            System.out.println("error detected: " + e.getMessage());
+        }
+        System.out.println("\n");
+        try{
+            byteReadWriteBuffer(fileReadPath,fileWritePath);
+        }catch(IOException e){
             System.out.println("error detected: " + e.getMessage());
         }
         System.out.println("\n");
@@ -46,19 +54,23 @@ class Exercise_3{
         }
     }
     //with buffer
-    public static void byteReadWrite(String fileReadPath1, String fileWritePath) throws IOException{
+    public static void byteReadWriteBuffer(String fileReadPath, String fileWritePath) throws IOException {
 
-//        try(BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath1));
-//            BufferedOutputStream fout = new BufferedOutputStream((new FileOutputStream(fileWritePath))){
-//
-////            byte[] buffer = new byte[5];
-////            while ((fin.read(buffer)) != -1){
-////
-////            }
-//        }catch (IOException e){
-//
-//        }
-            }
+
+
+        try {
+            BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath));
+            BufferedOutputStream fout = new BufferedOutputStream(new FileOutputStream(fileWritePath));
+
+            byte[] buffer = new byte[3];
+
+            while (fin.read(buffer) != -1){
+                    fout.write(buffer);
+                }
+            }catch(IOException e){
+                e.printStackTrace();
+        }
+        }
     public static void characterPrintToConsole(String fileReadPath1) throws IOException{
 
         try(FileReader in = new FileReader(fileReadPath1)){
@@ -73,7 +85,7 @@ class Exercise_3{
         }
     }
     //with buffer
-    public static void character2(){
+    public static void characterReadWriteBuffer(){
 
     }
     public static void dataInputOutput(){
