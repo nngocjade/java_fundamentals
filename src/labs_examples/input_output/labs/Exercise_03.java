@@ -15,8 +15,19 @@ class Exercise_3{
     public static void main(String[] args) throws IOException {
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
+        String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
 
-        bytePrintToConsole(fileReadPath);
+        try{
+            bytePrintToConsole(fileReadPath);
+        }catch (IOException e){
+            System.out.println("error detected: " + e.getMessage());
+        }
+        System.out.println("\n");
+        try{
+            characterPrintToConsole(fileReadPath1);
+        }catch (IOException e){
+            System.out.println("error detected: " + e.getMessage());
+        }
 
     }
     public static void bytePrintToConsole(String fileReadPath) throws IOException {
@@ -35,19 +46,31 @@ class Exercise_3{
         }
     }
     //with buffer
-    public static void byteReadWrite(String fileReadPath, String fileWritePath) throws IOException{
+    public static void byteReadWrite(String fileReadPath1, String fileWritePath) throws IOException{
 
-        try(BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath));
-            BufferedOutputStream fout = new BufferedOutputStream((new FileOutputStream(fileWritePath))){
-
-            byte[] buffer = new byte[3];
-            while (fin.read(buffer) != -1){
-
+//        try(BufferedInputStream fin = new BufferedInputStream(new FileInputStream(fileReadPath1));
+//            BufferedOutputStream fout = new BufferedOutputStream((new FileOutputStream(fileWritePath))){
+//
+////            byte[] buffer = new byte[5];
+////            while ((fin.read(buffer)) != -1){
+////
+////            }
+//        }catch (IOException e){
+//
+//        }
             }
-        }
-    }
-    public static void character1(){
+    public static void characterPrintToConsole(String fileReadPath1) throws IOException{
 
+        try(FileReader in = new FileReader(fileReadPath1)){
+
+            char c;
+            do {
+                c = (char) in.read();
+                System.out.print(c);
+            }while (c != '!');
+        }catch (IOException e){
+            e.printStackTrace();
+        }
     }
     //with buffer
     public static void character2(){
