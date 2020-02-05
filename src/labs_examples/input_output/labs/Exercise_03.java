@@ -1,7 +1,7 @@
 package labs_examples.input_output.labs;
 
 import java.io.*;
-import java.util.Arrays;
+import
 
 /**
  * Input/Output Exercise 3: variety
@@ -22,8 +22,9 @@ class Exercise_3{
         String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy.txt";
         //used
         String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
-
+        //used
         String fileReadPath2 = "src/labs_examples/input_output/files/char_data_3.txt";
+        //used
         String fileWritePath2 = "src/labs_examples/input_output/files/char_data_3_copy.txt";
 
         try{
@@ -70,8 +71,6 @@ class Exercise_3{
         while ((bin.read(buffer)) != -1) {
             bout.write(buffer);
         }
-    } catch (IOException e) {
-            e.printStackTrace();
         }
     }
     public static void characterPrintToConsole(String fileReadPath1) throws IOException{
@@ -83,12 +82,22 @@ class Exercise_3{
                 c = (char) in.read();
                 System.out.print(c);
             }while (c != '!');
-        }catch (IOException e){
-            e.printStackTrace();
         }
     }
     //with buffer
-    public static void characterReadWriteBuffer(){
+    public static void characterReadWriteBuffer(String fileReadPath2, String fileWritePath2) throws IOException{
+
+
+        try(BufferedReader br = new BufferedReader (new FileReader(new File(fileReadPath2)));
+        BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath2)))){
+
+            byte[] buffer = new byte[5];
+
+            while ((br.read(buffer)) != -1){
+                bw.write(buffer);
+                return;
+            }
+        }
 
     }
     public static void dataInputOutput(){
