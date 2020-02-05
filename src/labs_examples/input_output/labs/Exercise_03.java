@@ -1,6 +1,7 @@
 package labs_examples.input_output.labs;
 
 import java.io.*;
+import java.util.Arrays;
 
 /**
  * Input/Output Exercise 3: variety
@@ -15,12 +16,15 @@ class Exercise_3{
     public static void main(String[] args) {
         //used
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
-        String fileReadPath0 = "src/labs_examples/input_output/files/byte_data_0";
-        String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy";
+        //used
+        String fileReadPath0 = "src/labs_examples/input_output/files/byte_data_0.txt";
+        //used
+        String fileWritePath = "src/labs_examples/input_output/files/byte_data_copy.txt";
         //used
         String fileReadPath1 = "src/labs_examples/input_output/files/char_data_2.txt";
-        String fileReadPath2 = "src/labs_examples/input_output/files/char_data_2.txt";
-        String fileWritePath2 = "src/labs_examples/input_output/files/char_data_2.txt";
+
+        String fileReadPath2 = "src/labs_examples/input_output/files/char_data_3.txt";
+        String fileWritePath2 = "src/labs_examples/input_output/files/char_data_3_copy.txt";
 
         try{
             bytePrintToConsole(fileReadPath);
@@ -57,16 +61,14 @@ class Exercise_3{
     //with buffer
     public static void byteReadWriteBuffer(String fileReadPath0, String fileWritePath) throws IOException {
 
-
-        try {
-            BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileReadPath0));
-            BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(fileWritePath));
+        try (BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileReadPath0));
+            BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(fileWritePath))){
+        //TODO: ask ryan: don't know why or how its not writing to fileWritePath
 
         byte[] buffer = new byte[3];
-        int i;
-        while ((i = bin.read(buffer)) != -1) {
-            bout.write((char) i);
-            System.out.print((char) i);
+
+        while ((bin.read(buffer)) != -1) {
+            bout.write(buffer);
         }
     } catch (IOException e) {
             e.printStackTrace();
