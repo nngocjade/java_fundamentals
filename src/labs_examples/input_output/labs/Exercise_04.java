@@ -2,10 +2,8 @@ package labs_examples.input_output.labs;
 
 import labs_examples.input_output.examples.csv_parser.Student;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.sql.Array;
 import java.util.ArrayList;
 
 /**
@@ -26,13 +24,14 @@ class Exercise_4{
 
         ArrayList<Elephant> elephants = new ArrayList<>();
 
-        String filePath = "src/labs_examples/input_output/files/elephants.csv";
+        String fileReadPath = "src/labs_examples/input_output/files/elephants.csv";
+        String fileWritePath = "src/labs_examples/input_output/files/elephants_copy.csv";
 
         try(BufferedReader br =
-                    new BufferedReader(new FileReader(filePath))){
+                    new BufferedReader(new FileReader(fileReadPath))){
 
             String line;
-
+            //read data and save to an arraylist
             while ((line = br.readLine()) != null){
                 //split the line of text on " , "
                 String[] values = line.split(",");
@@ -43,8 +42,17 @@ class Exercise_4{
         }catch (IOException e){
             e.printStackTrace();
         }
+        //looping and printing them out
         for(Elephant elephant : elephants){
             System.out.println(elephant.toString());
+        }
+
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileWritePath))){
+
+            for(Elephant elephant : elephants){
+                bw.write(String.valueOf(elephant));
+                bw.newLine();
+            }
         }
 
     }

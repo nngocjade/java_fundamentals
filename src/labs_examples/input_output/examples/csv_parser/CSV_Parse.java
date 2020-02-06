@@ -10,7 +10,7 @@ public class CSV_Parse {
 
     public static void main(String[] args) {
 
-        ArrayList<Student> students = new ArrayList();
+        ArrayList<Student> students = new ArrayList<>();
 
         String filePath = "src/labs_examples/input_output/files/students.csv";
 
