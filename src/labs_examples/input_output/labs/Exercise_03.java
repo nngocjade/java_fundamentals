@@ -28,6 +28,10 @@ class Exercise_3{
         String fileReadPath2 = "src/labs_examples/input_output/files/char_data_3.txt";
         //used
         String fileWritePath2 = "src/labs_examples/input_output/files/char_data_3_copy.txt";
+        //used
+        String fileReadPath3 = "src/labs_examples/input_output/files/char_data_4.txt";
+        //used
+        String fileWritePath3 = "src/labs_examples/input_output/files/char_data_4_copy.txt";
 
         try{
             bytePrintToConsole(fileReadPath);
@@ -69,9 +73,9 @@ class Exercise_3{
     //with buffer
     public static void byteReadWriteBuffer(String fileReadPath0, String fileWritePath) throws IOException {
 
+        //try with resources
         try (BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileReadPath0));
             BufferedOutputStream bout = new BufferedOutputStream(new FileOutputStream(fileWritePath))){
-        //TODO: ask ryan: don't know why or how its not writing to fileWritePath
 
         byte[] buffer = new byte[3];
 
@@ -118,7 +122,7 @@ class Exercise_3{
             bw.close();
         }
     }
-    public static void dataInputOutput(){
+    public static void dataInputOutput(String fileReadPath3, String FileWritePath3) throws IOException{
 
     }
         }
