@@ -47,6 +47,7 @@ class Exercise_4{
             System.out.println(elephant.toString());
         }
 
+        //write to new file
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(fileWritePath))){
 
             for(Elephant elephant : elephants){
