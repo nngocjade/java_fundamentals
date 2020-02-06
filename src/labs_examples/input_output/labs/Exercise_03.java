@@ -1,7 +1,9 @@
 package labs_examples.input_output.labs;
 
 import java.io.*;
-import
+import java.nio.Buffer;
+
+
 
 /**
  * Input/Output Exercise 3: variety
@@ -13,7 +15,7 @@ import
  *
  */
 class Exercise_3{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         //used
         String fileReadPath = "src/labs_examples/input_output/files/byte_data";
         //used
@@ -41,6 +43,11 @@ class Exercise_3{
         System.out.println("\n");
         try{
             characterPrintToConsole(fileReadPath1);
+        }catch (IOException e){
+            System.out.println("error detected: " + e.getMessage());
+        }
+        try{
+            characterReadWriteBuffer(fileReadPath2, fileWritePath2);
         }catch (IOException e){
             System.out.println("error detected: " + e.getMessage());
         }
@@ -87,18 +94,29 @@ class Exercise_3{
     //with buffer
     public static void characterReadWriteBuffer(String fileReadPath2, String fileWritePath2) throws IOException{
 
+        BufferedReader br = null;
+        PrintWriter bw = null;
 
-        try(BufferedReader br = new BufferedReader (new FileReader(new File(fileReadPath2)));
-        BufferedWriter bw = new BufferedWriter(new FileWriter(new File (fileWritePath2)))){
+        try{
+            br = new BufferedReader(new FileReader(fileReadPath2));
+            bw = new PrintWriter(new FileWriter(fileWritePath2));
+            String st;
 
-            byte[] buffer = new byte[5];
-
-            while ((br.read(buffer)) != -1){
-                bw.write(buffer);
-                return;
+            while ((st = br.readLine()) != null){
+                bw.println(st);
             }
+        }catch (IOException e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if (br != null)
+                br.close();
+            }catch (IOException e){
+                System.out.println("error detected");
+            }
+            if (bw != null)
+            bw.close();
         }
-
     }
     public static void dataInputOutput(){
 
