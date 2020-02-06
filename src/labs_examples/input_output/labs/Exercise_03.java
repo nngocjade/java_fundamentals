@@ -1,8 +1,11 @@
 package labs_examples.input_output.labs;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import org.w3c.dom.ls.LSOutput;
+
 import java.io.*;
 import java.nio.Buffer;
-
+import java.sql.SQLOutput;
 
 
 /**
@@ -28,10 +31,12 @@ class Exercise_3{
         String fileReadPath2 = "src/labs_examples/input_output/files/char_data_3.txt";
         //used
         String fileWritePath2 = "src/labs_examples/input_output/files/char_data_3_copy.txt";
-        //used
-        String fileReadPath3 = "src/labs_examples/input_output/files/char_data_4.txt";
-        //used
-        String fileWritePath3 = "src/labs_examples/input_output/files/char_data_4_copy.txt";
+
+        //dataInput dataOutput
+        String filePath = "src/labs_examples/input_output/files/data.dat";
+        int i = 30;
+        double d = 24.33;
+        boolean b = true;
 
         try{
             bytePrintToConsole(fileReadPath);
@@ -54,6 +59,11 @@ class Exercise_3{
             characterReadWriteBuffer(fileReadPath2, fileWritePath2);
         }catch (IOException e){
             System.out.println("error detected: " + e.getMessage());
+        }
+        try{
+            dataInputOutput(filePath, i, d, b);
+        }catch (IOException e){
+            System.out.println("writing or reading error: " + e.getMessage());
         }
 
     }
@@ -122,7 +132,44 @@ class Exercise_3{
             bw.close();
         }
     }
-    public static void dataInputOutput(String fileReadPath3, String FileWritePath3) throws IOException{
+    public static void dataInputOutput(String filePath, int i, double d, boolean b) throws IOException{
 
-    }
+
+        //writing
+        try(DataOutputStream out =
+                    new DataOutputStream(new FileOutputStream(filePath))){
+
+            System.out.println("\n");
+
+            System.out.println("writing: " + i);
+            out.writeInt(i);
+
+            System.out.println("writing: " + d);
+            out.writeDouble(d);
+
+            System.out.println("writing: " + b);
+            out.writeBoolean(b);
+
+            System.out.println("\n");
+
+            }catch(IOException e){
+            System.out.println("writing error");
         }
+        try(DataInputStream in =
+                    new DataInputStream((new FileInputStream(filePath)))){
+
+            i = in.readInt();
+            System.out.println("Reading: " + i);
+
+            d = in.readDouble();
+            System.out.println("Reading: " + d);
+
+            b = in.readBoolean();
+            System.out.println("Reading: " + b);
+
+
+        }catch (IOException e){
+            System.out.println("reading error");
+        }
+    }
+}
