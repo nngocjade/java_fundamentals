@@ -1,5 +1,13 @@
 package labs_examples.input_output.labs;
 
+import labs_examples.input_output.examples.csv_parser.Student;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
 /**
  *
  *      Following the video examples and source code found in the src/labs_examples/input_output/examples/csv_parser
@@ -14,8 +22,42 @@ package labs_examples.input_output.labs;
  */
 
 class Exercise_4{
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
+        ArrayList<Elephant> elephants = new ArrayList<>();
+
+        String filePath = "src/labs_examples/input_output/files/elephants.csv";
+
+        try(BufferedReader br =
+                    new BufferedReader(new FileReader(filePath))){
+
+            String line;
+
+            while ((line = br.readLine()) != null){
+                //split the line of text on " , "
+                String[] values = line.split(",");
+                elephants.add(mapValueToElephantObject(values));
+            }
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        for(Elephant elephant : elephants){
+            System.out.println(elephant.toString());
+        }
+
+    }
+    private static Elephant mapValueToElephantObject(String[] values){
+
+        Elephant elephant = new Elephant();
+
+        elephant.setName((values[0]));
+        elephant.setPersonality(values[1]);
+        elephant.setAge(Integer.parseInt(values[2]));
+        elephant.setWeight(Double.parseDouble(values[3]));
+
+        return elephant;
     }
 }
 
@@ -65,5 +107,15 @@ class Elephant{
 
     public void setWeight(double weight) {
         this.weight = weight;
+    }
+
+    @Override
+    public String toString() {
+        return "Elephant{" +
+                "name='" + name + '\'' +
+                ", personality='" + personality + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                '}';
     }
 }
