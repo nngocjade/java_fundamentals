@@ -8,4 +8,19 @@ package labs_examples.multi_threading.labs;
  *
  */
 
+class Exercise_1{
 
+}
+class Runnable1 implements Runnable{
+
+    String threadName;
+
+    Runnable1(String name){
+        threadName = name;
+    }
+
+    public void run() {
+        System.out.println("Starting" + threadName);
+
+    }
+}
