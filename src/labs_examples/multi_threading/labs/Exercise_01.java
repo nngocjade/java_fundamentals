@@ -20,14 +20,20 @@ class Exercise_1{
         threadOne.start();
 
         //Option 2
+        //Create the Thread, passing Runnable1 on the fly in constructor, and Thread name
+        Thread threadTwo = new Thread(new Runnable1(), "ThreadOption2");
+        //starting thread
+        threadTwo.start();
 
+        //Option 3
+        //All in one line: creating Thread and runnable on the fly, passing in name and starting
+        new Thread(new Runnable1(), "ThreadOption3").start();
+        System.out.println("end of main thread");
 
     }
 
 }
 class Runnable1 implements Runnable{
-
-
 
     @Override
     public void run() {
