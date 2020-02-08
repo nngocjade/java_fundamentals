@@ -12,8 +12,9 @@ class Exercise_1{
     public static void main(String[] args) {
         System.out.println("Printing and Starting with Main thread");
         //Option 1
-        Runnable1 runnable1 = new Runnable1();
-
+        Runnable1 runnableOne = new Runnable1();
+        Thread threadOne = new Thread(runnableOne, "Option 1");
+        threadOne.start();
 
         //Option 2
     }
@@ -21,22 +22,16 @@ class Exercise_1{
 }
 class Runnable1 implements Runnable{
 
-    String threadName;
-    Runnable1(String name){
-        threadName = name;
-    }
 
-    public Runnable1() {
 
-    }
-
+    @Override
     public void run() {
-        System.out.println("Starting" + threadName);
+        System.out.println("Starting" + Thread.currentThread().getName());
 
         for(int count=0; count<5; count++){
             try {
                 Thread.sleep(1000);
-                System.out.println("In" + threadName + "count is" + count);
+                System.out.println("In" + Thread.currentThread().getName() + "count is" + count);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
