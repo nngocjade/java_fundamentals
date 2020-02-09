@@ -15,9 +15,16 @@ class Exercise_2{
 
         MultiplyingSimultaneously multiplyingSimultaneously = new MultiplyingSimultaneously(2);
         //passing runnableOne and Thread name of "ThreadOption1"
-        Thread threadMultiplyOne = new Thread(multiplyingSimultaneously, "ThreadMultiplyOne");
+        Thread threadMultiplyOne = new Thread(multiplyingSimultaneously, "ThreadMultiply1");
         //starting thread
         threadMultiplyOne.start();
+
+        MultiplyingSimultaneously multiplyingSimultaneously1 = new MultiplyingSimultaneously(3);
+        //passing runnableOne and Thread name of "ThreadOption1"
+        Thread threadMultiplyTwo = new Thread(multiplyingSimultaneously1, "ThreadMultiply2");
+        //starting thread
+        threadMultiplyTwo.start();
+
 
     }
 }
@@ -32,16 +39,12 @@ class MultiplyingSimultaneously implements Runnable{
 
     @Override
     public void run() {
-        System.out.println("Starting multiply1");
+        System.out.println("Starting " + Thread.currentThread().getName());
 
         //multiply
 
         int total;
-        //as x increments by 1, gets multiplied by y = 2 (every incremented value of x is multiplied by y = 2)
-        //x @ 0 times y @ 2 = 0
-        // x @ 1 times y @ 2 = 2
-        //x @ 2 times y @ 2 = 4
-        // and so on..
+        //as x increments by 1, gets multiplied by y (in other words, every incremented value of x is multiplied by y)
         for(int x=0; x<20; x++){
             try{
                 total = x*y;
