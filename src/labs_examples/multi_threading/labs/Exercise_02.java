@@ -13,28 +13,25 @@ class Exercise_2{
     public static void main(String[] args) {
         System.out.println("Let's multiple simultaneously");
 
-        MultiplyingSimultaneously multiplyingSimultaneously = new MultiplyingSimultaneously(2);
-        //passing runnableOne and Thread name of "ThreadOption1"
-        Thread threadMultiplyOne = new Thread(multiplyingSimultaneously, "ThreadMultiply1");
-        //starting thread
-        threadMultiplyOne.start();
-
-        MultiplyingSimultaneously multiplyingSimultaneously1 = new MultiplyingSimultaneously(3);
-        //passing runnableOne and Thread name of "ThreadOption1"
-        Thread threadMultiplyTwo = new Thread(multiplyingSimultaneously1, "ThreadMultiply2");
-        //starting thread
-        threadMultiplyTwo.start();
-
+        MultiplyingSimultaneously multiplyingSimultaneously = new MultiplyingSimultaneously(2, "ThreadMultiply2");
+        MultiplyingSimultaneously multiplyingSimultaneously1 = new MultiplyingSimultaneously(3, "ThreadMultiply3");
 
     }
 }
-//POJO
+//POJO implementing thread
 class MultiplyingSimultaneously implements Runnable{
 
     private int y;
+    Thread thread;
 
-    public MultiplyingSimultaneously(int y) {
+    public MultiplyingSimultaneously(int y, String name) {
+        //passing in value for y in the main thread
         this.y = y;
+        //create thread object - pass "this" object and the name given
+        thread = new Thread(this, name);
+        //start the thread automatically when the MultiplyingSimultaneously object is created
+        thread.start();
+
     }
 
     @Override
