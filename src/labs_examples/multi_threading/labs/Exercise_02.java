@@ -1,8 +1,5 @@
 package labs_examples.multi_threading.labs;
 
-import java.io.IOException;
-import java.sql.SQLOutput;
-
 /**
  * Multithreading Exercise 2:
  *
