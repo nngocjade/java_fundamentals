@@ -9,30 +9,44 @@ package labs_examples.multi_threading.labs;
 //using Exercise 2 to demo changing priority
 class Exercise_3{
     public static void main(String[] args) throws Exception {
-        System.out.println("Let's multiple simultaneously");
 
+        System.out.println("Let's multiple simultaneously");
 
         MultiplySetPriority multiplyingSimultaneously = new MultiplySetPriority(2, "ThreadMultiply2");
         MultiplySetPriority multiplyingSimultaneously1 = new MultiplySetPriority(3, "ThreadMultiply3");
 
-        //thread priority
-        multiplyingSimultaneously.thread.setPriority(Thread.NORM_PRIORITY+2);
-        multiplyingSimultaneously1.thread.setPriority(Thread.NORM_PRIORITY-2);
+        //setting thread priority
+        multiplyingSimultaneously.thread.setPriority(Thread.NORM_PRIORITY+1);
+        multiplyingSimultaneously1.thread.setPriority(Thread.NORM_PRIORITY-1);
 
-
+        //starting ThreadMultiply2
+        multiplyingSimultaneously.thread.start();
+        //executing ThreadMultiply2 first
         try {
             multiplyingSimultaneously.thread.join();
+        }
+        catch(InterruptedException exc) {
+            System.out.println("Main thread interrupted.");
+        }
+
+        //THEN
+
+        //starting ThreadMultiply3
+        //executing ThreadMultiply3 second
+        multiplyingSimultaneously1.thread.start();
+        try {
             multiplyingSimultaneously1.thread.join();
         }
         catch(InterruptedException exc) {
             System.out.println("Main thread interrupted.");
         }
-        System.out.println("\nHigh priority thread counted to " +
+
+        //priority count
+        System.out.println("\n" + multiplyingSimultaneously.thread.getName() + " : High priority thread counted to " +
                 multiplyingSimultaneously.count);
-        System.out.println("Low priority thread counted to " +
+        System.out.println(multiplyingSimultaneously1.thread.getName() + " : Low priority thread counted to " +
                 multiplyingSimultaneously1.count);
     }
-
     }
 
 
@@ -55,14 +69,11 @@ class MultiplySetPriority implements Runnable{
         count = 0;
         currentName = name;
         //start the thread automatically when the MultiplyingSimultaneously object is created
-        thread.start();
     }
 
     @Override
     public void run() {
-        System.out.println("Starting " + Thread.currentThread().getName());
-
-
+        System.out.println("\nStarting" + Thread.currentThread().getName());
         do {
             count++;
             if(currentName.compareTo(thread.getName()) != 0) {
@@ -79,7 +90,9 @@ class MultiplySetPriority implements Runnable{
                     }
                 }
             }
-        } while(stop == false && count < 20);
+            //HIGH priority is 10
+            //LOW priority is 1
+        } while(stop == false && count < 10);
         stop = true;
     }
 }
