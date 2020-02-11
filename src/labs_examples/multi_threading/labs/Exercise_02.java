@@ -18,8 +18,24 @@ class Exercise_2{
 //POJO implementing thread
 class MultiplyingSimultaneously implements Runnable{
 
+    int count;
+    //multiplying by y
     private int y;
+
+    //creating thread object that will manage the thread
     Thread thread;
+    static boolean stop = false;
+    static String currentName;
+    int id = 0;
+
+    public MultiplyingSimultaneously(String name){
+        thread = new Thread(this, name);
+        count = 0;
+        currentName = name;
+        //starting thread here instead of in the controller class
+        thread.start();
+    }
+
 
     public MultiplyingSimultaneously(int y, String name) {
         //passing in value for y in the main thread
