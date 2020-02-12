@@ -63,20 +63,22 @@ class SyncThread implements Runnable{
     int mA;
     int answer;
 
+    //reference to sync block
     public SyncThread(int y, String name) {
         //create thread object - pass "this" object and the name given
         thread = new Thread(this, name);
         mY = y;
-        //start the thread automatically when the MultiplyingSimultaneously object is created
+        //start the thread automatically when the MultiplySyncBlock object is created
         thread.start();
     }
 
+    //reference to sync method
     public SyncThread(int z, int a, String name) {
         //create thread object - pass "this" object and the name given
         thread = new Thread(this, name);
         mZ = z;
         mA = a;
-        //start the thread automatically when the MultiplyingSimultaneously object is created
+        //start the thread automatically when the MultiplySyncMethod object is created
         thread.start();
     }
 
@@ -95,7 +97,7 @@ class SyncThread implements Runnable{
 //controller
 class Exercise_4{
     public static void main(String[] args) {
-        System.out.println("Let's multiple simultaneously");
+        System.out.println("Let's multiple");
 
         SyncThread syncThread1 = new SyncThread(1, "ThreadMultiplySync1");
         SyncThread syncThread2 = new SyncThread(2, "ThreadMultiplySync2");
