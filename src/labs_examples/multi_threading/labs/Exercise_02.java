@@ -10,20 +10,19 @@ class Exercise_2{
     public static void main(String[] args) {
         System.out.println("Let's multiple simultaneously");
 
-        MultiplyingSimultaneously multiplyingSimultaneously = new MultiplyingSimultaneously(2, "ThreadMultiply2");
-        MultiplyingSimultaneously multiplyingSimultaneously1 = new MultiplyingSimultaneously(3, "ThreadMultiply3");
-
+        SyncThread multiplyingSimultaneously = new SyncThread(2, "ThreadMultiply2");
+        SyncThread multiplyingSimultaneously1 = new SyncThread(3, "ThreadMultiply3");
     }
 }
 //POJO implementing thread
-class MultiplyingSimultaneously implements Runnable{
+class Multiply implements Runnable{
 
     //multiplying by y
     private int y;
     //creating thread object that will manage the thread
     Thread thread;
 
-    public MultiplyingSimultaneously(int y, String name) {
+    public Multiply(int y, String name) {
         //passing in value for y in the main thread
         this.y = y;
         //create thread object - pass "this" object and the name given
