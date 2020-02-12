@@ -16,14 +16,14 @@ class AlarmWakeUp{
 
     synchronized void ring(int hour){
         this.hour = hour;
-        state = "wake up";
 
         for (int t = 1; t < 24; t++){
             try{
                 t = hour;
                 if(t <= 24){
-                    System.out.println("Alarm goes off when: t = " + t + " " + state);
-                    wait();
+                    System.out.println("Alarm goes off when: hour = " + t );
+                    wait(1);
+                    return;
                 }
             }catch (InterruptedException ex){
                 Thread.currentThread().interrupt();
@@ -31,14 +31,23 @@ class AlarmWakeUp{
         }
     }
 
-    synchronized void sleep()
+    synchronized void wakeUp() {
+        state = "wake up";
 
+        try{
+            System.out.println("Time to " + state);
+            notify();
+            wait();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
 }
 //Thread
 class SyncThreadAlarmClock implements Runnable{
 
     Thread thread;
-    static AlarmWakeUp alarmWakeUp = new AlarmWakeUp(hour);
+    static AlarmWakeUp alarmWakeUp = new AlarmWakeUp();
     int hr;
 
 
@@ -53,6 +62,9 @@ class SyncThreadAlarmClock implements Runnable{
         System.out.println("Starting " + Thread.currentThread().getName());
 
         alarmWakeUp.ring(hr);
+
+        alarmWakeUp.wakeUp();
+
     }
 }
 
@@ -63,6 +75,11 @@ class Exercise_5{
 
         SyncThreadAlarmClock syncThreadAlarmClock = new SyncThreadAlarmClock(4, "synThread1");
 
+        try {
+            syncThreadAlarmClock.thread.join();
+        } catch(InterruptedException exc) {
+            System.out.println("Main thread interrupted.");
+        }
 
     }
 }
