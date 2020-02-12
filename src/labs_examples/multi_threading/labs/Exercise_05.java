@@ -14,12 +14,30 @@ class AlarmClock{
         this.hour = hour;
 
         for (int t = 1; t < 24; t++){
-            if(t == 5){
-                System.out.println("Alarm goes off when: t = " + t);
+            try{
+                t = hour;
+                if(t <= 24){
+                    System.out.println("Alarm goes off when: t = " + t);
+                    wait();
+                }
+            }catch (Exception ex){
+                System.out.println("error detected");
             }
+
         }
+
     }
 
+}
+//Thread
+class SyncThreadAlarmClock implements Runnable{
+    Thread thread;
+    AlarmClock rr;
+
+    @Override
+    public void run() {
+
+    }
 }
 
 //controller
