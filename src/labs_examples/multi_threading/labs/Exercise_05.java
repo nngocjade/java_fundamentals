@@ -7,21 +7,23 @@ package labs_examples.multi_threading.labs;
  */
 
 //alarm goes off
-class AlarmClock{
+class AlarmWakeUp{
     private int hour;
+    String state;
 
     synchronized void ring(int hour){
         this.hour = hour;
+        state = "wake up";
 
         for (int t = 1; t < 24; t++){
             try{
                 t = hour;
                 if(t <= 24){
-                    System.out.println("Alarm goes off when: t = " + t);
+                    System.out.println("Alarm goes off when: t = " + t + state);
                     wait();
                 }
-            }catch (Exception ex){
-                System.out.println("error detected");
+            }catch (InterruptedException ex){
+                Thread.currentThread().interrupt();
             }
 
         }
@@ -32,7 +34,7 @@ class AlarmClock{
 //Thread
 class SyncThreadAlarmClock implements Runnable{
     Thread thread;
-    AlarmClock rr;
+    AlarmWakeUp alarmWakeUp;
 
     @Override
     public void run() {
