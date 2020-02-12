@@ -1,7 +1,5 @@
 package labs_examples.multi_threading.labs;
 
-import java.util.Scanner;
-
 /**
  * Multithreading Exercise 5:
  *
@@ -10,22 +8,19 @@ import java.util.Scanner;
 
 //alarm goes off
 class AlarmWakeUp{
-    private Scanner hour;
+    private int hour;
     private String state;
 
-    synchronized void userInput(Scanner hour){
-        this.hour = hour;
-        System.out.println("Enter a number between 1 and 24: ");
-        Scanner scanner = new Scanner(System.in);
-        scanner = hour.reset();
+    AlarmWakeUp() {
     }
 
-    synchronized void ring(){
-
+    synchronized void ring(int hour){
+        this.hour = hour;
         state = "wake up";
 
         for (int t = 1; t < 24; t++){
             try{
+                t = hour;
                 if(t <= 24){
                     System.out.println("Alarm goes off when: t = " + t + " " + state);
                     wait();
@@ -33,22 +28,23 @@ class AlarmWakeUp{
             }catch (InterruptedException ex){
                 Thread.currentThread().interrupt();
             }
-
         }
-
     }
+
+    synchronized void sleep()
 
 }
 //Thread
 class SyncThreadAlarmClock implements Runnable{
-    public static Scanner hour;
+
     Thread thread;
-    static AlarmWakeUp alarmWakeUp = new AlarmWakeUp();
-    int alarmRing;
+    static AlarmWakeUp alarmWakeUp = new AlarmWakeUp(hour);
+    int hr;
 
-    public SyncThreadAlarmClock ( String name){
+
+    public SyncThreadAlarmClock (int hour, String name){
         thread = new Thread(this, name);
-
+        hr = hour;
         thread.start();
     }
 
@@ -56,9 +52,7 @@ class SyncThreadAlarmClock implements Runnable{
     public void run() {
         System.out.println("Starting " + Thread.currentThread().getName());
 
-        alarmWakeUp.userInput(hour);
-
-
+        alarmWakeUp.ring(hr);
     }
 }
 
@@ -67,9 +61,7 @@ class Exercise_5{
     public static void main(String[] args) {
         System.out.println("Main thread starting");
 
-
-
-        SyncThreadAlarmClock syncThreadAlarmClock = new SyncThreadAlarmClock( "synThread1");
+        SyncThreadAlarmClock syncThreadAlarmClock = new SyncThreadAlarmClock(4, "synThread1");
 
 
     }
