@@ -71,15 +71,11 @@ class Alarm {
             hr = hour;
             thread.start();
         }
-
-
         @Override
         public void run() {
             System.out.println("Starting " + Thread.currentThread().getName());
-
             alarmWakeUp.wakeUp(hr);
             alarmWakeUp.sleep(hr);
-
         }
     }
 
@@ -92,8 +88,10 @@ class Alarm {
             SyncThreadAlarmClock syncThreadAlarmClock2 = new SyncThreadAlarmClock(9, "synThread2");
 
             try {
+                System.out.println("starting join thread");
                 syncThreadAlarmClock.thread.join();
                 syncThreadAlarmClock2.thread.join();
+                System.out.println("join complete");
             } catch (InterruptedException exc) {
                 System.out.println("Main thread interrupted.");
             }
