@@ -7,26 +7,24 @@ package labs_examples.multi_threading.labs;
  */
 
 //alarm goes off
-class Alarm{
+class Alarm {
     private int hour;
     private String state;
-    private
 
     //true (wakeUp) if t = (specified hour) should wait
     //false (sleep) if t != (specified hour) should wait
     private Boolean ring = true;
 
-    synchronized void wakeUp(int hour){
+    synchronized void wakeUp(int hour) {
         state = "wake up";
         this.hour = hour;
 
-        while(ring) {
+        while (ring) {
             for (int t = 1; t < 24; t++) {  //24 hr time
                 try {
                     t = hour;
-                    if (t <= 24) {
-                        System.out.println("Alarm goes off when: hour = " + t);
-                        System.out.println("Time to " + state);
+                    if (t <= 5) {
+                        System.out.println("Alarm goes off when: hour = " + t + ". Time to " + state);
                         wait(1);
                         return;
                     }
@@ -39,14 +37,16 @@ class Alarm{
         notify();
     }
 
-    synchronized void sleep(int ) {
+    synchronized void sleep(int hour) {
+        this.hour = hour;
+        state = "sleeping";
 
-        while(!ring) {
+        while (!ring) {
             for (int t = 1; t < 24; t++) {
                 try {
                     t = hour;
                     if (t <= 24) {
-                        System.out.println("Continue sleeping with t = " + t);
+                        System.out.println("Continue" + state + " when t = " + t);
                         wait(1);
                         return;
                     }
@@ -56,45 +56,47 @@ class Alarm{
             }
         }
         ring = false;
-        notifyAll();
-}
-//Thread
-class SyncThreadAlarmClock implements Runnable{
-
-    Thread thread;
-    static Alarm alarmWakeUp = new Alarm();
-    int hr;
-
-
-    public SyncThreadAlarmClock (int hour, String name){
-        thread = new Thread(this, name);
-        hr = hour;
-        thread.start();
+        notify();
     }
 
-    @Override
-    public void run() {
-        System.out.println("Starting " + Thread.currentThread().getName());
+    //Thread
+    static class SyncThreadAlarmClock implements Runnable {
 
-        alarmWakeUp.wakeUp(hr);
+        Thread thread;
+        Alarm alarmWakeUp = new Alarm();
+        int hr;
 
-        alarmWakeUp.sleep();
-
-    }
-}
-
-//controller
-class Exercise_5{
-    public static void main(String[] args) {
-        System.out.println("Main thread starting");
-
-        SyncThreadAlarmClock syncThreadAlarmClock = new SyncThreadAlarmClock(4, "synThread1");
-
-        try {
-            syncThreadAlarmClock.thread.join();
-        } catch(InterruptedException exc) {
-            System.out.println("Main thread interrupted.");
+        public SyncThreadAlarmClock(int hour, String name) {
+            thread = new Thread(this, name);
+            hr = hour;
+            thread.start();
         }
 
+
+        @Override
+        public void run() {
+            System.out.println("Starting " + Thread.currentThread().getName());
+
+            alarmWakeUp.wakeUp(hr);
+            alarmWakeUp.sleep(hr);
+
+        }
+    }
+
+    //controller
+    static class Exercise_5 {
+        public static void main(String[] args) {
+            System.out.println("Main thread starting");
+
+            SyncThreadAlarmClock syncThreadAlarmClock = new SyncThreadAlarmClock(5, "synThread1");
+            SyncThreadAlarmClock syncThreadAlarmClock2 = new SyncThreadAlarmClock(9, "synThread2");
+
+            try {
+                syncThreadAlarmClock.thread.join();
+                syncThreadAlarmClock2.thread.join();
+            } catch (InterruptedException exc) {
+                System.out.println("Main thread interrupted.");
+            }
+        }
     }
 }
