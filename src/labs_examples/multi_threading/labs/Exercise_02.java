@@ -8,7 +8,7 @@ package labs_examples.multi_threading.labs;
 
 class Exercise_2{
     public static void main(String[] args) {
-        System.out.println("Let's multiple simultaneously");
+        System.out.println("Let's multiple in parallel");
 
         SyncThread multiplyingSimultaneously = new SyncThread(2, "ThreadMultiply2");
         SyncThread multiplyingSimultaneously1 = new SyncThread(3, "ThreadMultiply3");
