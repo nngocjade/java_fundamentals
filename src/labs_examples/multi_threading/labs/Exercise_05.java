@@ -7,47 +7,62 @@ package labs_examples.multi_threading.labs;
  */
 
 //alarm goes off
-class AlarmWakeUp{
+class Alarm{
     private int hour;
     private String state;
+    private
 
-    AlarmWakeUp() {
-    }
+    //true (wakeUp) if t = (specified hour) should wait
+    //false (sleep) if t != (specified hour) should wait
+    private Boolean ring = true;
 
-    synchronized void ring(int hour){
+    synchronized void wakeUp(int hour){
+        state = "wake up";
         this.hour = hour;
 
-        for (int t = 1; t < 24; t++){
-            try{
-                t = hour;
-                if(t <= 24){
-                    System.out.println("Alarm goes off when: hour = " + t );
-                    wait(1);
-                    return;
+        while(ring) {
+            for (int t = 1; t < 24; t++) {  //24 hr time
+                try {
+                    t = hour;
+                    if (t <= 24) {
+                        System.out.println("Alarm goes off when: hour = " + t);
+                        System.out.println("Time to " + state);
+                        wait(1);
+                        return;
+                    }
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
                 }
-            }catch (InterruptedException ex){
-                Thread.currentThread().interrupt();
             }
         }
+        ring = true;
+        notify();
     }
 
-    synchronized void wakeUp() {
-        state = "wake up";
+    synchronized void sleep(int ) {
 
-        try{
-            System.out.println("Time to " + state);
-            notify();
-            wait();
-        }catch (InterruptedException e){
-            e.printStackTrace();
+        while(!ring) {
+            for (int t = 1; t < 24; t++) {
+                try {
+                    t = hour;
+                    if (t <= 24) {
+                        System.out.println("Continue sleeping with t = " + t);
+                        wait(1);
+                        return;
+                    }
+                } catch (InterruptedException ex) {
+                    Thread.currentThread().interrupt();
+                }
+            }
         }
-    }
+        ring = false;
+        notifyAll();
 }
 //Thread
 class SyncThreadAlarmClock implements Runnable{
 
     Thread thread;
-    static AlarmWakeUp alarmWakeUp = new AlarmWakeUp();
+    static Alarm alarmWakeUp = new Alarm();
     int hr;
 
 
@@ -61,9 +76,9 @@ class SyncThreadAlarmClock implements Runnable{
     public void run() {
         System.out.println("Starting " + Thread.currentThread().getName());
 
-        alarmWakeUp.ring(hr);
+        alarmWakeUp.wakeUp(hr);
 
-        alarmWakeUp.wakeUp();
+        alarmWakeUp.sleep();
 
     }
 }
