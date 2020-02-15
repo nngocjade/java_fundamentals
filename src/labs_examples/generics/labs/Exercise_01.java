@@ -8,3 +8,48 @@ package labs_examples.generics.labs;
  *          dynamic usage.
  */
 
+class GenericsEx<T> {
+    private T firstName;
+    private T lastName;
+    private T age;
+
+    public GenericsEx(T firstName, T lastName, T age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+    }
+
+    public T getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(T firstName) {
+        this.firstName = firstName;
+    }
+
+    public T getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(T lastName) {
+        this.lastName = lastName;
+    }
+
+    public T getAge() {
+        return age;
+    }
+
+    public void setAge(T age) {
+        this.age = age;
+    }
+}
+
+class Exercise_1{
+    public static void main(String[] args) {
+        GenericsEx genericsExStringAndInt = new GenericsEx("Ngoc Jade", "Nguyen", 25);
+        GenericsEx genericsExString = new GenericsEx("Ngoc Jade", "Nguyen", "twenty-five");
+
+
+    }
+        }
+
