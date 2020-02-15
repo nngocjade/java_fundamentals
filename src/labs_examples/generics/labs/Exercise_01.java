@@ -12,11 +12,24 @@ class GenericsEx<T> {
     private T firstName;
     private T lastName;
     private T age;
+    private T height;
+
+    public GenericsEx(T age, T height) {
+        this.age = age;
+        this.height = height;
+    }
 
     public GenericsEx(T firstName, T lastName, T age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
+    }
+
+    public GenericsEx(T firstName, T lastName, T age, T height) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.height = height;
     }
 
     public T getFirstName() {
@@ -42,14 +55,21 @@ class GenericsEx<T> {
     public void setAge(T age) {
         this.age = age;
     }
+
+    public T getHeight() {
+        return height;
+    }
+
+    public void setHeight(T height) {
+        this.height = height;
+    }
 }
 
 class Exercise_1{
     public static void main(String[] args) {
-        GenericsEx genericsExStringAndInt = new GenericsEx("Ngoc Jade", "Nguyen", 25);
+        GenericsEx genericsExStringIntDouble = new GenericsEx("Ngoc Jade", "Nguyen", 25, 154.5);
         GenericsEx genericsExString = new GenericsEx("Ngoc Jade", "Nguyen", "twenty-five");
-
-
+        GenericsEx genericsExIntString = new GenericsEx(25.5, "one hundred fifty four and a half centimeters");
     }
         }
 
