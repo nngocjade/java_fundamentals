@@ -10,3 +10,10 @@ package labs_examples.generics.labs;
 class GenericReturnSum<T>{
 
 }
+
+class ReturnSum{
+    public static void main(String[] args) {
+
+    }
+}
+
