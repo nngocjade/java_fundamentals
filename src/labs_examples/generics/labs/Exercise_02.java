@@ -1,5 +1,7 @@
 package labs_examples.generics.labs;
 
+import java.util.ArrayList;
+
 /**
  * Generics Exercise 2:
  *
@@ -7,13 +9,19 @@ package labs_examples.generics.labs;
  *      Numbers in the ArrayList
  */
 
-class GenericReturnSum<T>{
 
-}
 
 class ReturnSum{
     public static void main(String[] args) {
 
+    }
+    public static double sumCollection(ArrayList<? extends Number> nums){
+        double sum = 0;
+
+        for(int i = 0; i <nums.size(); i++){
+            sum += nums.get(i).doubleValue();
+        }
+        return sum;
     }
 }
 
