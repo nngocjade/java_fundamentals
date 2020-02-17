@@ -14,9 +14,17 @@ import java.util.ArrayList;
 class ReturnSum{
     public static void main(String[] args) {
 
-        ArrayList arrayList = sumCollection(2.5, 4.3, 56.5, 33.4, 44.22);
 
+        ArrayList<Double> doubleList = new ArrayList<>();
+        Double[] doubles = { 5.5, 4.4, 6.6, 7.7, 8.8, 9.9 };
+
+        for (Double element : doubles)
+            doubleList.add(element);
+
+        System.out.printf("doubleList contains: %s\n", doubleList);
+        System.out.printf("Total of the elements in doubleList: %.1f\n\n", sumCollection(doubleList));
     }
+
     // ? - wild card
     public static double sumCollection(ArrayList<? extends Number> nums){//arraylist of any type
         double sum = 0;
