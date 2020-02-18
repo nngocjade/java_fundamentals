@@ -2,6 +2,10 @@ package labs_examples.generics.labs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.jar.JarOutputStream;
+
+
+
 
 /**
  * Generics Exercise 3:
@@ -24,6 +28,10 @@ public class Exercise_03 {
         System.out.println(add(4.5,5.6));
 
 
+        Integer[] nums = {5, 12, 3, 7, 2};
+        swap(nums, 0, 1);
+
+
     }
 
 //     1) Write a generic method that accepts two generic arguments. This generic method should only accept
@@ -36,8 +44,22 @@ public class Exercise_03 {
 }
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
-
+//    public static <T> int countIf(Collection<T> c, UnaryPredicate<T> p) {
+//
+//    int count = 0;
+//    for (T elem : c)
+//        if (p.test(elem))
+//            ++count;
+//    return count;
+//}
 //     3) Write a generic method to exchange the positions of two different elements in an array.
+
+    public static <T> void swap(T[] a, int i, int j) {
+        T temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+        System.out.println(temp);
+    }
 
 //     4) Write a generic method to find the largest element within the range (begin, end) of a list.
 }
