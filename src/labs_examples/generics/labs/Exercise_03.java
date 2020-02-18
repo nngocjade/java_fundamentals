@@ -1,11 +1,10 @@
 package labs_examples.generics.labs;
 
+
 import java.util.ArrayList;
-import java.util.List;
-import java.util.jar.JarOutputStream;
-
-
-
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 
 /**
  * Generics Exercise 3:
@@ -25,11 +24,17 @@ import java.util.jar.JarOutputStream;
 
 public class Exercise_03 {
     public static void main(String[] args) {
+        //1
         System.out.println(add(4.5,5.6));
-
-
-        Integer[] nums = {5, 12, 3, 7, 2};
-        swap(nums, 0, 1);
+        //3
+        ArrayList<String> list = new ArrayList<String>();
+        list.add("The");
+        list.add("dog");
+        list.add("is");
+        list.add("happy");
+        Collections.swap(list, 1, 2);
+        System.out.println(list);
+        //4
 
 
     }
@@ -58,7 +63,6 @@ public class Exercise_03 {
         T temp = a[i];
         a[i] = a[j];
         a[j] = temp;
-        System.out.println(temp);
     }
 
 //     4) Write a generic method to find the largest element within the range (begin, end) of a list.
