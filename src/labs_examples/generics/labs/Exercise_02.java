@@ -13,8 +13,6 @@ import java.util.ArrayList;
 
 class ReturnSum{
     public static void main(String[] args) {
-
-
         ArrayList<Double> doubleList = new ArrayList<>();
         Double[] doubles = { 5.5, 4.4, 6.6, 7.7, 8.8, 9.9 };
 
@@ -28,7 +26,6 @@ class ReturnSum{
     // ? - wild card
     public static double sumCollection(ArrayList<? extends Number> nums){//arraylist of any type
         double sum = 0;
-
         for(int i = 0; i <nums.size(); i++){
             sum += nums.get(i).doubleValue();
         }
