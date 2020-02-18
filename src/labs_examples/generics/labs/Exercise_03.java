@@ -23,6 +23,14 @@ public class Exercise_03 {
     public static void main(String[] args) {
         //1
         System.out.println(add(4.5,5.6));
+        //2
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("madam");
+        arrayList.add("never");
+        arrayList.add("bob");
+        arrayList.add("door");
+        arrayList.add("hannah");
+        countPalindromes(arrayList);
         //3
         ArrayList<String> list = new ArrayList<String>();
         list.add("The");
@@ -47,14 +55,15 @@ public class Exercise_03 {
 }
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
-//    public static <T> int countIf(Collection<T> c, UnaryPredicate<T> p) {
-//
-//    int count = 0;
-//    for (T elem : c)
-//        if (p.test(elem))
-//            ++count;
-//    return count;
-//}
+    public static <T> void countPalindromes(ArrayList<String> a){
+        for(String s : a){
+            String b = null;
+            int count = 0;
+            for(int i = a.length - 1; i >= 0; i--) {
+                b = b + a[i];
+            }
+        }
+    }
 //     3) Write a generic method to exchange the positions of two different elements in an array.
 
     public static <T> void swap(T[] a, int i, int j) {
