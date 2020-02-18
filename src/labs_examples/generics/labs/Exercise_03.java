@@ -1,10 +1,7 @@
 package labs_examples.generics.labs;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.*;
 
 /**
  * Generics Exercise 3:
@@ -35,7 +32,8 @@ public class Exercise_03 {
         Collections.swap(list, 1, 2);
         System.out.println(list);
         //4
-
+        List<Integer> c = Arrays.asList(1, 2, 55, 4, 9, 6, 12, 8, 11, 20);
+        System.out.println(maximalElement(c, 1, 10));
 
     }
 
@@ -66,6 +64,16 @@ public class Exercise_03 {
     }
 
 //     4) Write a generic method to find the largest element within the range (begin, end) of a list.
+    public static <T extends Comparable> T maximalElement (List<T> list, int begin, int end) {
+    T max = list.get(begin);
+    for (int i = begin + 1; i < end; i++) {
+        T elem1 = list.get(i);
+        if (elem1.compareTo(max) > 0) {
+            max = elem1;
+        }
+    }
+    return max;
+}
 }
 
 //    //  Inside generic, create a method called printArray()
