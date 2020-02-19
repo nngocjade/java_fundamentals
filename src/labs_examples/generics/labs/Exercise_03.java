@@ -23,15 +23,26 @@ public class Exercise_03 {
     public static void main(String[] args) {
         //1
         System.out.println(add(4.5,5.6));
+        System.out.println("");
+
         //2
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("madam");
-        arrayList.add("never");
-        arrayList.add("bob");
-        arrayList.add("door");
-        arrayList.add("hannah");
-        countPalindromes(arrayList);
-        //3
+        Exercise_03 obj = new Exercise_03();
+        // Declaring arraylist without any initial size
+        ArrayList<String> arrayli = new ArrayList<String>();
+
+        // Appending elements at the end of the list
+        arrayli.add(new String("madam"));
+        arrayli.add(new String("bob"));
+        arrayli.add(new String("green"));
+        arrayli.add(new String("hannah"));
+        System.out.print("Elements before reversing:");
+        obj.printElements(arrayli);
+        arrayli = obj.reverseArrayList(arrayli);
+        System.out.print("\nElements after reversing:");
+        obj.printElements(arrayli);
+
+    //3
+        System.out.println("");
         ArrayList<String> list = new ArrayList<String>();
         list.add("The");
         list.add("dog");
@@ -40,6 +51,7 @@ public class Exercise_03 {
         Collections.swap(list, 1, 2);
         System.out.println(list);
         //4
+        System.out.println("");
         List<Integer> c = Arrays.asList(1, 2, 55, 4, 9, 6, 12, 8, 11, 20);
         System.out.println(maximalElement(c, 1, 10));
 
@@ -55,15 +67,22 @@ public class Exercise_03 {
 }
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
-    public static <T> void countPalindromes(ArrayList<String> a){
-        for(String s : a){
-            String b = null;
-            int count = 0;
-            for(int i = a.length - 1; i >= 0; i--) {
-                b = b + a[i];
-            }
+    public ArrayList<String> reverseArrayList(ArrayList<String> alist) {
+        // Arraylist for storing reversed elements
+        ArrayList<String> revArrayList = new ArrayList<String>();
+        for (int i = alist.size() - 1; i >= 0; i--) {
+        // Append the elements in reverse order
+        revArrayList.add(alist.get(i));}
+        // Return the reversed arraylist
+        return revArrayList;
+    }
+        // Iterate through all the elements and print
+        public void printElements(ArrayList<String> alist) {
+        for (int i = 0; i < alist.size(); i++) {
+            System.out.print(alist.get(i) + " ");
         }
     }
+
 //     3) Write a generic method to exchange the positions of two different elements in an array.
 
     public static <T> void swap(T[] a, int i, int j) {
@@ -85,13 +104,3 @@ public class Exercise_03 {
 }
 }
 
-//    //  Inside generic, create a method called printArray()
-//    public static <T> List<T> printArray(T... elements){
-//        List<T> lst = new ArrayList<>();
-//        for(T element: elements) {
-//            lst.add(element);
-//        }
-//        return lst;
-//
-////  printArray must print the contents of an array that receives as a parameter
-//    }
