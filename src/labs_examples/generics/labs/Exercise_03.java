@@ -26,11 +26,18 @@ public class Exercise_03 {
         System.out.println("");
 
         //2
+        ArrayList<String> list1 = new ArrayList<>();
+        list1.add("madam");
+        list1.add("dog");
+        list1.add("bog");
+        list1.add("green");
+        list1.add("hannah");
+        printArray(list1);
 
 
         //3
         System.out.println("");
-        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> list = new ArrayList<>();
         list.add("The");
         list.add("dog");
         list.add("is");
@@ -55,17 +62,18 @@ public class Exercise_03 {
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
 
-//        public static <T> int countIf(Collection<T> c) {
-//
-//            int count = 0;
-//                for (int i = 0; i < c.length() / 2; i++) {
-//                    if (c.charAt(i) != c.charAt(c.length() - 1 - i)) {
-//
-//                    }
-//                }
-//
-//            return count;
-//        }
+    public static < E > int printArray(ArrayList<String> inputArray ) {
+        /* Display array elements */
+        for(String element : inputArray) {
+            System.out.printf("%s ", element);
+        }
+        System.out.println();
+
+        int count = 0;
+        for (String elem : inputArray) {
+                ++count;
+        }return count;
+    }
 
 
 //     3) Write a generic method to exchange the positions of two different elements in an array.
