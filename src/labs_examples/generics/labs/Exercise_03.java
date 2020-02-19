@@ -26,20 +26,7 @@ public class Exercise_03 {
         System.out.println("");
 
         //2
-        Exercise_03 obj = new Exercise_03();
-        // Declaring arraylist without any initial size
-        ArrayList<String> arrayli = new ArrayList<String>();
 
-        // Appending elements at the end of the list
-        arrayli.add(new String("madam"));
-        arrayli.add(new String("bob"));
-        arrayli.add(new String("green"));
-        arrayli.add(new String("hannah"));
-        System.out.print("Elements before reversing:");
-        obj.printElements(arrayli);
-        arrayli = obj.reverseArrayList(arrayli);
-        System.out.print("\nElements after reversing:");
-        obj.printElements(arrayli);
 
         //3
         System.out.println("");
@@ -68,15 +55,17 @@ public class Exercise_03 {
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
 
-        public static <T> int countIf(Collection<T> c) {
-
-            int count = 0;
-            for (T elem : c)
-                if (.test(elem)) {
-                    ++count;
-                }
-            return count;
-        }
+//        public static <T> int countIf(Collection<T> c) {
+//
+//            int count = 0;
+//                for (int i = 0; i < c.length() / 2; i++) {
+//                    if (c.charAt(i) != c.charAt(c.length() - 1 - i)) {
+//
+//                    }
+//                }
+//
+//            return count;
+//        }
 
 
 //     3) Write a generic method to exchange the positions of two different elements in an array.
