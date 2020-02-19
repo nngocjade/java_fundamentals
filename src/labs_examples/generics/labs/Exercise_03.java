@@ -26,13 +26,8 @@ public class Exercise_03 {
         System.out.println("");
 
         //2
-        ArrayList<String> list1 = new ArrayList<>();
-        list1.add("madam");
-        list1.add("dog");
-        list1.add("bog");
-        list1.add("green");
-        list1.add("hannah");
-        printArray(list1);
+        String[] stringArray = { "green", "blue", "purple", "orange", "yellow" };
+        printArray(stringArray);
 
 
         //3
@@ -62,7 +57,7 @@ public class Exercise_03 {
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
 
-    public static < E > int printArray(ArrayList<String> inputArray ) {
+    public static < E > int printArray(String[] inputArray ) {
         /* Display array elements */
         for(String element : inputArray) {
             System.out.printf("%s ", element);
