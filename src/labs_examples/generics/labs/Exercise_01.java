@@ -52,6 +52,16 @@ class GenericsEx<T> {
         return age;
     }
 
+    @Override
+    public String toString() {
+        return "GenericsEx{" +
+                "firstName=" + firstName +
+                ", lastName=" + lastName +
+                ", age=" + age +
+                ", height=" + height +
+                '}';
+    }
+
     public void setAge(T age) {
         this.age = age;
     }
@@ -63,6 +73,8 @@ class GenericsEx<T> {
     public void setHeight(T height) {
         this.height = height;
     }
+
+
 }
 
 class Exercise_1{
@@ -70,6 +82,10 @@ class Exercise_1{
         GenericsEx genericsExStringIntDouble = new GenericsEx("Ngoc Jade", "Nguyen", 25, 154.5);
         GenericsEx genericsExString = new GenericsEx("Ngoc Jade", "Nguyen", "twenty-five");
         GenericsEx genericsExIntString = new GenericsEx(25.5, "one hundred fifty four and a half centimeters");
+
+        System.out.println(genericsExStringIntDouble.toString());
+        System.out.println(genericsExString.toString());
+        System.out.println(genericsExIntString.toString());
     }
         }
 
