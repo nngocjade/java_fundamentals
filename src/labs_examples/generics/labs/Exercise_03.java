@@ -57,17 +57,23 @@ public class Exercise_03 {
 
 //     2) Write a generic method to count the number of elements in a collection of Strings that are palindromes
 
-    public static < E > int printArray(String[] inputArray ) {
+    public static < E extends Collection<String>> int countPalindrome(E inputCollection ) {
         /* Display array elements */
-        for(String element : inputArray) {
-            System.out.printf("%s ", element);
+        int count = 0;
+        for(String element : inputCollection) {
+            for(int i = 0; i < element.length()/2; i++){
+                char c = element.charAt(i);
+                char k = element.charAt(element.length() - 1 - i);
+                if(c == k){
+                    continue;
+                }else{
+                    break;
+                }
+            }
         }
         System.out.println();
 
-        int count = 0;
-        for (String elem : inputArray) {
-                ++count;
-        }return count;
+
     }
 
 
