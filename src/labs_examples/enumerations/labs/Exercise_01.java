@@ -8,3 +8,19 @@ package labs_examples.enumerations.labs;
  *      of this enum from a seperate class.
  */
 
+class Exercise_1{
+
+    public static void main(String[] args) {
+
+    }
+}
+class Mood{
+    private MoodStatus status;
+    enum MoodStatus {
+        HAPPY,
+        SAD,
+        MAD,
+        EXITED
+
+    }
+}
