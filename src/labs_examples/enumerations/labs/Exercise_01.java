@@ -12,6 +12,23 @@ class Exercise_1{
 
     public static void main(String[] args) {
 
+        MoodStatus mood = MoodStatus.HAPPY;
+
+        switch (mood){
+            case HAPPY:
+                System.out.println(mood.getExplanation());
+                break;
+            case SAD:
+                System.out.println(mood.getExplanation());
+                break;
+            case MAD:
+                System.out.println(mood.getExplanation());
+                break;
+            case EXITED:
+                System.out.println(mood.getExplanation());
+                break;
+        }
+
     }
 }
 
@@ -21,7 +38,18 @@ enum MoodStatus {
         MAD ("raging in anger"),
         EXITED ("feeling on top of the world");
 
-    MoodStatus(String s) {
+        private String explanation;
+
+    MoodStatus(String explanation) {
+        this.explanation = explanation;
+    }
+
+    public String getExplanation() {
+        return explanation;
+    }
+
+    public void setExplanation(String explanation) {
+        this.explanation = explanation;
     }
 }
 
