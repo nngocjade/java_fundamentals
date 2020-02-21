@@ -14,13 +14,15 @@ class Exercise_1{
 
     }
 }
-class Mood{
-    private MoodStatus status;
-    enum MoodStatus {
-        HAPPY,
-        SAD,
-        MAD,
-        EXITED
 
+enum MoodStatus {
+        HAPPY ("feeling full of joy"),
+        SAD ("feeling like poop"),
+        MAD ("raging in anger"),
+        EXITED ("feeling on top of the world");
+
+    MoodStatus(String s) {
     }
 }
+
+
