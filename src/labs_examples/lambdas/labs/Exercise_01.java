@@ -31,20 +31,33 @@ class Exercise_1 {
 //        *          an anonymous inner class from this interface.
 
         //lambda expression
-        AnInterface noParameterInterface = Exercise_1::noParameter;
+        AnInterface lambdaInterface = Exercise_1::noParameter;
+        lambdaInterface.noParameter();
+
         //anonymous inner class
-        AnInterface noParmeterInterface = new AnInterface() {
+        AnInterface anonymousInterface = new AnInterface() {
             @Override
             public void noParameter() {
             }
         };
+        anonymousInterface.noParameter();
 
         //        *      4) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 //        *          an anonymous inner class from this interface.
 
-        OneParameterInterface aNum = () --> {
+        OneParameterInterface lamndaNum = (d) -> {
+            return d;
+        };
 
-        }
+        System.out.println("One parameter Interface - Lambda expression - "+ lamndaNum.number(3.14););
+
+        OneParameterInterface AnonymousNum = new OneParameterInterface() {
+            @Override
+            public double number(double d) {
+                return d;
+            }
+        };
+        System.out.println("One parameter Interface - Anonymous Inner - " +  AnonymousNum.number(3.14));
 
         //        *      6) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 //        *          an anonymous inner class from this interface.
@@ -54,9 +67,7 @@ class Exercise_1 {
             int m = a / b;
             return m;
         };
-
-        int d = lambdaDivide.divide(12, 6);
-        System.out.println(d);
+        System.out.println("Two parameter Interface - lambda expression - " + lambdaDivide.divide(12, 6));
 
         //anonymous inner class
         MathInterface AnonymousDivide = new MathInterface() {
@@ -66,9 +77,7 @@ class Exercise_1 {
                 return m;
             }
         };
-        System.out.println(AnonymousDivide.divide(12, 6));
-
-
+        System.out.println("Two parameter Interface - Anonymous Inner - " + AnonymousDivide.divide(12, 6));
     }
 
     private static void noParameter() {
@@ -93,7 +102,6 @@ interface MathInterface {
     int divide(int a, int b);
 }
 
-//        *
 //        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
 //        *
 //        *
