@@ -24,27 +24,29 @@ package labs_examples.lambdas.labs;
  *
  */
 
-class Exercise_1{
+class Exercise_1 {
     public static void main(String[] args) {
 
-    }
+        //      2) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
+//        *          an anonymous inner class from this interface.
+        MathInterface obj = (a, b) -> {
+            int m = a / b;
+            return m;
+        };
 
+        int divide = obj.divide(12, 6);
+        System.out.println();
+
+    }
 }
 
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
-interface Math{
-    public int divide(int a, int b);
+interface MathInterface {
+    int divide(int a, int b);
 }
-//        *      2) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
-//        *          an anonymous inner class from this interface.
-class Multiplication implements Math{
 
-    @Override
-    public int divide(int a, int b) {
-        int m = a / b;
-        return m;
-    }
-}
+//        *
+
 //        *      3) Demonstrate creating a functional interface with an abstract method that takes 1 parameter and returns a
 //        *          value of the same type as the parameter
 //        *      4) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
