@@ -29,17 +29,45 @@ class Exercise_1 {
 
         //      2) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 //        *          an anonymous inner class from this interface.
-        NoParameterInterface noParameterInterface = Exercise_1::noParameter;
+
+        //lambda expression
+        AnInterface noParameterInterface = Exercise_1::noParameter;
+        //anonymous inner class
+        AnInterface noParmeterInterface = new AnInterface() {
+            @Override
+            public void noParameter() {
+            }
+        };
+
+        //        *      4) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
+//        *          an anonymous inner class from this interface.
+
+        OneParameterInterface aNum = () --> {
+
+        }
 
         //        *      6) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 //        *          an anonymous inner class from this interface.
-        MathInterface obj = (a, b) -> {
+
+        //lambda expression
+        MathInterface lambdaDivide = (a, b) -> {
             int m = a / b;
             return m;
         };
 
-        int divide = obj.divide(12, 6);
-        System.out.println();
+        int d = lambdaDivide.divide(12, 6);
+        System.out.println(d);
+
+        //anonymous inner class
+        MathInterface AnonymousDivide = new MathInterface() {
+            @Override
+            public int divide(int a, int b) {
+                int m = a / b;
+                return m;
+            }
+        };
+        System.out.println(AnonymousDivide.divide(12, 6));
+
 
     }
 
@@ -48,16 +76,17 @@ class Exercise_1 {
 }
 
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
-interface NoParameterInterface{
+interface AnInterface{
     void noParameter();
+
 }
 
 //        *      3) Demonstrate creating a functional interface with an abstract method that takes 1 parameter and returns a
 //        *          value of the same type as the parameter
+interface OneParameterInterface{
+    double number(double d);
+}
 
-//        *      4) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
-//        *          an anonymous inner class from this interface.
-//        *
 //        *      5) Demonstrate creating a functional interface with an abstract method that takes 2 parameters and returns a
 //        *          value
 interface MathInterface {
