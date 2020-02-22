@@ -1,5 +1,7 @@
 package labs_examples.lambdas.labs;
 
+import java.sql.SQLOutput;
+
 /**
  * Lambdas Exercise 1:
  *
@@ -38,6 +40,11 @@ class Exercise_1 {
         AnInterface anonymousInterface = new AnInterface() {
             @Override
             public void noParameter() {
+                int a = 12;
+                int b = 12;
+
+                int c = a * b;
+                System.out.println("declare & instantiate variables, and add function - Anonymous inner - " + c);
             }
         };
         anonymousInterface.noParameter();
@@ -49,7 +56,7 @@ class Exercise_1 {
             return d;
         };
 
-        System.out.println("One parameter Interface - Lambda expression - "+ lamndaNum.number(3.14););
+        System.out.println("One parameter Interface - Lambda expression - "+ lamndaNum.number(3.14));
 
         OneParameterInterface AnonymousNum = new OneParameterInterface() {
             @Override
@@ -78,10 +85,22 @@ class Exercise_1 {
             }
         };
         System.out.println("Two parameter Interface - Anonymous Inner - " + AnonymousDivide.divide(12, 6));
+
+        //        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
+
+
+
+
+    }
+    //no parameter lambda expression
+    private static void noParameter() {
+        int a = 12;
+        int b = 11;
+
+        int c = a * b;
+        System.out.println("another method is created for an empty parameter lambda expression - Lambda expression - " + c);
     }
 
-    private static void noParameter() {
-    }
 }
 
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
@@ -102,6 +121,3 @@ interface MathInterface {
     int divide(int a, int b);
 }
 
-//        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
-//        *
-//        *
