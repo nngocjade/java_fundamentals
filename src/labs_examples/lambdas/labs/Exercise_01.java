@@ -1,6 +1,10 @@
 package labs_examples.lambdas.labs;
 
 import java.sql.SQLOutput;
+import java.util.function.BinaryOperator;
+import java.util.function.DoubleBinaryOperator;
+import java.util.function.Function;
+import java.util.function.UnaryOperator;
 
 /**
  * Lambdas Exercise 1:
@@ -89,23 +93,22 @@ class Exercise_1 {
 
         //        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
 
-        //lambda expression
-        BinaryOperator<Integer> numLambda = (x, y) -> (x + y);
-        System.out.println(numLambda.apply(2,5));
+        //Binary
+        BinaryOperator<Integer> intB = Integer::sum;
+        System.out.println(intB.apply(7,8));
 
-        //anonymous inner class
-        BinaryOperator<Integer> num1 = new BinaryOperator<Integer>() {
-            @Override
-            public Integer apply(Integer x, Integer y) {
-                return x + y;
-            }
-        };
-        System.out.println(num1.apply(4,5));
+        //Double Binary
+        DoubleBinaryOperator db = (x, y) -> x*y;
+        System.out.println(db.applyAsDouble(3.34,4.44));
 
+        //Function
+        Function<Integer, String> intToString = (i) -> Integer.toString(i);
+        System.out.println(intToString.apply(456754).length());
 
-
+        //Unary Operator
+        UnaryOperator<String> i = (x) -> x.replace('d','b');
+        System.out.println(i.apply("doggie"));
     }
-
 }
 
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
@@ -125,11 +128,4 @@ interface MathInterface {
     int divide(int a, int b);
 }
 
-interface BinaryOperator<T> {
-    public T apply(T x, T y);
-}
-
-public interface Function<R> {
-    public R apply(T t);
-}
 
