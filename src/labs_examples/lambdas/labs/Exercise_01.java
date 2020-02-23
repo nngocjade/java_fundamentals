@@ -42,7 +42,7 @@ class Exercise_1 {
             int b = 11;
 
             int c = a * b;
-            System.out.println("an empty parameter lambda expression - Lambda expression - " + c);
+            System.out.println("empty parameter - Lambda expression - " + c);
         };
         lambdaInterface.noParameter();
 
@@ -54,7 +54,7 @@ class Exercise_1 {
                 int b = 12;
 
                 int c = a * b;
-                System.out.println("declare & instantiate variables, and add function - Anonymous inner - " + c);
+                System.out.println("empty parameter - Anonymous inner - " + c);
             }
         };
         anonymousInterface.noParameter();
@@ -95,19 +95,19 @@ class Exercise_1 {
 
         //Binary
         BinaryOperator<Integer> intB = Integer::sum;
-        System.out.println(intB.apply(7,8));
+        System.out.println("Binary Operator - sum of two numbers - " + intB.apply(7,8));
 
         //Double Binary
         DoubleBinaryOperator db = (x, y) -> x*y;
-        System.out.println(db.applyAsDouble(3.34,4.44));
+        System.out.println("Double Binary Operator - multiplication of two numbers - " + db.applyAsDouble(3.34,4.44));
 
         //Function
         Function<Integer, String> intToString = (i) -> Integer.toString(i);
-        System.out.println(intToString.apply(456754).length());
+        System.out.println("Function - conversion - " + intToString.apply(456754).length());
 
         //Unary Operator
         UnaryOperator<String> i = (x) -> x.replace('d','b');
-        System.out.println(i.apply("doggie"));
+        System.out.println(i.apply("Unary Operator - replacing old char with new char - " + "doggie"));
     }
 }
 
