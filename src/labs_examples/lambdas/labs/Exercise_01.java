@@ -33,7 +33,13 @@ class Exercise_1 {
 //        *          an anonymous inner class from this interface.
 
         //lambda expression
-        AnInterface lambdaInterface = Exercise_1::noParameter;
+        AnInterface lambdaInterface = () -> {
+            int a = 12;
+            int b = 11;
+
+            int c = a * b;
+            System.out.println("an empty parameter lambda expression - Lambda expression - " + c);
+        };
         lambdaInterface.noParameter();
 
         //anonymous inner class
@@ -98,14 +104,6 @@ class Exercise_1 {
 
 
 
-    }
-    //no parameter lambda expression
-    private static void noParameter() {
-        int a = 12;
-        int b = 11;
-
-        int c = a * b;
-        System.out.println("another method is created for an empty parameter lambda expression - Lambda expression - " + c);
     }
 
 }
