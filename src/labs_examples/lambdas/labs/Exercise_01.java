@@ -52,9 +52,7 @@ class Exercise_1 {
         //        *      4) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 //        *          an anonymous inner class from this interface.
 
-        OneParameterInterface lamndaNum = (d) -> {
-            return d;
-        };
+        OneParameterInterface lamndaNum = (d) -> d;
 
         System.out.println("One parameter Interface - Lambda expression - "+ lamndaNum.number(3.14));
 
@@ -70,10 +68,7 @@ class Exercise_1 {
 //        *          an anonymous inner class from this interface.
 
         //lambda expression
-        MathInterface lambdaDivide = (a, b) -> {
-            int m = a / b;
-            return m;
-        };
+        MathInterface lambdaDivide = (a, b) -> (a / b);
         System.out.println("Two parameter Interface - lambda expression - " + lambdaDivide.divide(12, 6));
 
         //anonymous inner class
@@ -87,13 +82,12 @@ class Exercise_1 {
         System.out.println("Two parameter Interface - Anonymous Inner - " + AnonymousDivide.divide(12, 6));
 
         //        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
+
         //lambda expression
-        BinaryOperator<Integer> numLambda = (x, y) ->{
-            return x + y;
-        };
+        BinaryOperator<Integer> numLambda = (x, y) -> (x + y);
         System.out.println(numLambda.apply(2,5));
 
-            //anonymous inner class
+        //anonymous inner class
         BinaryOperator<Integer> num1 = new BinaryOperator<Integer>() {
             @Override
             public Integer apply(Integer x, Integer y) {
@@ -119,7 +113,6 @@ class Exercise_1 {
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
 interface AnInterface{
     void noParameter();
-
 }
 
 //        *      3) Demonstrate creating a functional interface with an abstract method that takes 1 parameter and returns a
@@ -136,5 +129,9 @@ interface MathInterface {
 
 interface BinaryOperator<T> {
     public T apply(T x, T y);
+}
+
+public interface Function<R> {
+    public R apply(T t);
 }
 
