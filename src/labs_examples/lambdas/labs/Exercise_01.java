@@ -87,7 +87,20 @@ class Exercise_1 {
         System.out.println("Two parameter Interface - Anonymous Inner - " + AnonymousDivide.divide(12, 6));
 
         //        *      7) Demonstrate the use of at least two built-in functional interfaces from the java.util.function package.
+        //lambda expression
+        BinaryOperator<Integer> numLambda = (x, y) ->{
+            return x + y;
+        };
+        System.out.println(numLambda.apply(2,5));
 
+            //anonymous inner class
+        BinaryOperator<Integer> num1 = new BinaryOperator<Integer>() {
+            @Override
+            public Integer apply(Integer x, Integer y) {
+                return x + y;
+            }
+        };
+        System.out.println(num1.apply(4,5));
 
 
 
@@ -119,5 +132,9 @@ interface OneParameterInterface{
 //        *          value
 interface MathInterface {
     int divide(int a, int b);
+}
+
+interface BinaryOperator<T> {
+    public T apply(T x, T y);
 }
 
