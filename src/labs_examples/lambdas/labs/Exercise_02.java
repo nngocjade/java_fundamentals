@@ -64,7 +64,7 @@ class Exercise_2{
         j.accept("java2s.com ",234);
 
         //8
-
+        
         //9
 
         //10
