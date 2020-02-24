@@ -71,9 +71,13 @@ class Exercise_2{
         //ToDoubleBiFunction represents a function that accepts two arguments and produces a double-valued result.
         // This is the double-producing primitive specialization for BiFunction.
         ToDoubleBiFunction<Integer,Long> t  = (k,l)-> Math.sin(x)+Math.sin(y);
-        System.out.println(t.applyAsDouble(Integer.MAX_VALUE, Long.MAX_VALUE));
+        System.out.println("To Double Bi Funtion: " + t.applyAsDouble(Integer.MAX_VALUE, Long.MAX_VALUE));
 
         //10
+        //ToIntFunction represents a function that produces an int-valued result.
+        // This is the int-producing primitive specialization for Function.
+        ToIntFunction<String> q  = (w)-> Integer.parseInt(w);
+        System.out.println("to Int Function: " + q.applyAsInt("2"));
     }
     }
 
