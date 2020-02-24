@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.function.*;
 import java.util.function.Consumer;
 
-
 /**
  * Lambdas Exercise 2:
  *
@@ -64,7 +63,10 @@ class Exercise_2{
         j.accept("java2s.com ",234);
 
         //8
-        
+        //Predicate isEqual returns a predicate that tests if two arguments are equal according to Objects.equals(Object, Object).
+        Predicate<String> p = Predicate.isEqual("randomword");
+        System.out.println("Predicate isEqual returns boolean: " + p.test("mynameisjade"));
+
         //9
 
         //10
