@@ -68,6 +68,10 @@ class Exercise_2{
         System.out.println("Predicate isEqual returns boolean: " + p.test("mynameisjade"));
 
         //9
+        //ToDoubleBiFunction represents a function that accepts two arguments and produces a double-valued result.
+        // This is the double-producing primitive specialization for BiFunction.
+        ToDoubleBiFunction<Integer,Long> t  = (k,l)-> Math.sin(x)+Math.sin(y);
+        System.out.println(t.applyAsDouble(Integer.MAX_VALUE, Long.MAX_VALUE));
 
         //10
     }
