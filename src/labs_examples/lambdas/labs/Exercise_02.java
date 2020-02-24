@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.DoubleToIntFunction;
 import java.util.function.Function;
 
@@ -18,18 +19,26 @@ import java.util.function.Function;
 class Exercise_2{
     public static void main(String[] args) {
         //Double To Int Function
+        //DoubleToIntFunction represents a function that accepts a double-valued argument and produces an int-valued result.
+        // This is the double-to-int primitive specialization for Function.
         DoubleToIntFunction df = (x) -> {
             return (int)x*2;};
         System.out.println("Double to Int Function: "+ df.applyAsInt(12.54));
 
         //BiFunction - as a parameter
+        //BiFunction represents a function that accepts two arguments and produces a result. This is the two-arity specialization of Function.
         Calculator calculator = new Calculator();
         String result = calculator.calc((a,b) -> "BiFunction - as a parameter: " + (a * b), 12, 5);
         System.out.println(result);
 
+        //BiPredicate - represents a predicate which is a boolean-valued function of two arguments.
+        BiPredicate<Integer, Integer> bi = (x, y) -> (x > y);
+        System.out.println("BiPredicate - boolean - value: " + bi.test(5, 3));
+
 
     }
-}
+    }
+
 class Calculator{
     public String calc(BiFunction<Integer, Integer, String> bi, Integer i1, Integer i2){
         return bi.apply(i1, i2);
