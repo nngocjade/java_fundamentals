@@ -3,10 +3,9 @@ package labs_examples.lambdas.labs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.BiFunction;
-import java.util.function.BiPredicate;
-import java.util.function.DoubleToIntFunction;
-import java.util.function.Function;
+import java.util.function.*;
+import java.util.function.Consumer;
+
 
 /**
  * Lambdas Exercise 2:
@@ -35,7 +34,19 @@ class Exercise_2{
         BiPredicate<Integer, Integer> bi = (x, y) -> (x > y);
         System.out.println("BiPredicate - boolean - value: " + bi.test(5, 3));
 
+        //Boolean-supplier
+        BooleanSupplier bs = () -> false;
+        System.out.println("declared default boolean value: " + bs.getAsBoolean());
 
+        int x = 0, y= 1;
+        bs = () -> x > y;
+        System.out.println("result: " + bs.getAsBoolean());
+
+        //Consumer - represents an operation that accepts a single input argument and returns no result.
+        Consumer <String> c = (z) -> System.out.println(z.toLowerCase());
+        c.accept("JADE");
+
+        //
     }
     }
 
