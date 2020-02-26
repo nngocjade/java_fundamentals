@@ -2,6 +2,7 @@ package labs_examples.lambdas.labs;
 
 import labs_examples.generics.labs.Exercise_03;
 
+import java.sql.SQLOutput;
 import java.util.function.DoubleToIntFunction;
 
 /**
@@ -23,6 +24,11 @@ class Exercise_3 {
        DoubleToIntFunction d = DNum1::dNumToIntNum1;
 
        //instance method reference
+        InstanceMethodReference methodReference = new InstanceMethodReference();
+        SayIt sayIt = methodReference::JustSayIt;
+        sayIt.say();
+
+        //constructor reference
 
 
 
@@ -47,4 +53,12 @@ class DNum1{
        return x;
     }
 }
-//
+//instance method reference
+interface SayIt{
+    void say();
+}
+class InstanceMethodReference{
+    public void JustSayIt(){
+        System.out.println("No");
+    }
+}
