@@ -31,12 +31,8 @@ class Exercise_3 {
         sayIt.say();
 
         //constructor reference
-        TriFunctionMethodReference methodReference1 = new TriFunctionMethodReference();
-        TriFunction tFunction = methodReference1::triFunction;
-        tFunction.triFunction(25, "Jade", 164.5);
-
-
-
+       TriFunction personalStat = ConstructorReference::new;
+       personalStat.getTriFunction(25,"Jade", 164.5);
     }
 }
 //method reference
@@ -70,11 +66,11 @@ class InstanceMethodReference{
 //--------------------------------------------
 //constructor reference
 interface TriFunction{
-    void triFunction(int a, String n, double h);
+    void getTriFunction(int a, String n, double h);
 }
 
-class TriFunctionMethodReference{
-    public void triFunction(int age, String name, double height){
+class ConstructorReference{
+    ConstructorReference(int age, String name, double height){
         System.out.println("My name is " + name + ", I am " + age + " years old and " + height + "cm tall");
     }
 }
