@@ -31,7 +31,9 @@ class Exercise_3 {
         sayIt.say();
 
         //constructor reference
-        BiFunction<String, String, Locale> b = Locale::new;
+        TriFunctionMethodReference methodReference1 = new TriFunctionMethodReference();
+        TriFunction tFunction = methodReference1::triFunction;
+        tFunction.triFunction(25, "Jade", 164.5);
 
 
 
@@ -67,3 +69,12 @@ class InstanceMethodReference{
 }
 //--------------------------------------------
 //constructor reference
+interface TriFunction{
+    void triFunction(int a, String n, double h);
+}
+
+class TriFunctionMethodReference{
+    public void triFunction(int age, String name, double height){
+        System.out.println("My name is " + name + ", I am " + age + " years old and " + height + "cm tall");
+    }
+}
