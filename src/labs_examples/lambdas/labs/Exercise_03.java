@@ -3,6 +3,8 @@ package labs_examples.lambdas.labs;
 import labs_examples.generics.labs.Exercise_03;
 
 import java.sql.SQLOutput;
+import java.util.Locale;
+import java.util.function.BiFunction;
 import java.util.function.DoubleToIntFunction;
 
 /**
@@ -29,7 +31,7 @@ class Exercise_3 {
         sayIt.say();
 
         //constructor reference
-
+        BiFunction<String, String, Locale> b = Locale::new;
 
 
 
@@ -65,9 +67,3 @@ class InstanceMethodReference{
 }
 //--------------------------------------------
 //constructor reference
-interface TriFunction<A, B, C>{
-    void triFunction(A a, B b, C c);
-}
-class TFMethodReference{
-
-}
