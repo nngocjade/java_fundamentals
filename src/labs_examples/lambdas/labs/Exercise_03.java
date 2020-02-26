@@ -53,6 +53,7 @@ class DNum1{
        return x;
     }
 }
+//--------------------------------------------
 //instance method reference
 interface SayIt{
     void say();
@@ -61,4 +62,12 @@ class InstanceMethodReference{
     public void JustSayIt(){
         System.out.println("No");
     }
+}
+//--------------------------------------------
+//constructor reference
+interface TriFunction<A, B, C>{
+    void triFunction(A a, B b, C c);
+}
+class TFMethodReference{
+
 }
