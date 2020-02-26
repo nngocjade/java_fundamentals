@@ -22,12 +22,15 @@ class Exercise_3 {
         //example 2 - double to int using Functional Interface
        DoubleToIntFunction d = DNum1::dNumToIntNum1;
 
-       //Predicate Method Reference
+       //instance method reference
+
 
 
 
     }
 }
+//method reference
+//example 1 - double to int
 interface Num{
     void num(double d1, double d2);
 }
@@ -37,10 +40,11 @@ class DNum {
         System.out.println(x);
     }
 }
-
+//example 2 - double to int using Functional Interface
 class DNum1{
     public static int dNumToIntNum1 (double value){
        int x = (int) (value*2);
        return x;
     }
 }
+//
