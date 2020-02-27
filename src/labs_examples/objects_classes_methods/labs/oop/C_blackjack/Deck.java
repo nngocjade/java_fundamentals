@@ -8,28 +8,28 @@ import java.util.ArrayList;
  *  *         ArrayList<Integer> usedCards;
  */
 
-class Deck{
-    Card[] cards;
-    ArrayList<Integer> usedCards;
+public class Deck{
 
-    public Deck(Card[] cards, ArrayList<Integer> usedCards) {
-        this.cards = cards;
-        this.usedCards = usedCards;
+    private Card[] deck = new Card[52];
+    private ArrayList<Integer> usedCards = new ArrayList<>();
+    char[] suit = new char[]{'♠', '♦', '♥', '♣'};
+    private static int freshDecksLoaded;
+
+    public Deck(){
+        loadFreshDeck();
+        freshDecksLoaded++;
     }
 
-    public Card[] getCards() {
-        return cards;
-    }
+    private void loadFreshDeck() {
+        int count = 0;
 
-    public void setCards(Card[] cards) {
-        this.cards = cards;
-    }
+        for (int x = 0; x < 4; x++){
+            for (int i = 1; i < 14; i++){
+                if (i == 1){
+                    deck[count] = new Card(suit[x], "ACE");
 
-    public ArrayList<Integer> getUsedCards() {
-        return usedCards;
-    }
-
-    public void setUsedCards(ArrayList<Integer> usedCards) {
-        this.usedCards = usedCards;
+                }
+            }
+        }
     }
 }
