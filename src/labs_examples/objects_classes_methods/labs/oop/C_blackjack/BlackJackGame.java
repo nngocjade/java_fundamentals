@@ -10,5 +10,27 @@ public class BlackJackGame extends Game {
         CardPlayer user = new CardPlayer();
 
         Deck deck = new Deck();
+
+        do{
+            deck = new Deck();
+
+            System.out.println("\nGame #" + Deck.getFreshDecksLoaded());
+
+            printAsciiArt();
+
+        }while(true);
+
+    }
+
+    private void printAsciiArt() {
+
+        System.out.println("\n-----------------------------------------");
+        System.out.println("     Let's play some BlackJack      ");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 }
