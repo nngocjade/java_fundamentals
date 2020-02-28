@@ -86,3 +86,5 @@ class Calculator{
         return bi.apply(i1, i2);
     }
 }
+
+//done
