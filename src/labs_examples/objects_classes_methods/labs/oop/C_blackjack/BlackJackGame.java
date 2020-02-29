@@ -25,12 +25,12 @@ public class BlackJackGame extends Game {
     private void printAsciiArt() {
 
         System.out.println("\n---------------------------------------------");
-        System.out.println("            Let's play some BlackJack          ");
-        System.out.println("                                           _   ");
-        System.out.println("     ,'`.     _   _          /\\         _(_)_ ");
-        System.out.println("    (_,._)   ( ` '  )       <   >       (_)+(_)");
-        System.out.println("      /\\     `. , '         \\/          | |  ");
-        System.out.println("-----------------------------------------------");
+        System.out.println("            Let's play some BlackJack");
+        System.out.println("                                        _");
+        System.out.println("     ,'`.     _   _         /\\        _(_)_");
+        System.out.println("    (_,._)   ( ` ' )       <  >      (_)+(_)");
+        System.out.println("      /\\      `. ,'         \\/          |");
+        System.out.println("---------------------------------------------");
         System.out.println();
     }
 }
