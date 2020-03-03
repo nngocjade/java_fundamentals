@@ -5,6 +5,7 @@ import labs_examples.objects_classes_methods.labs.oop.C_blackjack.CardPlayer;
 import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Deck;
 import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Game;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class BlackJackGame extends Game implements CardGame {
@@ -26,9 +27,18 @@ public class BlackJackGame extends Game implements CardGame {
             printAsciiArt();
 
             handleBets(user);
+            
+            dealInitialCards(user, computer, deck);
 
         }while(true);
 
+    }
+
+    private void dealInitialCards(CardPlayer user, CardPlayer computer, Deck deck) {
+        deal(user, deck);
+        deal(computer, deck);
+        deal(user, deck);
+        deal(computer, deck);
     }
 
     private void printAsciiArt() {
@@ -46,6 +56,16 @@ public class BlackJackGame extends Game implements CardGame {
     @Override
     public void deal(CardPlayer player, Deck deck) {
 
+        int randomNum = getRandomCard(deck);
+
+    }
+
+    private int getRandomCard(Deck deck) {
+        Random random = new Random();
+        int n = random.nextInt(51) + 0;
+        while(deck.isCardUsed(n)){
+
+        }
     }
 
     @Override
@@ -69,7 +89,8 @@ public class BlackJackGame extends Game implements CardGame {
                 System.out.println("Sorry you cannot bet more than you got! please bet less than $ " + player.getStackValue());
                 System.out.println("How much would you like to bet?");
                 bet = scanner.nextInt();
-            }while(bet >= player.getStackValue())
+            }while(bet >= player.getStackValue());
+            player.setBet(bet);
         }
     }
 }
