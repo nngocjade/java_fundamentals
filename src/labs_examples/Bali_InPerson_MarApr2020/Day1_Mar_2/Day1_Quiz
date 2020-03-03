@@ -1,0 +1,982 @@
+Day 1 Quiz!
+
+Please use any and all resources at your disposal to complete this quiz. That means, the internet, the CodingNomads platform, the labs, and/or anything else. Take as much time as you need. If you finish before others please feel free to take a break, do some studying, send me any questions on Slack etc.
+
+Section 1 - Fundamentals:
+
+1) What defines "a block" of code?
+
+    "a block of code is defined by  curly bracket"
+
+    grouping of two or more statements
+    enclosing the statements between opening and closing curly braces
+    logical unit that can be used any place that a single statement can
+
+2) What is "variable scope"?
+
+    "variable scope defines when/where  variable is available"
+
+    Scope refers to the visibility of variables. In other words, which parts of your program can see or use it
+    Once defined, every part of your program can access a variable
+    very useful to be able to limit a variable's scope to a single function
+
+3) What defines "variable scope"?
+
+    "The nearest enclosing curly brackets"
+
+    In Java, the scope of a local variable is the body of the method in which it is declared.
+
+4) What are Java's primitive data types? Please list them and briefly explain them.
+
+     boolean - 1 bit, stores true or false values
+     byte - 8 bits or 1 byte, store whole number between -128 to 127
+     int - 32 bits or 4 bytes, stores whole numbers from -2,147,483,648 to 2,147,483,647
+     short - 16 bits or 2 bytes, stores whole numbers from -32,768 to 32,767
+     char -  16 bits or 2 bytes, stores a single character/letter or ASCII values
+     long -  64 bits or 8 bytes, stores whole numbers from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+     float - 32 bits or 4 bytes, stores fractional numbers. Sufficient for storing 6 to 7 decimal digits
+     double - 64 bits or 8 bytes, stores fractional numbers. Sufficient for storing 15 decimal digits
+
+
+5) What are Java's arithmetic operators? Please demonstrate all of them.
+
+     +	Addition	 int i = 2 + 2; 	i == 2
+     -	Subtraction	 int i = 4 - 2; 	i == 2
+     *	Multiplication	 int i = 2 * 2; 	i == 4
+     /	Division	int i = 4 /2;	i == 2
+     %	Modulus	 int i = 5 % 3; 	i == 2
+
+6) What are Java's relational operators? Please demonstrate all of them.
+
+     <	Less Than	 1 < 2 	True
+     <=	Less Than or Equal To 	3 <= 3	True
+     >	Greater Than	3 > 4	False
+     >=	Greater Than or Equal To 	3 >= 3	True
+     ==	Equal To	 2 == 2	True
+     !=	Not Equal To 	 3 != 2	 True
+
+7) What are Java logical operators? Please demonstrate all of them?
+
+      &	AND
+      &&	Short-Circuit AND
+      |	OR
+      ||	Short-Circuit OR
+      ^	 XOR (One can be true but not both) 
+      !	NOT 
+
+8) What is a conditional statement in Java? Please show an example.
+
+      Java has the following conditional statements:
+
+      Use if       to specify a block of code to be executed, if a specified condition is true
+      Use else     to specify a block of code to be executed, if the same condition is false
+      Use else if  to specify a new condition to test, if the first condition is false
+      Use switch   to specify many alternative blocks of code to be executed
+
+      //example
+      //syntax
+      if (condition) {
+      // block of code to be executed if the condition is true
+      }
+
+      int x = 20;
+      int y = 18;
+      if (x > y) {
+         System.out.println("x is greater than y");
+      }
+
+9) What types of loops do we have in Java? Please demonstrate each of them.
+
+      Loops can execute a block of code as long as a specified condition is reached.
+      Loops are handy because they save time, reduce errors, and they make code more readable.
+
+
+      FOR LOOP
+      When you know exactly how many times you want to loop through a block of code, use the for loop instead of a while loop:
+
+      //syntax
+      for (statement 1; statement 2; statement 3) {
+      // code block to be executed
+      }
+
+      Statement 1 is executed (one time) before the execution of the code block.
+      Statement 2 defines the condition for executing the code block.
+      Statement 3 is executed (every time) after the code block has been executed.
+
+      count = 0
+      for (int i = 0; i < 10; i++){
+         System.out.println(i);
+      }
+
+      FOR EACH LOOP (ENHANCED FOR LOOP)
+      There is also a "for-each" loop, which is used exclusively to loop through elements in an array:
+
+      //syntax
+      for (type variableName : arrayName) {
+      // code block to be executed
+      }
+
+      String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+      for (String i : cars) {
+          System.out.println(i);
+      }
+
+
+     WHILE
+     The while loop loops through a block of code as long as a specified condition is true:
+
+     //Syntax
+     while (condition) {
+  // code block to be executed
+}
+
+int i = 0;
+while (i < 5) {
+  System.out.println(i);
+  i++;
+}
+
+DO WHILE
+The do/while loop is a variant of the while loop. This loop will execute the code block once, before checking if the condition is true, then it will repeat the loop as long as the condition is true.
+
+//syntax
+do {
+  // code block to be executed
+}
+while (condition);
+
+int i = 0;
+do {
+  System.out.println(i);
+  i++;
+}
+while (i < 5);
+
+
+
+10) What do the keywords "continue", "break", and "return" do?
+
+         Continue
+         continue	Continues to the next iteration of a loop
+
+         break	
+         Breaks out of a loop or a switch block
+
+         return
+         return	Finished the execution of a method, and can be used to return a value from a method
+
+
+         11) What is a Switch Statement? Please demonstrate.
+
+         Use the switch statement to select one of many code blocks to be executed.
+
+         switch(expression) {
+           case x:
+             // code block
+             break;
+           case y:
+             // code block
+             break;
+           default:
+             // code block
+         }
+
+         This is how it works:
+
+         The switch expression is evaluated once.
+         The value of the expression is compared with the values of each case.
+         If there is a match, the associated block of code is executed.
+         The break and default keywords are optional, and will be described later in this chapter
+
+         int day = 4;
+         switch (day) {
+           case 1:
+             System.out.println("Monday");
+             break;
+           case 2:
+             System.out.println("Tuesday");
+             break;
+           case 3:
+             System.out.println("Wednesday");
+             break;
+           case 4:
+             System.out.println("Thursday");
+             break;
+           case 5:
+             System.out.println("Friday");
+             break;
+           case 6:
+             System.out.println("Saturday");
+             break;
+           case 7:
+             System.out.println("Sunday");
+             break;
+         }
+         // Outputs "Thursday" (day 4)
+
+Section 2 - Introduction to Data Structures:
+
+12) What is an Array?
+
+       Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+
+       To declare an array, define the variable type with square brackets:
+
+       //examples
+       String[] cars;
+       String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+       int[] myNum = {10, 20, 30, 40};
+
+
+       13) What is the difference between the length() of an Array and the final index of an Array?
+
+       length() is the size of an array 
+       final index is the size of an array - 1
+
+       for example:
+       length() = 5
+       final index = 5 - 1 = 4
+
+       14) How do we instantiate an Array of size 7? Please demonstrate.
+
+       int intArray[];    //declaring array
+       intArray = new int[20];  // allocating memory to array
+
+       OR
+
+       int[] intArray = new int[20]; // combining both statements in one
+
+       int [] array = new int [7];
+
+15) Please write a for loop that will populate the Array you created above with the numbers two through twelve (start with 2 and increment by 2).
+
+      int [] array = new int [7];
+
+      for (int i = 0; i < array.length; i = i + 2){
+            System.out.println(i);
+       }
+
+16) Please write a for-each loop that will print each element in the Array above.
+
+      for(int i : array) {
+            System.out.println(i);
+        }
+
+17) How do we declare a two-dimensional Array with a width of 7 and a height of 7? Please demonstrate?
+
+       A multidimensional array is an array containing one or more arrays.
+
+       To create a two-dimensional array, add each array within its own set of curly braces:
+
+       //example
+       int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+       int x = myNumbers[1][2];
+       System.out.println(x); // Outputs 7
+
+18) Please demonstrate how to populate the 2D array above using a nest for loop?
+
+       We can also use a for loop inside another for loop to get the elements of a two-dimensional array (we still have to point to the two indexes):
+
+       public class MyClass {
+        public static void main(String[] args) {
+
+          int[][] myNumbers = { {1, 2, 3, 4}, {5, 6, 7} };
+          for (int i = 0; i < myNumbers.length; ++i) {
+            for(int j = 0; j < myNumbers[i].length; ++j) {
+              System.out.println(myNumbers[i][j]);
+            }
+          }
+        }
+       }
+
+19) Please demonstrate how to print each element in the 2D array above using nested for-each loop.
+
+      int[][] array2d = {{1, 2, 3}, {4, 5, 6}};
+
+      for (int[] array : array2d) {
+          for (int element : array) {
+              System.out.print(element + " ");
+          }
+          System.out.println();
+      }
+
+      OR
+
+      int[][] numbers = {{1, 2, 3}, {4, 5, 6}};
+      for (int[] array : numbers) {
+          System.out.println(Arrays.toString(array));
+      }
+
+20) What is an ArrayList? 
+
+      The ArrayList class is a resizable array, which can be found in the java.util package.
+
+      The difference between a built-in array and an ArrayList in Java, is that the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). While elements can be added and removed from an ArrayList whenever you want. The syntax is also slightly different:
+
+      import java.util.ArrayList; // import the ArrayList class
+
+      //example
+      ArrayList<String> cars = new ArrayList<String>(); // Create an ArrayList object 
+
+
+21) What makes an ArrayList different than an Array?
+
+      the size of an array cannot be modified (if you want to add or remove elements to/from an array, you have to create a new one). 
+      While elements can be added and removed from an ArrayList whenever you want. The syntax is also slightly different:
+
+
+22) What are a few useful methods that are available to us when using an ArrayList?
+
+     .set()
+     .get()
+     .remove()
+     .add()
+     .contain()
+     .isempty()
+     .clear()
+     .indexOf()
+
+Section 3 - Object-Oriented Programming (OOP):
+
+23) What is OOP?
+
+      "Object-oriented programming is a programming style that llows us to simple and effectively model the world around u in an intuitive wy. We can then interact with these models/objects in an intuitive way."
+
+      OOP stands for Object-Oriented Programming.
+
+      Procedural programming is about writing procedures or methods that perform operations on the data, while object-oriented programming is about creating objects that contain both data and methods.
+
+      Object-oriented programming has several advantages over procedural programming:
+
+      OOP is faster and easier to execute
+      OOP provides a clear structure for the programs
+      OOP helps to keep the Java code DRY "Don't Repeat Yourself", and makes the code easier to maintain, modify and debug
+      OOP makes it possible to create full reusable applications with less code and shorter development time
+      Tip: The "Don't Repeat Yourself" (DRY) principle is about reducing the repetition of code. You should extract out the codes that are common for the application, and place them at a single place and reuse them instead of repeating it.
+
+24) What are the primary tenants/principles of OOP?
+
+      Abstraction
+      Encapsulation
+      Inheritance
+      Polymorphism
+
+25) Please explain the tenants/principles you listed in the previous question.
+
+        ABSTRACTION
+
+              Data abstraction is the process of hiding certain details and showing only essential information to the user.
+              Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).
+
+              The abstract keyword is a non-access modifier, used for classes and methods:
+
+              Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+              Abstract method: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+              An abstract class can have both abstract and regular methods:
+
+              //example
+
+              // Abstract class
+              abstract class Animal {
+                // Abstract method (does not have a body)
+                public abstract void animalSound();
+                // Regular method
+                public void sleep() {
+                  System.out.println("Zzz");
+                }
+              }
+
+              // Subclass (inherit from Animal)
+              class Pig extends Animal {
+                public void animalSound() {
+                  // The body of animalSound() is provided here
+                  System.out.println("The pig says: wee wee");
+                }
+              }
+
+              class MyMainClass {
+                public static void main(String[] args) {
+                  Pig myPig = new Pig(); // Create a Pig object
+                  myPig.animalSound();
+                  myPig.sleep();
+                }
+              }
+
+        -----
+
+        ENCAPSULATION
+
+             The meaning of Encapsulation, is to make sure that "sensitive" data is hidden from users. To achieve this, you must:
+
+             declare class variables/attributes as private
+             provide public get and set methods to access and update the value of a private variable
+
+             Get and Set
+             You learned from the previous chapter that private variables can only be accessed within the same class (an outside class has no access to it). However, it is possible to access them if we provide public get and set methods.
+
+             The get method returns the variable value, and the set method sets the value.
+
+             Syntax for both is that they start with either get or set, followed by the name of the variable, with the first letter in upper case:
+
+             //example
+
+             public class Person {
+               private String name; // private = restricted access
+
+               // Getter
+               public String getName() {
+                 return name;
+               }
+
+               // Setter
+               public void setName(String newName) {
+                 this.name = newName;
+               }
+             }
+
+        -----
+
+        POLYMORPHISM
+
+              Polymorphism means "many forms", and it occurs when we have many classes that are related to each other by inheritance.
+
+              Like we specified in the previous chapter; Inheritance lets us inherit attributes and methods from another class. Polymorphism uses those methods to perform different tasks. This allows us to perform a single action in different ways.
+
+              For example, think of a superclass called Animal that has a method called animalSound(). Subclasses of Animals could be Pigs, Cats, Dogs, Birds - And they also have their own implementation of an animal sound (the pig oinks, and the cat meows, etc.):
+
+              //example
+
+              class Animal {
+                public void animalSound() {
+                  System.out.println("The animal makes a sound");
+                }
+              }
+
+              class Pig extends Animal {
+                public void animalSound() {
+                  System.out.println("The pig says: wee wee");
+                }
+              }
+
+              class Dog extends Animal {
+                public void animalSound() {
+                  System.out.println("The dog says: bow wow");
+                }
+              }
+
+        ----
+
+        INHERITANCE (Subclass and Superclass)
+
+              In Java, it is possible to inherit attributes and methods from one class to another. We group the "inheritance concept" into two categories:
+
+              subclass (child) - the class that inherits from another class
+              superclass (parent) - the class being inherited from
+              To inherit from a class, use the extends keyword.
+
+              In the example below, the Car class (subclass) inherits the attributes and methods from the Vehicle class (superclass):
+
+              //example
+
+              class Vehicle {
+                protected String brand = "Ford";        // Vehicle attribute
+                public void honk() {                    // Vehicle method
+                  System.out.println("Tuut, tuut!");
+                }
+              }
+
+              class Car extends Vehicle {
+                private String modelName = "Mustang";    // Car attribute
+                public static void main(String[] args) {
+
+                  // Create a myCar object
+                  Car myCar = new Car();
+
+                  // Call the honk() method (from the Vehicle class) on the myCar object
+                  myCar.honk();
+
+                  // Display the value of the brand attribute (from the Vehicle class) and the value of the modelName from the Car class
+                  System.out.println(myCar.brand + " " + myCar.modelName);
+                }
+              }
+
+26) What is a constructor?
+
+
+      Java Constructors
+      A constructor in Java is a special method that is used to initialize objects. The constructor is called when an object of a class is created. It can be used to set initial values for object attributes:
+
+      NOTE:
+
+      Note that the constructor name must match the class name, and it cannot have a return type (like void).
+
+      Also note that the constructor is called when the object is created.
+
+      All classes have constructors by default: if you do not create a class constructor yourself, Java creates one for you. However, then you are not able to set initial values for object attributes.
+
+
+      //EXAMPLE
+      // Create a MyClass class
+      public class MyClass {
+        int x;  // Create a class attribute
+
+        // Create a class constructor for the MyClass class
+        public MyClass() {
+          x = 5;  // Set the initial value for the class attribute x
+        }
+
+        public static void main(String[] args) {
+          MyClass myObj = new MyClass(); // Create an object of class MyClass (This will call the constructor)
+          System.out.println(myObj.x); // Print the value of x
+        }
+      }
+
+      // Outputs 5
+
+
+27) When, specifically, is a constructor invoked?
+
+     when the object of class is created
+
+
+28) How do we create a new object in Java?
+
+     In Java, the new keyword is used to create new objects. 
+
+     Declaration      − A variable declaration with a variable name with an object type. 
+     Instantiation    − The 'new' keyword is used to create the object. 
+     Initialization   − The 'new' keyword is followed by a call to a constructor.
+
+
+29) What is Object Composition? Please give a simple demo below.
+
+    "The ability to create one object that compromises of one or more other objects"
+
+     Composition is the design technique to implement has-a relationship in classes. 
+     We can use java inheritance or Object composition for code reuse.
+     Java composition is achieved by using instance variables that refers to other objects.
+
+
+30) What are the access modifiers in Java? Please list them and briefly describe them.
+
+      PRIVATE: The access level of a private modifier is only within the class. It cannot be accessed from outside the class.
+
+      DEFAULT: The access level of a default modifier is only within the package. It cannot be accessed from outside the package. If you do not specify any access            level, it will be the default.
+
+      PROTECTED: The access level of a protected modifier is within the package and outside the package through child class. If you do not make the child class, it           cannot be accessed from outside the package.
+
+      PUBLIC: The access level of a public modifier is everywhere. It can be accessed from within the class, outside the class, within the package and outside the           package.
+
+      Access Modifier	    within class	       within package	      outside package by subclass only	              outside package
+          Private	              Y	                   N	                            N                                     	N
+          Default               Y	                   Y	                            N	                                     N
+          Protected	            Y	                   Y	                            Y	                                     N
+          Public	               Y	                   Y	                            Y	                                     Y
+
+31) What is the difference between "this" and "super"?
+
+      "this refers to the member of the current class"
+      "super refers to a parent class"
+
+      "this" is a reference variable that refers to the CURRENT object.
+
+      Here is given the 6 usage of java "this" keyword.
+
+      this can be used to refer current class instance variable.
+      this can be used to invoke current class method (implicitly)
+      this() can be used to invoke current class constructor.
+      this can be passed as an argument in the method call.
+      this can be passed as argument in the constructor call.
+      this can be used to return the current class instance from the method.
+
+-------
+
+      "super" keyword in Java is a reference variable which is used to refer immediate parent class object.
+
+      Usage of Java super Keyword
+
+      super can be used to refer immediate parent class instance variable.
+      super can be used to invoke immediate parent class method.
+      super() can be used to invoke immediate parent class constructor.
+
+
+32) What is an "abstract" class?
+
+     "
+
+     Abstract class: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+
+33) What is the difference between a static variable and a non-static variable?
+
+     "static variables are shared between ALL instances of a class" 
+
+     Data abstraction is the process of hiding certain details and showing only essential information to the user.
+     Abstraction can be achieved with either abstract classes or interfaces (which you will learn more about in the next chapter).
+
+     The abstract keyword is a non-access modifier, used for classes and methods:
+
+     ABSTRACT CLASS: is a restricted class that cannot be used to create objects (to access it, it must be inherited from another class).
+
+     ABSTRACT METHOD: can only be used in an abstract class, and it does not have a body. The body is provided by the subclass (inherited from).
+     An abstract class can have both abstract and regular methods:
+
+34) What is the difference between a static method and a non-static method?
+
+     If you apply static keyword with any method, it is known as static method.
+
+     A static method belongs to the class rather than the object of a class.
+     A static method can be invoked without the need for creating an instance of a class.
+     A static method can access static data member and can change the value of it.
+
+     //syntax
+     ClassName.variableName; 
+
+     INTERESTING FACT:
+
+     Why is the Java main method static?
+
+     Ans) It is because the object is not required to call a static method. If it were a non-static method, JVM creates an object first then call main() method that will lead the problem of extra memory allocation.
+
+     MAIN DIFFERENCE
+
+     A static method belongs to the class itself 
+     while a non-static method belongs to each instance of a class. 
+     Therefore, a static method can be called directly without creating any instance of the class and an object is needed to call a non-static method.
+
+35) What do we need in order to be able to call a non-static method?
+
+    an object is needed to call a non-static method
+
+
+36) How do we call a static method that is in another class?
+
+    We can call the static method or a variable of class in another class by using class name itself.
+
+
+37) What does it mean to "overload" a method?
+
+    With method overloading, multiple methods can have the same name with different parameters:
+
+    int myMethod(int x)
+    float myMethod(float x)
+    double myMethod(double x, double y)
+
+
+38) What does it mean to "override" a method?
+
+    Usage of Java Method Overriding
+
+    Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.
+    Method overriding is used for runtime polymorphism
+
+
+Rules for Java Method Overriding
+
+    The method must have the same name as in the parent class
+    The method must have the same parameter as in the parent class.
+    There must be an IS-A relationship (inheritance).
+
+
+Section 4 - Exception Handling:
+
+39) What is exception handling all about?
+
+    The Exception Handling in Java is one of the powerful mechanism to handle the runtime errors so that normal flow of the application can be maintained.
+
+    In Java, an exception is an event that disrupts the normal flow of the program. It is an object which is thrown at runtime.
+
+    Exception Handling is a mechanism to handle runtime errors such as ClassNotFoundException, IOException, SQLException, RemoteException, etc.
+
+
+40) Please demonstrate a try/catch/finally statement below.
+
+    Java try block is used to enclose the code that might throw an exception. It must be used within the method.
+
+    If an exception occurs at the particular statement of try block, the rest of the block code will not execute. So, it is recommended not to keeping the code in try block that will not throw an exception.
+
+    Java try block must be followed by either catch or finally block.
+
+    //syntax     TRY CATCH
+    try{    
+    //code that may throw an exception    
+    }catch(Exception_class_Name ref){}    
+
+    //syntax     TRY FINALLY
+    try{    
+    //code that may throw an exception    
+    }finally{}    
+
+
+    Java catch block is used to handle the Exception by declaring the type of exception within the parameter. The declared exception must be the parent class exception ( i.e., Exception) or the generated exception type. However, the good approach is to declare the generated type of exception.
+
+    The catch block must be used after the try block only. You can use multiple catch block with a single try block.
+
+
+41) How do we create a custom exception? Please demonstrate.
+
+    create a class w/ name 
+    followed by the "extends" keyword before Exception
+
+    class Exercise_7{
+        public static void main(String[] args) throws SalonFullException {
+           try{
+               addCustomerToSalon();
+           }catch (SalonFullException e){
+               System.out.println(e.toString());
+           }
+        }
+        public static void addCustomerToSalon() throws SalonFullException {
+            Scanner scanner = new Scanner(System.in);
+
+            System.out.println("Hello, how can I help you?");
+            String response = scanner.nextLine();
+
+            if (response.equalsIgnoreCase("I would like to get in please")){
+                throw new SalonFullException();
+
+            }
+            System.out.println("Would you like to come back at another time?");
+            String response1 = scanner.next();
+
+            System.out.println("Great! You are schedule!");
+        }
+    }
+
+    class SalonFullException extends Exception{
+        @Override
+        public String toString() {
+            return "SalonFullException{Sorry, we are currently full}";
+        }
+    }
+
+42) What does it mean to "throw" an exception?
+
+    Java throw keyword is used to explicitly throw an exception anytime we want.
+
+
+43) What is the difference between the keywords "throw" and "throws"?
+
+     No.	                    throw	                                                                           throws
+
+     1)	Java throw keyword is used to explicitly throw an exception.	                  Java throws keyword is used to declare an exception.
+     2)	Checked exception cannot be propagated using throw only.	                      Checked exception can be propagated with throws.
+     3)	Throw is followed by an instance.	                                             Throws is followed by class.
+     4)	Throw is used within the method.	                                              Throws is used with the method signature.
+     5)	You cannot throw multiple exceptions.	                                         You can declare multiple exceptions e.g.
+                                                                                       public void method()throws IOException,SQLException.
+
+44) When catching multiple exceptions, why must we keep the "exception hierarchy" in mind?
+
+     we must catch the more specific exception first, then the more generic ones such as "Exception"
+
+
+45) Can we have a "try" without a "catch"?
+
+     no
+
+46) Can we have a "try/catch" without a "finally"?
+
+    yes
+
+Section 5 - Input/Output:
+
+    Java I/O (Input and Output) is used to process the input and produce the output.
+    Java uses the concept of a stream to make I/O operation fast. The java.io package contains all the classes required for input and output operations.
+
+47) What is a Byte Stream?
+
+    A byte is an input/output stream that read one byte (aka 8 bits) t a time - no matter what 
+    great for reading binary files, such as raw dta, images, music etc..
+
+    Byte streams process data byte by byte (8 bits)
+
+
+48) What is a Character Stream?
+
+    A character stream is reader/writer that reads two bytes at a time. Character streams are used to read/write human readable language. Many characters in a number of languages consist of two bytes.
+
+    "The Java platform stores character values using Unicode conventions. Character stream I/O automatically translates this internal format to and from the local character set. Character stream automatically allows us to read/write data character by character.
+
+
+49) What is a very quickly clue that tells us whether we're looking at a Byte Stream or a Character Stream?
+
+    byte stream                          inputstream and outputstream
+    character stream                     Reader and Writer
+
+
+50) What is the difference between a Buffered Byte Stream and a traditional Byte Stream?
+
+    A Buffered Byte Stream allows us to read a block of bytes or a collection of bytes at once. 
+    Whereas with a traditional Byte Stream, we can only read (or write) one byte at a time. 
+    Buffers are useful when we want to read (or write) a whole collection of bytes at once, rather than needing to read (or write) each byte individually.
+
+
+51) What is the difference between a Buffered Character Stream and a traditional Character Stream?
+
+    Same as above 
+
+52) Please demonstrate how to create a Byte Stream and a Character Stream below. Both of these Streams should demonstrate how to read a file and print the contents to the console. (This is just a demonstration.)
+
+   
+
+
+
+Section 6 - MultiThreading:
+
+53) What is multithreading?
+
+     Multithreading in Java is a process of executing multiple threads simultaneously.
+
+     A THREAD is a lightweight sub-process, the smallest unit of processing. Multiprocessing and multithreading, both are used to achieve multitasking.
+     However, we use multithreading than multiprocessing because threads use a shared memory area. They don't allocate separate memory area so saves memory, and context-switching between the threads takes less time than process.
+
+     Advantages of Java Multithreading
+
+     1) It doesn't block the user because threads are independent and you can perform multiple operations at the same time.
+     2) You can perform many operations together, so it saves time.
+     3) Threads are independent, so it doesn't affect other threads if an exception occurs in a single thread.
+
+
+54) What are the 2 ways we can create new threads in Java?
+
+     Option #1 - Implementing the Runnable interface
+     Option #2 - Extending the Thread Class
+
+
+55) Which method of creating a new thread do we typically prefer? Why?
+
+     Option #1 - Implementing the Runnable interface
+
+
+56) What is the one method you must implement when creating a new thread?
+
+     run()
+
+
+57) What does the join() method do?
+
+    Java's Thread class provides an overloaded join() method which allows one thread to wait/pause/hold until another thread completes. 
+
+    There are three overloaded join functions.
+
+    join():                              It will put the current thread on hold until the thread on which it is called complete.
+
+    join(long millis):                   It will put the current thread on hold until the thread on which it is called is complete - but it will only wait for as long                                        as you specify in milliseconds. If the thread does not complete in that time the current thread will move on without it.
+
+    join(long millis, int nanos):        It will put the current thread on hold until the thread on which it is called is complete - but it will only wait for as long                                        as you specify in milliseconds + nanoseconds. If the thread does not complete in that time the current thread will move on                                           without it.
+
+
+58) What does the synchronized keyword do?
+
+    We use synchronization to ensure that only one thread can access a specific resource at a given point of time. 
+
+
+Section 7 - Generics:
+
+59) Why do we use Generics?
+
+    The idea is to allow type (Integer, String, … etc and user defined types) to be a parameter to methods, classes and interfaces.
+
+    "Generics could be used to develop a better solution using a container that can have a type assigned at instantiation, otherwise referred to as a generic type, allowing the creation of an object that can be used to store objects of the assigned type. A generic type is a class or interface that is parameterized over types, meaning that a type can be assigned by performing generic type invocation, which will replace the generic type with the assigned concrete type." 
+
+
+60) Please demonstrate a simple Generic Class definition.
+
+    class GenericExample<T>{
+        private T num;
+        private T val;
+    }
+
+60) Please demonstrate a simple Generic Method definition.
+
+    public static < E > void printArray( E inputArray ) {
+         /* Display array elements */
+         for(E element : inputArray) {
+            System.out.printf("%s ", element);
+         }
+         System.out.println();
+
+
+61) What does "bounded types" mean?
+
+There may be times when you want to restrict the types that can be used as type arguments in a parameterized type. For example, a method that operates on numbers might only want to accept instances of Number or its subclasses. This is what bounded type parameters are for.
+
+
+Declare a bounded type parameter
+
+List the type parameter’s name.
+Along by the extends keyword
+And by its upper bound.(which in below example is A.)
+
+//Syntax
+<T extends superClassName>
+
+
+62) Please write a simple bounded Generic Method named sum() that takes in two parameters. These parameters can be ANY type of Number, but they must be a Number. This method will return a double which is the sum of the two method parameters.
+
+public static<T extends Number> T sum(T x, T y){
+    Double dSum;
+    dSum = x.doubleValue() + y.doubleValue();
+    return (T) dSum;
+
+}
+
+
+62) What is an example of a Generic Class that we've already been using a bit in the prep course?
+
+ArrayList<>
+
+Section 8 - Enumerations:
+
+63) What is an Enumeration?
+
+Enumerations are fixed sets of closely related items
+
+
+64) When do we use Enumerations?
+
+Enums are used when we know all possible values at compile time. The very purpose of enum is to enforce compile time type safety.
+You should use enum types any time you need to represent a fixed set of constants.
+
+65) Please demonstrate a simple Enumeration below.
+
+Hoorayyyy! You're done! 
+
+Bonus Section!
+
+Please write a method that will reverse the (int) elements inside an array. This method takes in an int[] array as an argument and reverse the elements in place. You cannot create a new array and copy elements from one array to the other, you must reverse the elements in place inside the original array. Once reversed, return the array back to the caller.
+
+public class Exercise_06 {
+    public static void main(String[] args) {
+        int [] array = new int [5];
+
+        array [0] = 1;
+        array [1] = 2;
+        array [2] = 3;
+        array [3] = 4;
+        array [4] = 5;
+
+        //5 4 3 2 1
+       //temp = 2
+
+
+        //populate array
+        for (int i=0; i < array.length/2; i++){
+            int temp = array[i];
+            array[i] = array[array.length - 1 - i];
+            array[array.length - 1 - i] = temp;
+        }
+        System.out.print(Arrays.toString(array) + " ");
+    }
+
+}
+
+Please create a simple Rock-Paper_Scissors game that you can play on the console against the commputer. The computer must randomly choose it's play, and the user gets to manually choose their play. Best 2 out of 3 wins.
+
+
+
+
+
+Hooray!! You're extra extra done!

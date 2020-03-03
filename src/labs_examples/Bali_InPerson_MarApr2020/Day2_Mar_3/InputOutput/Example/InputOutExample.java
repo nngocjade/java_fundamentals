@@ -1,10 +1,10 @@
-package labs_examples.input_output.labs;
+package labs_examples.Bali_InPerson_MarApr2020.Day2_Mar_3.InputOutput.Example;
 
 import java.io.*;
 import java.util.ArrayList;
 
 class InputOutputExamples {
-    static String filePath = "/Users/ryandesmond/Documents/CodingNomads/courses/CN_Bali_Java_2020/IO/people.csv";
+    static String filePath = "src/labs_examples/input_output/labs/people.csv";
     public static void main(String[] args) throws IOException {
         //demonstrateInputStream();
         //demonstrateBufferedInputStream();

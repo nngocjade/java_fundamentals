@@ -1,4 +1,4 @@
-package labs_examples.input_output.labs;
+package labs_examples.Bali_InPerson_MarApr2020.Day2_Mar_3.InputOutput.Challenge;
 
 public class Refugee {
     //id,Year,Country,Population,Refugees,RefPerCap
