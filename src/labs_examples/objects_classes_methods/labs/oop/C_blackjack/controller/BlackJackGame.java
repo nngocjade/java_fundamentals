@@ -56,17 +56,17 @@ public class BlackJackGame extends Game implements CardGame {
     @Override
     public void deal(CardPlayer player, Deck deck) {
 
-        int randomNum = getRandomCard(deck);
+//        int randomNum = getRandomCard(deck);
 
     }
 
-    private int getRandomCard(Deck deck) {
-        Random random = new Random();
-        int n = random.nextInt(51) + 0;
-        while(deck.isCardUsed(n)){
-
-        }
-    }
+//    private int getRandomCard(Deck deck) {
+//        Random random = new Random();
+//        int n = random.nextInt(51) + 0;
+//        while(deck.isCardUsed(n)){
+//
+//        }
+//    }
 
     @Override
     public void handleBets(CardPlayer player) {
