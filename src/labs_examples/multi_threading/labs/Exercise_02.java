@@ -12,6 +12,10 @@ class Exercise_2{
 
         SyncThread multiplyingSimultaneously = new SyncThread(2, "ThreadMultiply2");
         SyncThread multiplyingSimultaneously1 = new SyncThread(3, "ThreadMultiply3");
+
+        Multiply multiply1 = new Multiply(2, "Thread1");
+        Multiply multiply2 = new Multiply(4, "Thread2");
+
     }
 }
 //POJO implementing thread
