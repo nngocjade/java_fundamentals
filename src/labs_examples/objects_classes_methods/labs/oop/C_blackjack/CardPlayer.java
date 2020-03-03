@@ -7,12 +7,28 @@ public class CardPlayer {
     private String name;
     private int stackValue;
 
-    CardPlayer(){
+    public CardPlayer(){
         initializeNewUser();
     }
 
     public CardPlayer(String name, int stackValue) {
         this.name = name;
+        this.stackValue = stackValue;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getStackValue() {
+        return stackValue;
+    }
+
+    public void setStackValue(int stackValue) {
         this.stackValue = stackValue;
     }
 
