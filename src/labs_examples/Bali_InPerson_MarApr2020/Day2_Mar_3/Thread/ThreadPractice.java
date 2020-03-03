@@ -5,6 +5,9 @@ Create at least 3 classes that extend Thread and each must do something a little
 Create at least 3 classes that implment Runnable - demonstrate the two ways we can start a Runnable (one in the constructor, and one not in the constructor) - then show how to start these Runnable threads from another class
  */
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class ThreadPractice {
     public static void main(String[] args) throws InterruptedException {
 
@@ -16,13 +19,22 @@ public class ThreadPractice {
         Thread2.sleep(4);
         Thread3.sleep(1000);
 
-
+        //one way to invoke Runnable1
         Runnable1 runnable1 = new Runnable1();
-        runnable1.Multiply(5,"Runnable 1");
+        runnable1.Multiply(5,"Runnable1");
+        //another way to invoke Runnable1
+        Runnable1 runnableOne = new Runnable1();
+        runnableOne.setY(7);
+        Thread threadOne = new Thread(runnableOne, "RunnableOption1");
+        threadOne.start();
 
-        Runnable2 runnable2 = new Runnable2();
-        runnable2.saySomethingThread(true,"Runnable 2");
+        //second way to invoke Runnable2
+        Thread threadTwo = new Thread(new Runnable2(), "RunnableOption2");
+        threadTwo.start();
 
+
+        //third way to invoke Runnable3
+        new Thread(new Runnable3(), "RunnableOption3").start();
 
 
     }
@@ -102,9 +114,18 @@ class Runnable1 implements Runnable{
         thread.start();
     }
 
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     @Override
     public void run() {
         System.out.println("\nStarting " + Thread.currentThread().getName());
+        System.out.println("Let's multiply");
 
         //multiply
         int total;
@@ -156,5 +177,29 @@ class Runnable3 implements Runnable{
     @Override
     public void run() {
 
+        System.out.println("\nStarting " + Thread.currentThread().getName());
+        System.out.println("Are you feeling happy, sad, or mad? Please choose one and type it down below then press enter.");
+        Scanner scanner = new Scanner(System.in);
+        String userEmotion = scanner.next();
+
+        ArrayList<String> listOfEmotions = new ArrayList<>();
+
+        listOfEmotions.add("That's great");
+        listOfEmotions.add("The grass is greener on the other side");
+        listOfEmotions.add("it's okay, no need to be mad");
+
+        for(int i = 0; i < listOfEmotions.size(); i++){
+            i++;
+            if (userEmotion.equalsIgnoreCase("happy")){
+                System.out.println(listOfEmotions.get(0));
+                break;
+            }else if (userEmotion.equalsIgnoreCase("sad")){
+                System.out.println(listOfEmotions.get(1));
+                break;
+            }else {
+                System.out.println("I guess you're emotionless or not feeling happy, sad, or mad.");
+                break;
+            }
+        }
     }
 }
