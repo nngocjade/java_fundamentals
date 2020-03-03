@@ -5,6 +5,7 @@ import labs_examples.objects_classes_methods.labs.oop.C_blackjack.CardPlayer;
 import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Deck;
 import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Game;
 
+import javax.smartcardio.Card;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -56,17 +57,22 @@ public class BlackJackGame extends Game implements CardGame {
     @Override
     public void deal(CardPlayer player, Deck deck) {
 
-//        int randomNum = getRandomCard(deck);
+       int randomNum = getRandomCard(deck);
+       Card card = deck.getCardAt(randomNum);
 
     }
 
-//    private int getRandomCard(Deck deck) {
-//        Random random = new Random();
-//        int n = random.nextInt(51) + 0;
-//        while(deck.isCardUsed(n)){
-//
-//        }
-//    }
+    private int getRandomCard(Deck deck) {
+
+        Random random = new Random();
+        int n = random.nextInt(51) + 0;
+
+        while(deck.isCardUsed(n)){
+            n = random.nextInt(51) + 0;
+        }
+        deck.getUsedCards().add(n);
+        return n;
+    }
 
     @Override
     public void handleBets(CardPlayer player) {

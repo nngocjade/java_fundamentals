@@ -72,4 +72,17 @@ public class Deck {
             }
         }
     }
+
+    public boolean isCardUsed(int value) {
+
+        if (usedCards.contains(value)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public Card getCardAt(int randomNum) {
+        return deck[randomNum];
+    }
 }

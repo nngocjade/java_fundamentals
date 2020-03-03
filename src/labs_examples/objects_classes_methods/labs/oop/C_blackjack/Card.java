@@ -5,7 +5,7 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
  *  *         char[] suit = new char[]{'♠', '♦', '♥', '♣'};
  *  *         int cardValue;
  */
-class Card{
+public class Card{
     private char suit;
     private String value;
     private int scareValue;
