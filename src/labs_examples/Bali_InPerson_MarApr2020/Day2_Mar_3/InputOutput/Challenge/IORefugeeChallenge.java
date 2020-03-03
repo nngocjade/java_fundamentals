@@ -123,7 +123,6 @@ class IORefugeeChallenge {
             }catch (Exception e){
                 continue;
             }
-
         }
         return refugee;
     }
