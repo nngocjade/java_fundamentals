@@ -62,7 +62,14 @@ public class BlackJackGame extends Game implements CardGame {
             if (bet == player.getStackValue()){
                 System.out.println("Going all in ");
             }
-            player.
+            player.setBet(bet);
+
+        }else {
+            do {
+                System.out.println("Sorry you cannot bet more than you got! please bet less than $ " + player.getStackValue());
+                System.out.println("How much would you like to bet?");
+                bet = scanner.nextInt();
+            }while(bet >= player.getStackValue())
         }
     }
 }

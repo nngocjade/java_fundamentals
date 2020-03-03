@@ -1,11 +1,14 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CardPlayer {
 
     private String name;
     private int stackValue;
+    private int bet;
+    private ArrayList<Card> hand = new ArrayList<>();
 
     public CardPlayer(){
         initializeNewUser();
@@ -30,6 +33,22 @@ public class CardPlayer {
 
     public void setStackValue(int stackValue) {
         this.stackValue = stackValue;
+    }
+
+    public int getBet() {
+        return bet;
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
+    public void setHand(ArrayList<Card> hand) {
+        this.hand = hand;
     }
 
     private void initializeNewUser() {
