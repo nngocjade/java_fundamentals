@@ -1,0 +1,5 @@
+
+
+BlackJack
+The player closest to 21 without going over wins
+ YOU LOSE!! I (computer) landed 21 with 21with[Card{suit=♠, value='ACE', scoreValue=0}, Card{suit=♠, value='QUEEN', scoreValue=0}]

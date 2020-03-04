@@ -75,7 +75,6 @@ public class BlackJackGame extends Game implements CardGame {
             computer.getHand().clear();
             return true;
         }else {
-            System.out.println("\nThanks for playing! Sorry to see you leave!");
             return false;
         }
     }
@@ -176,7 +175,7 @@ public class BlackJackGame extends Game implements CardGame {
 
         System.out.println("\n------------------------------------------------------------");
         System.out.println("Your first card is: " + user.getHand().get(0).customToString());
-        System.out.println("Your second card is: " + user.getHand().get(0).customToString());
+        System.out.println("Your second card is: " + user.getHand().get(1).customToString());
         System.out.println("------------------------------------------------------------");
         System.out.println("My (computer) first card is: " + computer.getHand().get(0).customToString());
         System.out.println("My (computer) second card is FACE DOWN!");
@@ -210,6 +209,7 @@ public class BlackJackGame extends Game implements CardGame {
     private int getRandomCard(Deck deck) {
 
         Random random = new Random();
+
         int n = random.nextInt(51) + 0;
 
         while(deck.isCardUsed(n)){
