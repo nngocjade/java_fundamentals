@@ -1,4 +1,6 @@
 package labs_examples.static_nonstatic.labs;
 
-public class Exercise_02 {
-}
+/*
+ **** Exercise 2 DONE - please refer to the BlackJackGame.java and Game.java files. ****
+ */
+
