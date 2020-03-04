@@ -3,3 +3,37 @@
 BlackJack
 The player closest to 21 without going over wins
  YOU LOSE!! I (computer) landed 21 with 21with[Card{suit=♠, value='ACE', scoreValue=0}, Card{suit=♠, value='QUEEN', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over winsYOU BUSTED!! Sorry about that.
+
+BlackJack
+The player closest to 21 without going over winsYOU BUSTED!! Sorry about that.
+
+BlackJack
+The player closest to 21 without going over winsYOU LOSE! I (Computer) scored 19with[Card{suit=♠, value='9', scoreValue=0}, Card{suit=♦, value='KING', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over winsYOU BUSTED!! Sorry about that.
+
+BlackJack
+The player closest to 21 without going over wins
+YOU WIN!! I (Computer) score 18 with [Card{suit=♥, value='JACK', scoreValue=0}, Card{suit=♠, value='8', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over wins
+YOU WIN!! I (Computer) busted with 24 with [Card{suit=♥, value='9', scoreValue=0}, Card{suit=♠, value='5', scoreValue=0}, Card{suit=♥, value='10', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over wins
+
+BlackJack
+The player closest to 21 without going over wins
+YOU WIN!! I (Computer) score 17 with [Card{suit=♦, value='QUEEN', scoreValue=0}, Card{suit=♣, value='7', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over wins
+YOU WIN!! I (Computer) busted with 22 with [Card{suit=♠, value='ACE', scoreValue=0}, Card{suit=♠, value='4', scoreValue=0}, Card{suit=♠, value='7', scoreValue=0}]
+
+BlackJack
+The player closest to 21 without going over winsYOU LOSE! I (Computer) scored 19with[Card{suit=♥, value='8', scoreValue=0}, Card{suit=♣, value='ACE', scoreValue=0}]

@@ -7,8 +7,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class BlackJackGame extends Game implements CardGame {
-    public void play() {
 
+    public void play() {
         setName("BlackJack");
         setBasicRules("The player closest to 21 without going over wins");
 
@@ -128,7 +128,7 @@ public class BlackJackGame extends Game implements CardGame {
     }
 
     private void printUserChipBalance(CardPlayer user) {
-        System.out.println("You've currently got $" + user.getStackValue() + "worth of chips");
+        System.out.println("You've currently got $" + user.getStackValue() + " worth of chips");
     }
 
     private boolean checkForHit(CardPlayer user) {
