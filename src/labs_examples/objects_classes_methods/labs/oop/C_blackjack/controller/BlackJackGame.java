@@ -18,7 +18,7 @@ public class BlackJackGame extends Game implements CardGame {
         Deck deck = new Deck();
         int count = 0;
 
-        do{
+        do {
             deck = new Deck();
 
             System.out.println("\nGame #" + Deck.getFreshDecksLoaded());
@@ -26,19 +26,19 @@ public class BlackJackGame extends Game implements CardGame {
             printAsciiArt();
 
             handleBets(user);
-            
+
             dealInitialCards(user, computer, deck);
 
-            while(true){
-                if(checkForHit(user)){
+            while (true) {
+                if (checkForHit(user)) {
                     deal(user, deck);
                 } else {
                     break;
                 }
             }
 
-            while(true){
-                if(checkForHit(computer)){
+            while (true) {
+                if (checkForHit(computer)) {
                     deal(computer, deck);
                 } else {
                     break;
@@ -47,8 +47,37 @@ public class BlackJackGame extends Game implements CardGame {
 
             scoreHands(user, computer);
 
-        }while(count < 1);
+        } while (continuePlaying(user, computer));
+        System.out.println("\n Thanks again for playing BlackJack with me! You're walking away with $" + user.getStackValue() + "In chips.");
+        if (user.getStackValue() == 0){
+            System.out.println("I thought you were a pro! Where'd all your money go?!");
+        }
 
+        System.out.println("Goodbye.");
+    }
+
+
+    private boolean continuePlaying(CardPlayer user, CardPlayer computer) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        if (user.getStackValue() < 1){
+            System.out.println("\n Sorry, you're out of cash. Time to go. Goodbye.");
+            return false;
+        }
+        System.out.println("That was game #" + Deck.getFreshDecksLoaded() + " , would you like to play another game? " +
+                "Enter \"y\" for yes and \"n\"  for NO");
+
+        String anotherGame = scanner.next();
+
+        if (anotherGame.equalsIgnoreCase("y")){
+            user.getHand().clear();
+            computer.getHand().clear();
+            return true;
+        }else {
+            System.out.println("\nThanks for playing! Sorry to see you leave!");
+            return false;
+        }
     }
 
     private void scoreHands(CardPlayer user, CardPlayer computer) {
@@ -90,7 +119,7 @@ public class BlackJackGame extends Game implements CardGame {
 
     private void writeOutputToFile(String output) {
 
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(("src/labs_examples/objects_classes_methods/labs/oop/C_blackjack/blackjack_results.txt", true))){
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/labs_examples/objects_classes_methods/labs/oop/C_blackjack/blackjack_results.txt", true))){
             bw.write("\n\n" + getName());
             bw.write("\n" + getBasicRules());
             bw.write(output);
