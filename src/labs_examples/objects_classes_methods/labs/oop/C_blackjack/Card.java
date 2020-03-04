@@ -15,7 +15,6 @@ public class Card{
         this.value = value;
     }
 
-
     public String customToString() {
         return suit + value + suit;
     }
@@ -31,5 +30,13 @@ public class Card{
                 return 10;
             }
         }
+    }
+    @Override
+    public String toString() {
+        return "Card{" +
+                "suit=" + suit +
+                ", value='" + value + '\'' +
+                ", scoreValue=" + scoreValue +
+                '}';
     }
 }

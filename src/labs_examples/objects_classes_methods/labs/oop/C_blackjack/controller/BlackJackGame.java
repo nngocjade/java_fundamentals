@@ -62,7 +62,31 @@ public class BlackJackGame extends Game implements CardGame {
 
         if (computerScore == 21 &&  userScore == 21){
             output = "\n YOU TIED!! I (computer) score" + computerScore + "with" + computerHand;
+            user.setStackValue(user.getStackValue() - (user.getBet()/2));
+        }else if (computerScore == 21){
+            output = "\n YOU LOSE!! I (computer) landed 21 with " + computerScore + "with" + computerHand;
+            user.setStackValue(user.getStackValue() - user.getBet());
+        }else if (userScore > 21){
+            output = "YOU BUSTED!! Sorry about that.";
+            user.setStackValue(user.getStackValue() - user.getBet());
+            printUserChipBalance(user);
+        } else if (userDiff > computerDiff && computerDiff >= 0){
+            System.out.println("YOU LOSE! I (Computer) scored " + computerScore + "with" + computerHand);
+            user.setStackValue(user.getStackValue() - user.getBet());
+            printUserChipBalance(user);
+        }else if (userDiff < computerDiff && userDiff >= 0){
+            System.out.println("\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand);
+            user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
+            printUserChipBalance(user);
+        }else (computerScore > 21) {
+            System.out.println("\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand);
+            user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
+            printUserChipBalance(user);
         }
+    }
+
+    private void printUserChipBalance(CardPlayer user) {
+        System.out.println("You've currently got $" + user.getStackValue() + "worth of chips");
     }
 
     private boolean checkForHit(CardPlayer user) {
