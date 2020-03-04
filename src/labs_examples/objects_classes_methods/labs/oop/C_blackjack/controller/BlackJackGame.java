@@ -2,6 +2,7 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack.controller;
 
 import labs_examples.objects_classes_methods.labs.oop.C_blackjack.*;
 
+import java.io.*;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -71,17 +72,30 @@ public class BlackJackGame extends Game implements CardGame {
             user.setStackValue(user.getStackValue() - user.getBet());
             printUserChipBalance(user);
         } else if (userDiff > computerDiff && computerDiff >= 0){
-            System.out.println("YOU LOSE! I (Computer) scored " + computerScore + "with" + computerHand);
+            output = "YOU LOSE! I (Computer) scored " + computerScore + "with" + computerHand;
             user.setStackValue(user.getStackValue() - user.getBet());
             printUserChipBalance(user);
         }else if (userDiff < computerDiff && userDiff >= 0){
-            System.out.println("\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand);
+            output = "\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand;
             user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
             printUserChipBalance(user);
-        }else (computerScore > 21) {
-            System.out.println("\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand);
+        }else if (computerScore > 21) {
+            output = "\nYOU WIN!! I (Computer) busted with " + computerScore + " with " + computerHand;
             user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
             printUserChipBalance(user);
+        }
+        System.out.println(output);
+        writeOutputToFile(output);
+    }
+
+    private void writeOutputToFile(String output) {
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(("src/labs_examples/objects_classes_methods/labs/oop/C_blackjack/blackjack_results.txt", true))){
+            bw.write("\n\n" + getName());
+            bw.write("\n" + getBasicRules());
+            bw.write(output);
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 
