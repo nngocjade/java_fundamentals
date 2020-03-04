@@ -32,7 +32,6 @@ public class ThreadPractice {
         Thread threadTwo = new Thread(new Runnable2(), "RunnableOption2");
         threadTwo.start();
 
-
         //third way to invoke Runnable3
         new Thread(new Runnable3(), "RunnableOption3").start();
 
@@ -55,6 +54,8 @@ class Thread1 extends Thread{
         System.out.println("\nThread 1 starting");
         System.out.println(z);
     }
+
+
 }
 
 class Thread2 extends Thread{
