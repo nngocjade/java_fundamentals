@@ -1,4 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day2_Mar_3.InputOutput.Example;
+package labs_examples.Bali_InPerson_MarApr2020.Day2_Tues_Mar_3.InputOutput.Example;
 
 import java.io.*;
 import java.util.ArrayList;
