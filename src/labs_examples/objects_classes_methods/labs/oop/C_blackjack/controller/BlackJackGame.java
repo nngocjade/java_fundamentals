@@ -1,11 +1,7 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack.controller;
 
-import labs_examples.objects_classes_methods.labs.oop.C_blackjack.CardGame;
-import labs_examples.objects_classes_methods.labs.oop.C_blackjack.CardPlayer;
-import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Deck;
-import labs_examples.objects_classes_methods.labs.oop.C_blackjack.Game;
+import labs_examples.objects_classes_methods.labs.oop.C_blackjack.*;
 
-import javax.smartcardio.Card;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,6 +15,7 @@ public class BlackJackGame extends Game implements CardGame {
         CardPlayer user = new CardPlayer();
 
         Deck deck = new Deck();
+        int count = 0;
 
         do{
             deck = new Deck();
@@ -31,8 +28,59 @@ public class BlackJackGame extends Game implements CardGame {
             
             dealInitialCards(user, computer, deck);
 
-        }while(true);
+            while(true){
+                if(checkForHit(user)){
+                    deal(user, deck);
+                } else {
+                    break;
+                }
+            }
 
+            while(true){
+                if(checkForHit(computer)){
+                    deal(computer, deck);
+                } else {
+                    break;
+                }
+            }
+        }while(count < 1);
+
+    }
+
+    private boolean checkForHit(CardPlayer user) {
+
+        Scanner scanner = new Scanner(System.in);
+        int currentScore = analyzeHand(user);
+
+        if(!user.getName().equalsIgnoreCase("Computer")){
+            System.out.println("\n -- The current score of your hand is " + currentScore + "--");
+            System.out.println("\n would you like another card? \"y\" for Yes and \"n\" for NO");
+
+            String response = scanner.next();
+
+            if (response.equalsIgnoreCase("y")){
+                return true;
+            }else {
+                return false;
+            }
+        }else {
+            if(currentScore <= 16){
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
+
+    private int analyzeHand(CardPlayer user) {
+
+        int currentScore = 0;
+
+        for (Card c : user.getHand()){
+            currentScore += c.getScoreValue();
+        }
+
+        return currentScore;
     }
 
     private void dealInitialCards(CardPlayer user, CardPlayer computer, Deck deck) {
@@ -40,6 +88,17 @@ public class BlackJackGame extends Game implements CardGame {
         deal(computer, deck);
         deal(user, deck);
         deal(computer, deck);
+
+        System.out.println("\n------------------------------------------------------------");
+        System.out.println("Your first card is: " + user.getHand().get(0).customToString());
+        System.out.println("Your second card is: " + user.getHand().get(0).customToString());
+        System.out.println("------------------------------------------------------------");
+        System.out.println("My (computer) first card is: " + computer.getHand().get(0).customToString());
+        System.out.println("My (computer) second card is FACE DOWN!");
+
+        System.out.println("------------------------------------------------------------");
+
+
     }
 
     private void printAsciiArt() {
@@ -59,6 +118,7 @@ public class BlackJackGame extends Game implements CardGame {
 
        int randomNum = getRandomCard(deck);
        Card card = deck.getCardAt(randomNum);
+       player.getHand().add(card);
 
     }
 

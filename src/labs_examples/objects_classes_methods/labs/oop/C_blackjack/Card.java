@@ -8,7 +8,7 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 public class Card{
     private char suit;
     private String value;
-    private int scareValue;
+    private int scoreValue;
 
     public Card(char suit, String value){
         this.suit = suit;
@@ -16,5 +16,20 @@ public class Card{
     }
 
 
+    public String customToString() {
+        return suit + value + suit;
+    }
 
+    public int getScoreValue() {
+
+        try{
+            return Integer.valueOf(value);
+        }catch (Exception e){
+            if (value.equalsIgnoreCase("ACE")){
+                return 11;
+            }else {
+                return 10;
+            }
+        }
+    }
 }

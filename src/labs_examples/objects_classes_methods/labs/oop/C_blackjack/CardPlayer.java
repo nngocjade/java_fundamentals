@@ -55,7 +55,7 @@ public class CardPlayer {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Hello and Welcome to BlackJack! My nme is Jade, what is your name?");
+        System.out.println("Hello and Welcome to BlackJack! My name is Jade, what is your name?");
         this.name = scanner.next();
 
         System.out.println("Thanks, " + this.name + "! How much money would you like to start with?");
