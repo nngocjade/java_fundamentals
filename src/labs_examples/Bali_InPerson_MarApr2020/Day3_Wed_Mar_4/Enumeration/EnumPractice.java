@@ -1,6 +1,6 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day2_Tues_Mar_3.Enumeration;
+package labs_examples.Bali_InPerson_MarApr2020.Day3_Wed_Mar_4.Enumeration;
 
-public class EnumExample {
+public class EnumPractice {
 
     public static void main(String[] args) {
 
