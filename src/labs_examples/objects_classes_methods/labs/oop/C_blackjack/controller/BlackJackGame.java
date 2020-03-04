@@ -43,8 +43,26 @@ public class BlackJackGame extends Game implements CardGame {
                     break;
                 }
             }
+
+            scoreHands(user, computer);
+
         }while(count < 1);
 
+    }
+
+    private void scoreHands(CardPlayer user, CardPlayer computer) {
+        int computerScore = analyzeHand(computer);
+        int userScore = analyzeHand(user);
+
+        int computerDiff = 21 - computerScore;
+        int userDiff = 21 - userScore;
+
+        String computerHand = computer.getHand().toString();
+        String output = "";
+
+        if (computerScore == 21 &&  userScore == 21){
+            output = "\n YOU TIED!! I (computer) score" + computerScore + "with" + computerHand;
+        }
     }
 
     private boolean checkForHit(CardPlayer user) {
