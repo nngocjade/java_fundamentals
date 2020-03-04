@@ -4,4 +4,5 @@ public interface CardGame {
 
     public void deal(CardPlayer player, Deck deck);
     public void handleBets(CardPlayer player);
+
 }

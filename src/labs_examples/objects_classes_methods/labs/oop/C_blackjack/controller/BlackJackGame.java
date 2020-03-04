@@ -21,6 +21,8 @@ public class BlackJackGame extends Game implements CardGame {
         do {
             deck = new Deck();
 
+            setNumGamesPlayed(getNumGamesPlayed() + 1);
+
             System.out.println("\nGame #" + Deck.getFreshDecksLoaded());
 
             printAsciiArt();
@@ -52,6 +54,13 @@ public class BlackJackGame extends Game implements CardGame {
         if (user.getStackValue() == 0){
             System.out.println("I thought you were a pro! Where'd all your money go?!");
         }
+
+        //number of games play
+        System.out.println("Number of games played " + getNumGamesPlayed());
+        //number of games won by computer
+        System.out.println("Number of games won by the computer " + getGameWonByComputer());
+        //number of games won by you
+        System.out.println("Number of games won by the user " + getGameWonByUser());
 
         System.out.println("Goodbye.");
     }
@@ -95,6 +104,7 @@ public class BlackJackGame extends Game implements CardGame {
         }else if (computerScore == 21){
             output = "\n YOU LOSE!! I (computer) landed 21 with " + computerScore + "with" + computerHand;
             user.setStackValue(user.getStackValue() - user.getBet());
+            setGameWonByComputer(getGameWonByComputer() + 1);
         }else if (userScore > 21){
             output = "YOU BUSTED!! Sorry about that.";
             user.setStackValue(user.getStackValue() - user.getBet());
@@ -103,14 +113,17 @@ public class BlackJackGame extends Game implements CardGame {
             output = "YOU LOSE! I (Computer) scored " + computerScore + "with" + computerHand;
             user.setStackValue(user.getStackValue() - user.getBet());
             printUserChipBalance(user);
+            setGameWonByComputer(getGameWonByComputer() + 1);
         }else if (userDiff < computerDiff && userDiff >= 0){
             output = "\nYOU WIN!! I (Computer) score " + computerScore + " with " + computerHand;
             user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
             printUserChipBalance(user);
+            setGameWonByUser(getGameWonByComputer() + 1);
         }else if (computerScore > 21) {
             output = "\nYOU WIN!! I (Computer) busted with " + computerScore + " with " + computerHand;
             user.setStackValue((user.getStackValue() + (user.getBet()) * 3));
             printUserChipBalance(user);
+            setGameWonByUser(getGameWonByComputer() + 1);
         }
         System.out.println(output);
         writeOutputToFile(output);
