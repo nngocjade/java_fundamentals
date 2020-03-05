@@ -1,5 +1,8 @@
 package labs_examples.Bali_InPerson_MarApr2020.Day4_Thurs_Mar_5.Lambda.Practice;
 
+import java.util.ArrayList;
+import java.util.Collection;
+
 public class InterfaceController {
     public static void main(String[] args) {
 
@@ -70,6 +73,13 @@ public class InterfaceController {
         int casting = genericInterface1.convert(2.33,"12");
         System.out.println("lambda inside curly brackets - converting a string to double and casting it to an integer: " + casting);
 
+        //--------------------------------------GenArraylistInterface----------------------------
+
+        GenArrlistInterface<ArrayList<Integer>, Integer> genericInterface2 = (Integer[] vals) -> {
+            //taking in an array and returning an arraylist
+
+
+        };
 
     }
     public static double sumMethod(){

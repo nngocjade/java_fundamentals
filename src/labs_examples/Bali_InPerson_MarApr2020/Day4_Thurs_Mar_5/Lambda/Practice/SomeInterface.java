@@ -1,5 +1,6 @@
 package labs_examples.Bali_InPerson_MarApr2020.Day4_Thurs_Mar_5.Lambda.Practice;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @FunctionalInterface
@@ -16,6 +17,6 @@ interface SomeInterface3 {
 interface GenericInterface <S, T, O> {
    S convert(T val1, O val2);
 }
-interface GenericArraylistInterface <C extends Collection> {
-    <C> void list(C listName);
+interface GenArrlistInterface <C extends Collection, T extends Number> {
+    C list(T[] element);
 }
