@@ -81,6 +81,11 @@ class Exercise_1 {
         MathInterface lambdaDivide = (a, b) -> (a / b);
         System.out.println("Two parameter Interface - lambda expression - " + lambdaDivide.divide(12, 6));
 
+
+        double c = lambdaDivide.divide(12,6);
+        System.out.println("lambdaDivide - 12/ 6 = " + c);
+
+
         //anonymous inner class
         MathInterface AnonymousDivide = new MathInterface() {
             @Override
@@ -112,18 +117,21 @@ class Exercise_1 {
 }
 
 //               1) Demonstrate creating a functional interface with an abstract method that takes no parameters and returns void
+@FunctionalInterface
 interface AnInterface{
     void noParameter();
 }
 
 //        *      3) Demonstrate creating a functional interface with an abstract method that takes 1 parameter and returns a
 //        *          value of the same type as the parameter
+@FunctionalInterface
 interface OneParameterInterface{
     double number(double d);
 }
 
 //        *      5) Demonstrate creating a functional interface with an abstract method that takes 2 parameters and returns a
 //        *          value
+@FunctionalInterface
 interface MathInterface {
     int divide(int a, int b);
 }
