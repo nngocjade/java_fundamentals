@@ -10,11 +10,11 @@ interface SomeInterface {
 interface SomeInterface2 {
     double TwoParameter(Double b, Double c);
 }
-interface ThreeParameter {
-    void ThreeParameter(Double val1, Float val2, String val3);
+interface SomeInterface3 {
+    Boolean trueOrFalse(Integer val1);
 }
 interface GenericInterface <S, T, O> {
-    <S, T, O> void convert(S val, T val1, O val2);
+   S convert(T val1, O val2);
 }
 interface GenericArraylistInterface <C extends Collection> {
     <C> void list(C listName);
