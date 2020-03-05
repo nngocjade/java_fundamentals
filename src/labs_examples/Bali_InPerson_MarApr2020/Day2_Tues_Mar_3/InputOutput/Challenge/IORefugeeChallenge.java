@@ -6,6 +6,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 //1. save it to a directory within your CodingNomads directory
 //2. then write an application with a method called readData() that will read this file using a BufferedReader
@@ -58,8 +61,20 @@ class IORefugeeChallenge {
         System.out.println("\nThe average number o population for all countries " + avgPop);
         // how many countries start with each letter of the alphabet? for instance:
         ////9 countries start with "a"
+
+//        int countA = countCountries(refugee);
+
+
         ////13 countries start with "b"
+
     }
+
+//    private static int countCountries(ArrayList<Refugee> refugee) {
+//
+//        for(Refugee r : refugee){
+//
+//        }
+//    }
 
     private static double calculateAvgPop(ArrayList<Refugee> refugee) {
         double sum = 0;
@@ -94,7 +109,7 @@ class IORefugeeChallenge {
 
     public static ArrayList<Refugee> readData() throws IndexOutOfBoundsException, IOException {
 
-        String filePath = "src/labs_examples/Bali_InPerson_MarApr2020/Day2_Mar_3/InputOutput/Challenge/refugees_per_capita.csv";
+        String filePath = "src/labs_examples/Bali_InPerson_MarApr2020/Day2_Tues_Mar_3/InputOutput/Challenge/refugees_per_capita.csv";
 
         BufferedReader br = new BufferedReader(new FileReader(new File(filePath)));
 
