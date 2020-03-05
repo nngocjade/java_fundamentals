@@ -1,5 +1,6 @@
 package labs_examples.Bali_InPerson_MarApr2020.Day4_Thurs_Mar_5.Lambda.Practice;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -75,11 +76,25 @@ public class InterfaceController {
 
         //--------------------------------------GenArraylistInterface----------------------------
 
-        GenArrlistInterface<ArrayList<Integer>, Integer> genericInterface2 = (Integer[] vals) -> {
-            //taking in an array and returning an arraylist
 
-
-        };
+//        GenArrlistInterface<ArrayList<Integer>, Integer> genericInterface2 = (Integer[] vals) -> {
+//            //taking in an array and returning an arraylist
+//
+//            for(Integer i :vals) {
+//                Array.setInt(vals, 0,33);
+//                Array.setInt(vals, 1,44);
+//                Array.setInt(vals, 2,55);
+//                Array.setInt(vals, 3,66);
+//                Array.setInt(vals, 4,77);
+//                Array.setInt(vals, 5,88);
+//                Array.setInt(vals, 6,99);
+//            }
+//            System.out.println(i);
+//
+//            return null;
+//        };
+//
+//        ArrayList<Integer> list = genericInterface2.list()
 
     }
     public static double sumMethod(){
