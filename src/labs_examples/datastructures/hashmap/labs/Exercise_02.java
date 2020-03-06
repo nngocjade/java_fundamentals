@@ -1,5 +1,7 @@
 package labs_examples.datastructures.hashmap.labs;
 
+import labs_examples.datastructures.hashmap.examples.Entry;
+
 /**
  *      HashMaps Exercise_02
  *
@@ -18,12 +20,30 @@ package labs_examples.datastructures.hashmap.labs;
  *          review Java's built-in HashMap for inspiration
  */
 
-class customHashMap{
-    public static void main(String[] args) {
+class customHashMap<K, V>{
 
-        HashMapNode<Integer, String> map = new HashMapNode<>();
+    // create the underlying HashMapNode array with the initial size of 10
+    private HashMapNode<K, V>[] anArray = new HashMapNode[10];
 
 
+
+
+
+    public <V, K> void put(K key, V value) throws ListIsEmptyException {
+        //checking
+        if(key == null){
+            throw new ListIsEmptyException("list is empty");
+        }
+
+
+    }
+    public <V> void get(K key){
+
+    }
+    public boolean remove(K key){
+
+    }
+    public boolean contains(K key){
 
     }
 }
@@ -31,6 +51,7 @@ class HashMapNode<K, V> {
     private K key;
     private V value;
     private HashMapNode<K, V> next;
+
     public HashMapNode() {
     }
     public HashMapNode(K key, V value) {
@@ -61,16 +82,10 @@ class HashMapNode<K, V> {
         this.next = next;
     }
 
-    public <V, K> void put(K key, V value){
+}
+class ListIsEmptyException extends Exception {
 
-    }
-    public <V> void get(K key){
-
-    }
-    public boolean remove(K key){
-
-    }
-    public boolean contains(K key){
-
+    public ListIsEmptyException(String message) {
+        super(message);
     }
 }
