@@ -11,3 +11,23 @@ package labs_examples.datastructures.linkedlist.labs;
  *      Also, instead of using the index in the get() and remove() methods, these methods should
  *      get() and remove() based by the Node's value, not it's index.
  */
+
+class CustomLinkedList{
+    public static void main(String[] args) {
+        Node<String> person = new Node<String>("Jade");
+        person.next = new Node("Jessie");
+        person.next.next = new Node ("June");
+        person.next.next.next = new Node("Jeremy");
+
+
+    }
+}
+class Node<T>{
+    T data;
+    Node next;
+
+    public Node(T data) {
+        this.data = data;
+        this.next = null;
+    }
+}
