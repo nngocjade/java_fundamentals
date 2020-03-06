@@ -17,3 +17,43 @@ package labs_examples.datastructures.hashmap.labs;
  *      8) add at least one more method that you think could be useful to the HashMap
  *          review Java's built-in HashMap for inspiration
  */
+
+class customHashMap{
+    public static void main(String[] args) {
+
+    }
+}
+class HashMapNode<K, V> {
+    private K key;
+    private V value;
+    private HashMapNode<K, V> next;
+    public HashMapNode() {
+    }
+    public HashMapNode(K key, V value) {
+        this.key = key;
+        this.value = value;
+    }
+    public HashMapNode(K key, V value, HashMapNode<K, V> next) {
+        this.key = key;
+        this.value = value;
+        this.next = next;
+    }
+    public K getKey() {
+        return key;
+    }
+    public void setKey(K key) {
+        this.key = key;
+    }
+    public V getValue() {
+        return value;
+    }
+    public void setValue(V value) {
+        this.value = value;
+    }
+    public HashMapNode<K, V> getNext() {
+        return next;
+    }
+    public void setNext(HashMapNode<K, V> next) {
+        this.next = next;
+    }
+}
