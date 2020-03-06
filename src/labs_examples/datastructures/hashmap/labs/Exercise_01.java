@@ -1,5 +1,7 @@
 package labs_examples.datastructures.hashmap.labs;
 
+import java.util.HashMap;
+
 /**
  *  HashMaps Exercise_01
  *
@@ -21,3 +23,17 @@ package labs_examples.datastructures.hashmap.labs;
  *  clear()
  *
  */
+
+class HashMapsPractice{
+    public static void main(String[] args) {
+
+        String [] anArray = {"Japan", "Africa", "United States", "Canada", "South America"};
+
+        HashMap<String, String> hashMap = new HashMap<>();
+
+        hashMap.put("Japan", "Narita");
+        hashMap.get("Japan");
+
+
+    }
+}
