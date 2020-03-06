@@ -28,15 +28,24 @@ class HashMapsPractice{
     public static void main(String[] args) {
 
 
+        // create the hashmapthe "key" will be the email, a String
+        // and the "value" will the Person object
+        HashMap<String, Country> countryHashMap = new HashMap<>();
 
-        HashMap<String, Integer> hashMap = new HashMap<>();
+        //create a few Country objects
+        Country japan = new Country("Japan", "Tokyo", 126476461);
+        Country indonesia = new Country("Indonesia", "Jakarta", 273523615);
+        Country mexico = new Country("Mexico", "Mexico City", 128932753);
+        Country philippines = new Country("Philippines", "Manila", 109581078);
+        Country vietnam = new Country("Vietnam", "Saigon", 97338579);
 
-        hashMap.put("Japan", 32);
-        hashMap.get("Japan");
-        hashMap.putAll();
-        hashMap.size();
-        hashMap.containsKey(32);
-        hashMap.keySet();
+
+        countryHashMap.put("");
+        countryHashMap.get("Japan");
+        countryHashMap.putAll();
+        countryHashMap.size();
+        countryHashMap.containsKey(32);
+        countryHashMap.keySet();
 
 
 
@@ -47,9 +56,9 @@ class HashMapsPractice{
 class Country{
     String name;
     String capital;
-    Double numOfPopulation;
+    int numOfPopulation;
 
-    public Country(String name, String capital, Double numOfPopulation) {
+    public Country(String name, String capital, int numOfPopulation) {
         this.name = name;
         this.capital = capital;
         this.numOfPopulation = numOfPopulation;
