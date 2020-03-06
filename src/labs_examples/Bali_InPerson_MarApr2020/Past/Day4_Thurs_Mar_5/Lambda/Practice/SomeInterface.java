@@ -1,6 +1,5 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day4_Thurs_Mar_5.Lambda.Practice;
+package labs_examples.Bali_InPerson_MarApr2020.Past.Day4_Thurs_Mar_5.Lambda.Practice;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 @FunctionalInterface

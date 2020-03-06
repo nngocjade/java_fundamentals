@@ -1,4 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day2_Tues_Mar_3.InputOutput.Challenge;
+package labs_examples.Bali_InPerson_MarApr2020.Past.Day2_Tues_Mar_3.InputOutput.Challenge;
 
 //download this file
 import java.io.BufferedReader;
@@ -6,9 +6,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
 
 //1. save it to a directory within your CodingNomads directory
 //2. then write an application with a method called readData() that will read this file using a BufferedReader

@@ -1,8 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day4_Thurs_Mar_5.Lambda.Practice;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Collection;
+package labs_examples.Bali_InPerson_MarApr2020.Past.Day4_Thurs_Mar_5.Lambda.Practice;
 
 public class InterfaceController {
     public static void main(String[] args) {
