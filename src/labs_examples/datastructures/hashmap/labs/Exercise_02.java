@@ -21,6 +21,10 @@ package labs_examples.datastructures.hashmap.labs;
 class customHashMap{
     public static void main(String[] args) {
 
+        HashMapNode<Integer, String> map = new HashMapNode<>();
+
+
+
     }
 }
 class HashMapNode<K, V> {
@@ -55,5 +59,18 @@ class HashMapNode<K, V> {
     }
     public void setNext(HashMapNode<K, V> next) {
         this.next = next;
+    }
+
+    public <V, K> void put(K key, V value){
+
+    }
+    public <V> void get(K key){
+
+    }
+    public boolean remove(K key){
+
+    }
+    public boolean contains(K key){
+
     }
 }
