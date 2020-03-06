@@ -30,7 +30,7 @@ class HashMapsPractice{
 
         // create the hashmapthe "key" will be the email, a String
         // and the "value" will the Person object
-        HashMap<String, Country> countryHashMap = new HashMap<>();
+        HashMap<Integer, Country> countryHashMap = new HashMap<>();
 
         //create a few Country objects
         Country japan = new Country("Japan", "Tokyo", 126476461);
@@ -39,13 +39,25 @@ class HashMapsPractice{
         Country philippines = new Country("Philippines", "Manila", 109581078);
         Country vietnam = new Country("Vietnam", "Saigon", 97338579);
 
+        //demonstrating "put" the Country object into the HashMap
+        countryHashMap.put(japan.getNumOfPopulation(), japan);
 
-        countryHashMap.put("");
-        countryHashMap.get("Japan");
-        countryHashMap.putAll();
-        countryHashMap.size();
-        countryHashMap.containsKey(32);
-        countryHashMap.keySet();
+        //demonstrating "getting" an element out of the HashMap
+        Country getElement = countryHashMap.get(126476461);
+        System.out.println(getElement.toString());
+
+        //demonstrating "putAll" all country object into the HashMap
+
+//        countryHashMap.putAll();
+//        countryHashMap.size();
+//        countryHashMap.containsKey(32);
+//        countryHashMap.keySet();
+//        countryHashMap.entrySet();
+//        countryHashMap.putIfAbsent();
+//        countryHashMap.remove();
+//        countryHashMap.replace();
+//        countryHashMap.forEach();
+//        countryHashMap.clear();
 
 
 
@@ -80,11 +92,11 @@ class Country{
         this.capital = capital;
     }
 
-    public Double getNumOfPopulation() {
+    public int getNumOfPopulation() {
         return numOfPopulation;
     }
 
-    public void setNumOfPopulation(Double numOfPopulation) {
+    public void setNumOfPopulation( int numOfPopulation) {
         this.numOfPopulation = numOfPopulation;
     }
 
