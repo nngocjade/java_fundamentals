@@ -16,8 +16,19 @@ import sun.awt.image.ImageWatched;
  *      get() and remove() based by the Node's value, not it's index.
  */
 
-class CustomLinkedList{
+class CustomLinkedListController {
     public static void main(String[] args) {
+
+            LinkedList<String> myLinkedList = new LinkedList<>();
+            myLinkedList.add("Ryan");
+            myLinkedList.add("Joe");
+            myLinkedList.add("Jade");
+            myLinkedList.add("Mimi");
+            myLinkedList.add("Isadora");
+            myLinkedList.add("Jarrod");
+            myLinkedList.add("Ben");
+
+            myLinkedList.printList();
 
 
 
@@ -26,8 +37,8 @@ class CustomLinkedList{
 
 }
 class LinkedList<T>{
-
-    Node<T> head;
+    //set to private to make sure no one messes with the head
+    private Node<T> head;
 
     public LinkedList(){
     }
@@ -49,26 +60,42 @@ class LinkedList<T>{
     }
 
     //REMOVE
-    public void remove(T data){
+    public void remove(T data) {
         //making a copy of the head and using that to iterate
         Node cursor = head;
 
-        //if the first node contains the data then head
-        if (cursor.getData() == data){
-            //head gets chopped off and the java garbage collector will come get it
+        //checking to see if the first node (head) contains the data
+        //head gets chopped off and the java garbage collector will come get it
+        if (cursor.getData() == data) {
             //cursor.next becomes the new head
             cursor.next = head;
             return;
         } else {
-            //cursor started as a reference to the head node
-            //
-            while ((cursor = cursor.next) != null){
-
+            while (cursor.next != null) {
+                if (cursor.next.getData() == data) {
+                    if (null != cursor.next.next) {
+                        cursor.next = cursor.next.next;
+                    } else {
+                        cursor.next = null;
+                    }
+                }
+                //keep looping down the list
+                cursor = cursor.next;
             }
         }
-
-
     }
+    public void printList(){
+        Node cursor = head;
+
+        System.out.println(cursor.toString());
+
+        while (cursor.next != null){
+            cursor = cursor.next;
+            System.out.println(cursor.toString());
+        }
+    }
+
+
 }
 class Node<T>{
     private T data;
@@ -91,6 +118,13 @@ class Node<T>{
 
     public Node getNext() {
         return next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "data=" + data +
+                '}';
     }
 }
 
