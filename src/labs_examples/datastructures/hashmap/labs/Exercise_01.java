@@ -1,5 +1,6 @@
 package labs_examples.datastructures.hashmap.labs;
 
+import java.lang.reflect.Array;
 import java.util.HashMap;
 
 /**
@@ -31,6 +32,7 @@ class HashMapsPractice{
         // create the hashmapthe "key" will be the email, a String
         // and the "value" will the Person object
         HashMap<Integer, Country> countryHashMap = new HashMap<>();
+        int [] array = new int[10];
 
         //create a few Country objects
         Country japan = new Country("Japan", "Tokyo", 126476461);
