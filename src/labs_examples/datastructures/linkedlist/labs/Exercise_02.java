@@ -49,7 +49,24 @@ class LinkedList<T>{
     }
 
     //REMOVE
-    public void remove(){
+    public void remove(T data){
+        //making a copy of the head and using that to iterate
+        Node cursor = head;
+
+        //if the first node contains the data then head
+        if (cursor.getData() == data){
+            //head gets chopped off and the java garbage collector will come get it
+            //cursor.next becomes the new head
+            cursor.next = head;
+            return;
+        } else {
+            //cursor started as a reference to the head node
+            //
+            while ((cursor = cursor.next) != null){
+
+            }
+        }
+
 
     }
 }
