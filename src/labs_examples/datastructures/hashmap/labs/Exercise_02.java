@@ -21,41 +21,44 @@ package labs_examples.datastructures.hashmap.labs;
 class customHashMap<K, V>{
 
     // create the underlying HashMapNode array with the initial size of 10
-    private HashMapNode<K, V>[] mapArray = new HashMapNode[10];
+    private HashMapNodeEntry<K, V>[] currentArray = new HashMapNodeEntry[10];
 
     private int hashCode(K key){
         // get the hashCode for the key and mod that hashCode by the length of the array
-        int index = Math.abs(key.hashCode() % mapArray.length);
+        int index = Math.abs(key.hashCode() % currentArray.length);
 
+        // the result will be the index where we can find and/or place entries
         return index;
     }
-
+    //put aka insert, responsible for adding elements into the HashMap
     public void put(K key, V value) {
-
+        // call the hash() method to get the index to place the element
         int index = hashCode(key);
 
-        HashMapNode<K,V> hashMapNode = new HashMapNode<K,V>(key, value);
+        //create the HashMapNode object containing the key and
+        //value that we will store in the underlying array called arrayMap
+        HashMapNodeEntry<K,V> hashMapNodeEntry = new HashMapNodeEntry<K,V>(key, value);
 
-        if(mapArray[index] == null){
+        if(currentArray[index] == null){
 
-            mapArray[index] = hashMapNode;
+            currentArray[index] = hashMapNodeEntry;
         }
         else{
             // get the first Entry (in the linked list) at the given index
-            HashMapNode<K,V> h = mapArray[index]; //       "head"
+            HashMapNodeEntry<K,V> head = currentArray[index]; //       "head"
 
             //traverse/loop the linked list
-            while(h.getNext() != null){ //if it's not empty
-                h = h.getNext();// continue looping
+            while(head.getNext() != null){ //if it's not empty
+                head = head.getNext();// continue looping
             }
-            h.setNext(hashMapNode);
+            head.setNext(hashMapNodeEntry);
         }
 
-        if (keys().size() > .length * .75) {
-            // the resize method will create a bigger underlying array and
-            // add all values in the existing array to the new, larger array
-            resize();
-        }
+//        if (keys().size() > .length * .75) {
+//            // the resize method will create a bigger underlying array and
+//            // add all values in the existing array to the new, larger array
+//            resize();
+//        }
 
     }
     public V get(K key){
@@ -63,14 +66,21 @@ class customHashMap<K, V>{
         int index = hashCode(key);
 
         // nothing at key - return null
-        if (mapArray[index] == null) {
+        if (currentArray[index] == null) {
             return null;
         }
         //get entry at index
-        HashMapNode<K,V> entry = mapArray[index];
+        HashMapNodeEntry<K,V> headEntry = currentArray[index];
 
-        while(entry.getKey() != key){
-            if(entry.setNext(entry)  )
+        while(headEntry.getKey() != key){
+
+            if(headEntry.getNext() == null){
+                return null;
+            }
+
+            //otherwise keep looing
+
+            headEntry = headEntry.getNext();
         }
 
 
@@ -83,19 +93,20 @@ class customHashMap<K, V>{
 
     }
 }
-class HashMapNode<K, V> {
+class HashMapNodeEntry<K, V> {
     private K key;
     private V value;
-    private HashMapNode<K, V> next;
+    private HashMapNodeEntry next;
 
-    public HashMapNode() {
+    public HashMapNodeEntry() {
     }
-    public HashMapNode(K key, V value) {
+
+    public HashMapNodeEntry(K key, V value) {
         this.key = key;
         this.value = value;
     }
 
-    public HashMapNode(K key, V value, HashMapNode<K, V> next) {
+    public HashMapNodeEntry(K key, V value, HashMapNodeEntry next) {
         this.key = key;
         this.value = value;
         this.next = next;
@@ -117,11 +128,11 @@ class HashMapNode<K, V> {
         this.value = value;
     }
 
-    public HashMapNode<K, V> getNext() {
+    public HashMapNodeEntry getNext() {
         return next;
     }
 
-    public void setNext(HashMapNode<K, V> next) {
+    public void setNext(HashMapNodeEntry next) {
         this.next = next;
     }
 }
