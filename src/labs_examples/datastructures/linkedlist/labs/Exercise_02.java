@@ -1,5 +1,9 @@
 package labs_examples.datastructures.linkedlist.labs;
 
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import org.w3c.dom.ls.LSOutput;
+import sun.awt.image.ImageWatched;
+
 /**
  *      LinkedLists - Exercise_02
  *
@@ -14,20 +18,70 @@ package labs_examples.datastructures.linkedlist.labs;
 
 class CustomLinkedList{
     public static void main(String[] args) {
-        Node<String> person = new Node<String>("Jade");
-        person.next = new Node("Jessie");
-        person.next.next = new Node ("June");
-        person.next.next.next = new Node("Jeremy");
 
+
+
+
+    }
+
+}
+class LinkedList<T>{
+
+    Node<T> head;
+
+    public LinkedList(){
+    }
+
+    public LinkedList(T data) {
+        Node n = new Node(data);
+        this.head = n;
+    }
+
+    //ADD new node
+    public void add(T data){
+        Node n = new Node (data);
+        n.next = head;
+        head = n;
+    }
+    //GET (PEEK) Method
+    public T get(){
+        return head.getData();
+    }
+
+    //REMOVE
+    public void remove(){
 
     }
 }
 class Node<T>{
-    T data;
-    Node next;
+    private T data;
+    protected Node next;//link to next node
 
+    //first node adding to list, there is no next node
     public Node(T data) {
         this.data = data;
-        this.next = null;
+
+    }
+
+    public Node(T data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public Node getNext() {
+        return next;
     }
 }
+
+//hash
+
+//get
+
+//set
+
+//remove
+
