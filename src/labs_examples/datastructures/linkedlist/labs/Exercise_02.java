@@ -26,7 +26,6 @@ class CustomLinkedListController {
             myLinkedList.add("Jade");
             myLinkedList.add("Mimi");
             myLinkedList.add("Isadora");
-            myLinkedList.add("Jarrod");
             myLinkedList.add("Ben");
 
             System.out.println("Before");
@@ -69,28 +68,29 @@ class LinkedList<T>{
 
     //REMOVE
     public void remove(T data) {
-        //making a copy of the head and using that to iterate
+        //making a copy of the head so we dont disturb head
         Node cursor = head;
 
-        //checking to see if the first node (head) contains the data
+        //if the first node (head) contains the data to delete, set head to cursor.next
+        //this deletes the first node, and points head to the second node
         //head gets chopped off and the java garbage collector will come get it
         if (cursor.getData() == data) {
             //cursor.next becomes the new head
             head = cursor.next;
             return;
         } else {
-            while (null == cursor.next && cursor.next.getData() != data) {
+            //otherwise, while cursor.nex
+            while (null != cursor.next && cursor.next.getData() != data) {
                 cursor = cursor.next;
             }//when exiting the loop, the cursor should have the data
             if (null == cursor.next) {
                 return;
             }else {
-                if (null == cursor.next.next){
-                    if(cursor.next.getData() == data){
+                if (null == cursor.next.next){//at the end of the list
                         cursor.next = null;
-                    }
+                        return;
                 }else {
-                    return;
+                    cursor.next = cursor.next.next;
                 }
             }
         }
