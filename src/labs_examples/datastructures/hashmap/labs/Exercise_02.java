@@ -34,16 +34,12 @@ class CustomHashMapController{
         customHashMap.put("f", "f");
 
         System.out.println("Before");
-        System.out.println(customHashMap.get("a"));
-        System.out.println(customHashMap.get("b"));
-        System.out.println(customHashMap.get("c"));
-        System.out.println(customHashMap.get("d"));
-        System.out.println(customHashMap.get("e"));
-        System.out.println(customHashMap.get("f"));
+        customHashMap.print();
 
         System.out.println("After");
         customHashMap.remove("b");
         customHashMap.print();
+
         System.out.println("\n");
 
         System.out.println(customHashMap.contains("a"));
