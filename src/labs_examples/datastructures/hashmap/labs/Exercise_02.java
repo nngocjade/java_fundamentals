@@ -2,6 +2,7 @@ package labs_examples.datastructures.hashmap.labs;
 
 
 
+
 /**
  *      HashMaps Exercise_02
  *
@@ -45,6 +46,7 @@ class CustomHashMapController{
 
         System.out.println(customHashMap.contains("a"));
         System.out.println(customHashMap.contains("b"));
+        System.out.println(customHashMap.get("b"));
 
 
 
@@ -123,7 +125,6 @@ class CustomHashMap<K, V>{
             // if the get() method returns null, there's nothing to delete
             return;
         }
-
         // otherwise, get the index for the key by calling the hash() method
         int index = hashCode(key);
 
@@ -141,6 +142,7 @@ class CustomHashMap<K, V>{
             entry = entry.next;
         }
         //if we are at the end of the list
+        //null check
         if(entry.getNext() == null){
             return;
         }else if (entry.getNext().getKey().equals(key)){
@@ -176,6 +178,17 @@ class CustomHashMap<K, V>{
         }
         return false;
     }
+
+//    public void printList(){
+//        Entry cursor = head;
+//
+//        System.out.println(cursor.toString());
+//
+//        while (cursor.next != null){
+//            cursor = cursor.next;
+//            System.out.println(cursor.toString());
+//        }
+//    }
 
 
 
