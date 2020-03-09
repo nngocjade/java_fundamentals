@@ -43,10 +43,15 @@ class CustomHashMapController{
 
         System.out.println("After");
         customHashMap.remove("b");
+        customHashMap.print();
+        System.out.println("\n");
 
         System.out.println(customHashMap.contains("a"));
         System.out.println(customHashMap.contains("b"));
         System.out.println(customHashMap.get("b"));
+
+
+
 
 
 
@@ -167,30 +172,34 @@ class CustomHashMap<K, V>{
             return false;
         }
         //get entry at index
-        Entry<K,V> iterator = currentArray[index];
+        Entry<K,V> entry = currentArray[index];
 
-        while(null != iterator){
-            if(iterator.getKey().equals(key)){
+        while(null != entry){
+            if(entry.getKey().equals(key)){
                 return true;
             }
             //otherwise keep looping
-            iterator = iterator.getNext();
+            entry = entry.getNext();
         }
         return false;
     }
 
-//    public void printList(){
-//        Entry cursor = head;
-//
-//        System.out.println(cursor.toString());
-//
-//        while (cursor.next != null){
-//            cursor = cursor.next;
-//            System.out.println(cursor.toString());
-//        }
-//    }
+    public void print() {
 
+        for(int i = 0; i < currentArray.length; i++){
+            if(currentArray[i] == null) {
+                continue;
+            }
+            System.out.println(currentArray[i]);
 
+            Entry<K, V> iterator = currentArray[i];
+
+            while(iterator.getNext() != null){
+                System.out.println(iterator.getNext());
+                iterator = iterator.getNext();
+            }
+        }
+    }
 
 }
 class Entry<K, V> {
