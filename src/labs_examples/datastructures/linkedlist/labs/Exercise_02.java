@@ -78,19 +78,20 @@ class LinkedList<T>{
             //cursor.next becomes the new head
             head = cursor.next;
             return;
-        } else if(cursor.next.getData() == data){
-
         } else {
-            while (cursor.next != null) {
-                if (cursor.next.getData() == data) {
-                    if (null != cursor.next.next) {
-                        cursor.next = cursor.next.next;
-                    } else {
+            while (null == cursor.next && cursor.next.getData() != data) {
+                cursor = cursor.next;
+            }//when exiting the loop, the cursor should have the data
+            if (null == cursor.next) {
+                return;
+            }else {
+                if (null == cursor.next.next){
+                    if(cursor.next.getData() == data){
                         cursor.next = null;
                     }
+                }else {
+                    return;
                 }
-                //keep looping down the list
-                cursor = cursor.next;
             }
         }
     }
