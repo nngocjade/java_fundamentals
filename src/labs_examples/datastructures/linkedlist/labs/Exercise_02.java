@@ -20,6 +20,7 @@ class CustomLinkedListController {
     public static void main(String[] args) {
 
             LinkedList<String> myLinkedList = new LinkedList<>();
+            //the last one in is first one out
             myLinkedList.add("Ryan");
             myLinkedList.add("Joe");
             myLinkedList.add("Jade");
@@ -28,10 +29,17 @@ class CustomLinkedListController {
             myLinkedList.add("Jarrod");
             myLinkedList.add("Ben");
 
+            System.out.println("Before");
             myLinkedList.printList();
 
+            //myLinkedList.printList();
 
+//            String test = myLinkedList.get();
+//            System.out.println(test);
 
+            System.out.println("\nAfter");
+            myLinkedList.remove("Ryan");
+            myLinkedList.printList();
 
     }
 
@@ -68,8 +76,10 @@ class LinkedList<T>{
         //head gets chopped off and the java garbage collector will come get it
         if (cursor.getData() == data) {
             //cursor.next becomes the new head
-            cursor.next = head;
+            head = cursor.next;
             return;
+        } else if(cursor.next.getData() == data){
+
         } else {
             while (cursor.next != null) {
                 if (cursor.next.getData() == data) {
@@ -94,8 +104,6 @@ class LinkedList<T>{
             System.out.println(cursor.toString());
         }
     }
-
-
 }
 class Node<T>{
     private T data;
