@@ -1,4 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Day5_Fri_Mar_6.AbstractDataStructure;
+package labs_examples.Bali_InPerson_MarApr2020.AbstractDataStructure;
 //
 //public class AnotherLinkedList<T> {
 //    Node<T> head;

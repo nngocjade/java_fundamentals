@@ -1,4 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Past.Day4_Thurs_Mar_5.Lambda;
+package labs_examples.Bali_InPerson_MarApr2020.Lambda;
 
 //lambda expressions
 //create an object of an interface

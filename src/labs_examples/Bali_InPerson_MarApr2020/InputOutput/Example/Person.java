@@ -1,4 +1,4 @@
-package labs_examples.Bali_InPerson_MarApr2020.Past.Day2_Tues_Mar_3.InputOutput.Example;
+package labs_examples.Bali_InPerson_MarApr2020.InputOutput.Example;
 
 
 public class Person {
