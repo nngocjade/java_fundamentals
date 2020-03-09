@@ -21,26 +21,33 @@ class CustomLinkedListController {
 
             LinkedList<String> myLinkedList = new LinkedList<>();
             //the last one in is first one out
-            myLinkedList.add("Ryan");
-            myLinkedList.add("Joe");
-            myLinkedList.add("Jade");
-            myLinkedList.add("Mimi");
-            myLinkedList.add("Isadora");
-            myLinkedList.add("Ben");
+            try {
+                System.out.println(myLinkedList.get());
+            }catch (ListIsEmptyException e){
+                System.out.println(e.toString());
+            }
 
-            System.out.println("Before");
-            myLinkedList.printList();
-
-            //myLinkedList.printList();
-
-//            String test = myLinkedList.get();
-//            System.out.println(test);
-
-            System.out.println("\nAfter");
-            myLinkedList.remove("Ryan");
-            myLinkedList.printList();
-
-    }
+//
+//            myLinkedList.add("Ryan");
+//            myLinkedList.add("Joe");
+//            myLinkedList.add("Jade");
+//            myLinkedList.add("Mimi");
+//            myLinkedList.add("Isadora");
+//            myLinkedList.add("Ben");
+//
+//            System.out.println("Before");
+//            myLinkedList.printList();
+//
+//            //myLinkedList.printList();
+//
+////            String test = myLinkedList.get();
+////            System.out.println(test);
+//
+//            System.out.println("\nAfter");
+//            myLinkedList.remove("Ryan");
+//            myLinkedList.printList();
+//
+  }
 
 }
 class LinkedList<T>{
@@ -62,8 +69,12 @@ class LinkedList<T>{
         head = n;
     }
     //GET (PEEK) Method
-    public T get(){
-        return head.getData();
+    public T get() throws ListIsEmptyException {
+        if(head != null){
+            return head.getData();
+        }else {
+            throw new ListIsEmptyException();
+        }
     }
 
     //REMOVE
@@ -79,17 +90,24 @@ class LinkedList<T>{
             head = cursor.next;
             return;
         } else {
-            //otherwise, while cursor.nex
+            //otherwise, while cursor.next is not empty & cursor.next does not contain the data
+            //we want to delete, iterate down the list
             while (null != cursor.next && cursor.next.getData() != data) {
                 cursor = cursor.next;
-            }//when exiting the loop, the cursor should have the data
+            }//after the while loop, cursor.next will either be null meaning we've reached
+            //the end of the list without finding the data to delete
             if (null == cursor.next) {
+                //in which case return
                 return;
             }else {
+                //otherwise we've found the data, and we need to delete
+                //first we check if cursor.next is the last node in the list
                 if (null == cursor.next.next){//at the end of the list
+                    //if so, simply cut off the last node and return
                         cursor.next = null;
                         return;
                 }else {
+                    //otherwise, we're in the middle of the list, leapfrog delete
                     cursor.next = cursor.next.next;
                 }
             }
@@ -144,4 +162,10 @@ class Node<T>{
 //set
 
 //remove
+class ListIsEmptyException extends Exception {
+
+    public ListIsEmptyException(){
+        super("The list is empty:(");
+    }
+}
 
