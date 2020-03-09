@@ -1,5 +1,7 @@
 package labs_examples.datastructures.hashmap.labs;
 
+
+
 /**
  *      HashMaps Exercise_02
  *
@@ -21,12 +23,37 @@ package labs_examples.datastructures.hashmap.labs;
 class CustomHashMapController{
     public static void main(String[] args) {
 
+        CustomHashMap<String, String> customHashMap = new CustomHashMap<>();
+
+        customHashMap.put("a", "a");
+        customHashMap.put("b", "b");
+        customHashMap.put("c", "c");
+        customHashMap.put("d", "d");
+        customHashMap.put("e", "e");
+        customHashMap.put("f", "f");
+
+        System.out.println("Before");
+        System.out.println(customHashMap.get("a"));
+        System.out.println(customHashMap.get("b"));
+        System.out.println(customHashMap.get("c"));
+        System.out.println(customHashMap.get("d"));
+        System.out.println(customHashMap.get("e"));
+        System.out.println(customHashMap.get("f"));
+
+        System.out.println("After");
+        customHashMap.remove("b");
+
+        System.out.println(customHashMap.contains("a"));
+        System.out.println(customHashMap.contains("b"));
+
+
+
     }
 }
 class CustomHashMap<K, V>{
 
     // create the underlying HashMapNode array with the initial size of 10
-    private HashMapNodeEntry<K, V>[] currentArray = new HashMapNodeEntry[10];
+    private Entry<K, V>[] currentArray = new Entry[10];
 
     private int hashCode(K key){
         // get the hashCode for the key and mod that hashCode by the length of the array
@@ -42,21 +69,21 @@ class CustomHashMap<K, V>{
 
         //create the HashMapNode object containing the key and
         //value that we will store in the underlying array called arrayMap
-        HashMapNodeEntry<K,V> hashMapNodeEntry = new HashMapNodeEntry(key, value);
+        Entry<K,V> entry = new Entry(key, value);
 
         if(currentArray[index] == null){
 
-            currentArray[index] = hashMapNodeEntry;
+            currentArray[index] = entry;
         }
         else{
             // get the first Entry (in the linked list) at the given index
-            HashMapNodeEntry<K,V> head = currentArray[index]; //       "head"
+            Entry<K,V> head = currentArray[index]; //       "head"
 
             //traverse/loop the linked list
             while(head.getNext() != null){ //if it's not empty
                 head = head.getNext();// continue looping
             }
-            head.setNext(hashMapNodeEntry);
+            head.setNext(entry);
         }
 
 //        if (keys().size() > .length * .75) {
@@ -75,18 +102,18 @@ class CustomHashMap<K, V>{
             return null;
         }
         //get entry at index
-        HashMapNodeEntry<K,V> headEntry = currentArray[index];
+        Entry<K,V> entry = currentArray[index];
 
-        while(headEntry.getKey() != key){
+        while(entry.getKey() != key){
 
-            if(headEntry.getNext() == null){
+            if(entry.getNext() == null){
                 return null;
             }
 
             //otherwise keep looing
-            headEntry = headEntry.getNext();
+            entry = entry.getNext();
         }
-        return headEntry.getValue();
+        return entry.getValue();
     }
 
     public void remove(K key){
@@ -101,32 +128,30 @@ class CustomHashMap<K, V>{
         int index = hashCode(key);
 
         // get the Entry at the index
-        HashMapNodeEntry<K, V> hashMapNodeEntry = currentArray[index];
+        Entry<K, V> entry = currentArray[index];
 
         // if this entry has the matching key, remove the element at this index
-        if (hashMapNodeEntry.getKey().equals(key) && hashMapNodeEntry.getNext() != null){
+        if (entry.getKey().equals(key) && entry.getNext() == null){
             currentArray[index] = null;
                 return;
         }
         // otherwise, if the next element in the linked list is not null
-        while (hashMapNodeEntry.getNext() != null ) {
+        while (entry.getNext() != null && !entry.getNext().getKey().equals(key)) {
             // if the key of the next element in the linked list is not the key we're looking for
-            if (hashMapNodeEntry.getNext().getKey() != key) {
-                // traverse the linked list to the next node
-                hashMapNodeEntry = hashMapNodeEntry.getNext();
+            entry = entry.next;
+        }
+        //if we are at the end of the list
+        if(entry.getNext() == null){
+            return;
+        }else if (entry.getNext().getKey().equals(key)){
+            //middle of list
+            if(null != entry.getNext().getNext()){
+                entry.setNext(entry.getNext().getNext());
             }
-        }
-        // when we exit the loop above, entry.next will contain the key we're looking for
-        // if we're deleting from the middle of a linked list we need to link
-        // entry.next to entry.next.next - this is basically like turning this list:
-        // a -> b -> c
-        // into this list:
-        if(hashMapNodeEntry.getNext().getNext() != null){
-            hashMapNodeEntry.setNext(hashMapNodeEntry.getNext().getNext());
-        }
-        // otherwise, entry.next is the end of the list so we can just chop it off
-        else {
-            hashMapNodeEntry.setNext(null);
+            // otherwise, entry.next is the end of the list so we can just chop it off
+            else {
+                entry.setNext(null);
+            }
         }
     }
 
@@ -134,40 +159,41 @@ class CustomHashMap<K, V>{
 
         int index = hashCode(key);
 
-        // nothing at key - return null
+        // nothing at key
         if (currentArray[index] == null) {
-            return null;
+            System.out.println("empty, no key");
+            return false;
         }
         //get entry at index
-        HashMapNodeEntry<K,V> headEntry = currentArray[index];
+        Entry<K,V> iterator = currentArray[index];
 
-        while(headEntry.getKey() != key){
-
-            if(headEntry.getNext() == null){
-                return null;
+        while(null != iterator){
+            if(iterator.getKey().equals(key)){
+                return true;
             }
-
-            //otherwise keep looing
-            headEntry = headEntry.getNext();
+            //otherwise keep looping
+            iterator = iterator.getNext();
         }
-        return true;
-
+        return false;
     }
+
+
+
 }
-class HashMapNodeEntry<K, V> {
+class Entry<K, V> {
     private K key;
     private V value;
-    private HashMapNodeEntry next = null;
+    protected Entry<K,V> next;
 
-    public HashMapNodeEntry() {
+    public Entry() {
     }
-
-    public HashMapNodeEntry(K key, V value) {
+    public Entry(K key, V value) {
         this.key = key;
         this.value = value;
+        this.next = next;
     }
 
-    public HashMapNodeEntry(K key, V value, HashMapNodeEntry next) {
+    public Entry(K key, V value, Entry<K, V> next) {
         this.key = key;
         this.value = value;
         this.next = next;
@@ -189,11 +215,20 @@ class HashMapNodeEntry<K, V> {
         this.value = value;
     }
 
-    public HashMapNodeEntry getNext() {
+    public Entry<K, V> getNext() {
         return next;
     }
 
-    public void setNext(HashMapNodeEntry next) {
+    public void setNext(Entry<K, V> next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "key=" + key +
+                ", value=" + value +
+                ", next=" + next +
+                '}';
     }
 }
