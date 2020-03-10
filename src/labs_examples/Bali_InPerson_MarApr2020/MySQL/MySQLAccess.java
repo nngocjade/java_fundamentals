@@ -30,12 +30,22 @@ public class MySQLAccess {
             // Statements allow to issue SQL queries to the database
             statement = connection.createStatement();
             // Result set get the result of the SQL query
-            resultSet = statement.executeQuery("select * from ChatApp.messages;");
+
+            resultSet = statement.executeQuery("select * from chatapp.messages;");
+
             //writeResultSet(resultSet);
             ArrayList<Message> messages = mapResultSetToObjects(resultSet);
             for (Message m : messages){
                 System.out.println(m.toString());
             }
+
+            resultSet = statement.executeQuery("select * from chatapp.user;");
+
+            ArrayList<User> users = mapUsers(resultSet);
+            for (User u : users){
+                System.out.println(u.toString());
+            }
+
             // PreparedStatements can use variables and are more efficient
             preparedStatement = connection
                     .prepareStatement("insert into  chatapp.messages (sender_id, recipient_id, content) " +
@@ -50,11 +60,13 @@ public class MySQLAccess {
             writeResultSet(resultSet);
             //Remove again the insert comment
             preparedStatement = connection
-                    .prepareStatement("delete from chatApp.messages where id = ? ; ");
+                    .prepareStatement("delete from chatapp.messages where id = ? ; ");
             preparedStatement.setInt(1, 5);
             preparedStatement.executeUpdate();
-            resultSet = statement.executeQuery("select * from ChatApp.Messages");
+            resultSet = statement.executeQuery("select * from chatapp.messages");
             writeMetaData(resultSet);
+
+
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
@@ -97,6 +109,22 @@ public class MySQLAccess {
             m.setContent(resultSet.getString("content"));
             m.setTimeStamp(resultSet.getTime("timestamp").toString());
             retList.add(m);
+        }
+        return retList;
+    }
+    private ArrayList<User> mapUsers(ResultSet resultSet) throws SQLException {
+        ArrayList<User> retList = new ArrayList();
+        // ResultSet is initially before the first data set
+        while (resultSet.next()) {
+            User u = new User();
+            u.setId(resultSet.getInt("id"));
+            u.setF_name(resultSet.getString("f_name"));
+            u.setL_name(resultSet.getString("l_name"));
+            u.setEmail(resultSet.getString("email"));
+            u.setUsername(resultSet.getString("username"));
+            u.setProfile_pic_id(resultSet.getInt("profile_pic_id"));
+            u.setStatus(resultSet.getInt("status"));
+            retList.add(u);
         }
         return retList;
     }
@@ -171,5 +199,96 @@ class Message{
 
     public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
+    }
+
+    @Override
+    public String toString() {
+        return "Message{" +
+                "id=" + id +
+                ", sender_id=" + sender_id +
+                ", recipient_id=" + recipient_id +
+                ", group=" + group +
+                ", content='" + content + '\'' +
+                ", timeStamp='" + timeStamp + '\'' +
+                '}';
+    }
+}
+
+class User{
+    private int id;
+    private String f_name;
+    private String l_name;
+    private String email;
+    private String username;
+    private int profile_pic_id;
+    private int status;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getF_name() {
+        return f_name;
+    }
+
+    public void setF_name(String f_name) {
+        this.f_name = f_name;
+    }
+
+    public String getL_name() {
+        return l_name;
+    }
+
+    public void setL_name(String l_name) {
+        this.l_name = l_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public int getProfile_pic_id() {
+        return profile_pic_id;
+    }
+
+    public void setProfile_pic_id(int profile_pic_id) {
+        this.profile_pic_id = profile_pic_id;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", f_name='" + f_name + '\'' +
+                ", l_name='" + l_name + '\'' +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", profile_pic_id=" + profile_pic_id +
+                ", status=" + status +
+                '}';
     }
 }
