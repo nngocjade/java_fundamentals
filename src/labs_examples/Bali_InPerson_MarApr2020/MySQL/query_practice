@@ -1,0 +1,72 @@
+
+inner join
+
+query 1
+
+select * from film
+where replacement_cost < 10 and rental_rate = "0.99" and rating = "PG"
+
+query 2
+SELECT * from film
+where replacement_cost < 10 and rating = "PG"
+order by rental_rate ASC;
+
+query 3
+
+
+query 4
+
+query 5
+
+query 6
+
+query 7
+
+query 8
+select c.first_name, c.last_name, amount, payment_date
+from customer c
+inner join payment p
+on c.customer_id = p.payment_id
+where amount ="0.99"
+
+query 9
+select c.first_name, c.last_name, amount, payment_date, address, rental_date
+from customer c
+inner join payment p
+on c.customer_id = p.payment_id
+inner join address a
+on a.address_id = c.customer_id
+inner join rental r
+on r.rental_id = c.customer_id
+order by payment_date asc;
+
+query 10
+select
+
+
+
+
+
+
+
+
+
+
+
+select a.first_name, a.last_name, f.title, f.release_year
+from actor a
+inner join film_actor fa
+on a.actor_id = fa.actor_id
+inner join film f
+on fa.film_id = f.film_id
+where a.first_name = "penelope" and a.last_name = "Guiness";
+
+SELECT actor.first_name, actor.last_name, film.title, film.release_year   # fields/column to select
+FROM actor     #first table to select from
+INNER JOIN film_actor    # first table to join
+    ON actor.actor_id = film_actor.actor_id    # the field on which to join the two tables
+INNER JOIN film   # second table to join
+    ON film_actor.film_id = film.film_id   # the field on which to join the two tables
+WHERE actor.first_name = "PENELOPE" AND actor.last_name = "GUINESS";   # boolean condition to filter results
+
+
